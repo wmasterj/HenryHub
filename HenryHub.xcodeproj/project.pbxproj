@@ -16,6 +16,13 @@
 		9001607A1379F72A00E418AD /* HenryHubAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 900160791379F72A00E418AD /* HenryHubAppDelegate.m */; };
 		9001607D1379F72A00E418AD /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9001607B1379F72A00E418AD /* MainWindow.xib */; };
 		900160801379F72A00E418AD /* HenryHub.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9001607E1379F72A00E418AD /* HenryHub.xcdatamodeld */; };
+		902B81751379F7E20086518F /* HHubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 902B81741379F7E20086518F /* HHubViewController.m */; };
+		902B81781379F7EE0086518F /* HHubViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 902B81761379F7EE0086518F /* HHubViewController.xib */; };
+		902B817F1379F7FD0086518F /* InSide.m in Sources */ = {isa = PBXBuildFile; fileRef = 902B817A1379F7FD0086518F /* InSide.m */; };
+		902B81801379F7FD0086518F /* InSide.xib in Resources */ = {isa = PBXBuildFile; fileRef = 902B817B1379F7FD0086518F /* InSide.xib */; };
+		902B81811379F7FD0086518F /* OutSide.m in Sources */ = {isa = PBXBuildFile; fileRef = 902B817D1379F7FD0086518F /* OutSide.m */; };
+		902B81821379F7FD0086518F /* OutSide.xib in Resources */ = {isa = PBXBuildFile; fileRef = 902B817E1379F7FD0086518F /* OutSide.xib */; };
+		902B81861379F83D0086518F /* mainLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 902B81851379F83D0086518F /* mainLogo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,14 +31,24 @@
 		900160691379F72A00E418AD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9001606B1379F72A00E418AD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		9001606D1379F72A00E418AD /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		900160711379F72A00E418AD /* HenryHub-Info.plist */ = {isa = PBXFileReference; path = "HenryHub-Info.plist"; sourceTree = "<group>"; };
+		900160711379F72A00E418AD /* HenryHub-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HenryHub-Info.plist"; sourceTree = "<group>"; };
 		900160731379F72A00E418AD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		900160751379F72A00E418AD /* HenryHub-Prefix.pch */ = {isa = PBXFileReference; path = "HenryHub-Prefix.pch"; sourceTree = "<group>"; };
+		900160751379F72A00E418AD /* HenryHub-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HenryHub-Prefix.pch"; sourceTree = "<group>"; };
 		900160761379F72A00E418AD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		900160781379F72A00E418AD /* HenryHubAppDelegate.h */ = {isa = PBXFileReference; path = HenryHubAppDelegate.h; sourceTree = "<group>"; };
+		900160781379F72A00E418AD /* HenryHubAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HenryHubAppDelegate.h; sourceTree = "<group>"; };
 		900160791379F72A00E418AD /* HenryHubAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HenryHubAppDelegate.m; sourceTree = "<group>"; };
 		9001607C1379F72A00E418AD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
 		9001607F1379F72A00E418AD /* HenryHub.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HenryHub.xcdatamodel; sourceTree = "<group>"; };
+		902B81731379F7E20086518F /* HHubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HHubViewController.h; path = ../../old/Ohyoon1/HHub/HHub/HHubViewController.h; sourceTree = "<group>"; };
+		902B81741379F7E20086518F /* HHubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HHubViewController.m; path = ../../old/Ohyoon1/HHub/HHub/HHubViewController.m; sourceTree = "<group>"; };
+		902B81771379F7EE0086518F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = ../../old/Ohyoon1/HHub/HHub/en.lproj/HHubViewController.xib; sourceTree = "<group>"; };
+		902B81791379F7FD0086518F /* InSide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InSide.h; path = ../../old/Ohyoon1/HHub/HHub/InSide.h; sourceTree = "<group>"; };
+		902B817A1379F7FD0086518F /* InSide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InSide.m; path = ../../old/Ohyoon1/HHub/HHub/InSide.m; sourceTree = "<group>"; };
+		902B817B1379F7FD0086518F /* InSide.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InSide.xib; path = ../../old/Ohyoon1/HHub/HHub/InSide.xib; sourceTree = "<group>"; };
+		902B817C1379F7FD0086518F /* OutSide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutSide.h; path = ../../old/Ohyoon1/HHub/HHub/OutSide.h; sourceTree = "<group>"; };
+		902B817D1379F7FD0086518F /* OutSide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OutSide.m; path = ../../old/Ohyoon1/HHub/HHub/OutSide.m; sourceTree = "<group>"; };
+		902B817E1379F7FD0086518F /* OutSide.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OutSide.xib; path = ../../old/Ohyoon1/HHub/HHub/OutSide.xib; sourceTree = "<group>"; };
+		902B81851379F83D0086518F /* mainLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mainLogo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,9 +97,11 @@
 		9001606F1379F72A00E418AD /* HenryHub */ = {
 			isa = PBXGroup;
 			children = (
+				902B81831379F8120086518F /* Images */,
 				900160781379F72A00E418AD /* HenryHubAppDelegate.h */,
 				900160791379F72A00E418AD /* HenryHubAppDelegate.m */,
 				9001607B1379F72A00E418AD /* MainWindow.xib */,
+				902B81841379F81A0086518F /* Views */,
 				9001607E1379F72A00E418AD /* HenryHub.xcdatamodeld */,
 				900160701379F72A00E418AD /* Supporting Files */,
 			);
@@ -98,6 +117,54 @@
 				900160761379F72A00E418AD /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		902B816F1379F77F0086518F /* Start */ = {
+			isa = PBXGroup;
+			children = (
+				902B81731379F7E20086518F /* HHubViewController.h */,
+				902B81741379F7E20086518F /* HHubViewController.m */,
+				902B81761379F7EE0086518F /* HHubViewController.xib */,
+			);
+			name = Start;
+			sourceTree = "<group>";
+		};
+		902B81711379F79E0086518F /* Outside */ = {
+			isa = PBXGroup;
+			children = (
+				902B817C1379F7FD0086518F /* OutSide.h */,
+				902B817D1379F7FD0086518F /* OutSide.m */,
+				902B817E1379F7FD0086518F /* OutSide.xib */,
+			);
+			name = Outside;
+			sourceTree = "<group>";
+		};
+		902B81721379F7A30086518F /* Inside */ = {
+			isa = PBXGroup;
+			children = (
+				902B81791379F7FD0086518F /* InSide.h */,
+				902B817A1379F7FD0086518F /* InSide.m */,
+				902B817B1379F7FD0086518F /* InSide.xib */,
+			);
+			name = Inside;
+			sourceTree = "<group>";
+		};
+		902B81831379F8120086518F /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				902B81851379F83D0086518F /* mainLogo.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		902B81841379F81A0086518F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				902B81721379F7A30086518F /* Inside */,
+				902B81711379F79E0086518F /* Outside */,
+				902B816F1379F77F0086518F /* Start */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,6 +216,10 @@
 			files = (
 				900160741379F72A00E418AD /* InfoPlist.strings in Resources */,
 				9001607D1379F72A00E418AD /* MainWindow.xib in Resources */,
+				902B81781379F7EE0086518F /* HHubViewController.xib in Resources */,
+				902B81801379F7FD0086518F /* InSide.xib in Resources */,
+				902B81821379F7FD0086518F /* OutSide.xib in Resources */,
+				902B81861379F83D0086518F /* mainLogo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,6 +233,9 @@
 				900160771379F72A00E418AD /* main.m in Sources */,
 				9001607A1379F72A00E418AD /* HenryHubAppDelegate.m in Sources */,
 				900160801379F72A00E418AD /* HenryHub.xcdatamodeld in Sources */,
+				902B81751379F7E20086518F /* HHubViewController.m in Sources */,
+				902B817F1379F7FD0086518F /* InSide.m in Sources */,
+				902B81811379F7FD0086518F /* OutSide.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,6 +256,14 @@
 				9001607C1379F72A00E418AD /* en */,
 			);
 			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		902B81761379F7EE0086518F /* HHubViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				902B81771379F7EE0086518F /* en */,
+			);
+			name = HHubViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -266,6 +348,7 @@
 				900160851379F72A00E418AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

@@ -7,6 +7,7 @@
 //
 
 #import "HenryHubAppDelegate.h"
+#import "HHubViewController.h"
 
 @implementation HenryHubAppDelegate
 
@@ -19,8 +20,16 @@
 
 @synthesize persistentStoreCoordinator=__persistentStoreCoordinator;
 
+// HenryHub variables
+@synthesize startView = _startView;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    HHubViewController *HHView = [[HHubViewController alloc] initWithNibName:@"HHubViewController" bundle:[NSBundle mainBundle]];
+    self.startView = HHView;
+    [HHView release];
+    self.window.rootViewController = self.startView;
+    
     // Override point for customization after application launch.
     [self.window makeKeyAndVisible];
     return YES;
@@ -64,6 +73,10 @@
 
 - (void)dealloc
 {
+    // Henry Hub releasing
+    [_startView release];
+    
+    // Apple template
     [_window release];
     [__managedObjectContext release];
     [__managedObjectModel release];
