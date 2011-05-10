@@ -11,6 +11,10 @@
 
 @interface OutSide : UIViewController {
     
+    //webDtl is relating with webview page.
+    IBOutlet UIWebView *webDtl;
+    
+    UIActivityIndicatorView *spinner;
 }
 
 -(IBAction)OutSideView;

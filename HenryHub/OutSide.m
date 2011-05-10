@@ -12,6 +12,9 @@
 @implementation OutSide
 
 
+#define ScreenWidth 320
+#define ScreenHeight 416
+
 
 -(IBAction)OutSideView
 {
@@ -32,6 +35,23 @@
     return self;
 }
 
+-(void) goUrl:(NSString*)urlAddr
+{
+    [webDtl loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlAddr]]];
+}
+
+-(void) webViewDidStartLoad:(UIWebView*)webView
+{
+    NSLog(@"Start WebView");
+    [spinner startAnimating];
+}
+-(void) webViewDidFinishLoad:(UIWebView*)webView
+{
+    NSLog(@"Finish WebView");
+    [spinner stopAnimating];
+}
+
+
 - (void)dealloc
 {
     [super dealloc];
@@ -49,9 +69,14 @@
 
 - (void)viewDidLoad
 {
+    spinner = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [self.view addSubview:spinner];
+    [spinner setCenter:CGPointMake(ScreenWidth /2, ScreenHeight /2)];
+    [self goUrl:@"http://www.jquerymobile.com/demos"];
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
+
 
 - (void)viewDidUnload
 {
@@ -59,93 +84,6 @@
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(int)section
-{
-    return 7;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *kIdentifier =@"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kIdentifier];
-    
-    if(cell == nil){
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kIdentifier] autorelease];
-    }
-    
-    if (indexPath.row==0) {
-        
-        cell.textLabel.text = @"History";
-    }
-    if (indexPath.row==1) {
-        
-        cell.textLabel.text = @"Exhibition";
-    } 
-    if (indexPath.row==2) {
-        
-        cell.textLabel.text = @"News";
-    } 
-    if (indexPath.row==3) {
-        
-        cell.textLabel.text = @"Press Room";
-    } 
-    if (indexPath.row==4) {
-        
-        cell.textLabel.text = @"Timings";
-    } 
-    if (indexPath.row==5) {
-        
-        cell.textLabel.text = @"Contact Directory";
-    } 
-    if (indexPath.row==6) {
-        
-        cell.textLabel.text = @"Visit";
-    }
-    
-    return cell;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if(indexPath.row==0)
-    {
-        
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://henryart.org"]];   
-    }
-    if(indexPath.row==1)
-    {
-        
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://henryart.org"]];   
-    }
-    if(indexPath.row==2)
-    {
-        
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://henryart.org"]];   
-    }
-    if(indexPath.row==3)
-    {
-        
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://henryart.org"]];   
-    }
-    if(indexPath.row==4)
-    {
-        
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://henryart.org"]];   
-    }
-    if(indexPath.row==5)
-    {
-        
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://henryart.org"]];   
-    }
-    if(indexPath.row==6)
-    {
-        
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://henryart.org"]];   
-    }
-    
-}
-
 
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
