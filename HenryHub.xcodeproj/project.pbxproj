@@ -1,0 +1,286 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		900160681379F72A00E418AD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 900160671379F72A00E418AD /* UIKit.framework */; };
+		9001606A1379F72A00E418AD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 900160691379F72A00E418AD /* Foundation.framework */; };
+		9001606C1379F72A00E418AD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9001606B1379F72A00E418AD /* CoreGraphics.framework */; };
+		9001606E1379F72A00E418AD /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9001606D1379F72A00E418AD /* CoreData.framework */; };
+		900160741379F72A00E418AD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 900160721379F72A00E418AD /* InfoPlist.strings */; };
+		900160771379F72A00E418AD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 900160761379F72A00E418AD /* main.m */; };
+		9001607A1379F72A00E418AD /* HenryHubAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 900160791379F72A00E418AD /* HenryHubAppDelegate.m */; };
+		9001607D1379F72A00E418AD /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9001607B1379F72A00E418AD /* MainWindow.xib */; };
+		900160801379F72A00E418AD /* HenryHub.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9001607E1379F72A00E418AD /* HenryHub.xcdatamodeld */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		900160631379F72A00E418AD /* HenryHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HenryHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		900160671379F72A00E418AD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		900160691379F72A00E418AD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		9001606B1379F72A00E418AD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		9001606D1379F72A00E418AD /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		900160711379F72A00E418AD /* HenryHub-Info.plist */ = {isa = PBXFileReference; path = "HenryHub-Info.plist"; sourceTree = "<group>"; };
+		900160731379F72A00E418AD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		900160751379F72A00E418AD /* HenryHub-Prefix.pch */ = {isa = PBXFileReference; path = "HenryHub-Prefix.pch"; sourceTree = "<group>"; };
+		900160761379F72A00E418AD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		900160781379F72A00E418AD /* HenryHubAppDelegate.h */ = {isa = PBXFileReference; path = HenryHubAppDelegate.h; sourceTree = "<group>"; };
+		900160791379F72A00E418AD /* HenryHubAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HenryHubAppDelegate.m; sourceTree = "<group>"; };
+		9001607C1379F72A00E418AD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		9001607F1379F72A00E418AD /* HenryHub.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HenryHub.xcdatamodel; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		900160601379F72A00E418AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				900160681379F72A00E418AD /* UIKit.framework in Frameworks */,
+				9001606A1379F72A00E418AD /* Foundation.framework in Frameworks */,
+				9001606C1379F72A00E418AD /* CoreGraphics.framework in Frameworks */,
+				9001606E1379F72A00E418AD /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		900160581379F72A00E418AD = {
+			isa = PBXGroup;
+			children = (
+				9001606F1379F72A00E418AD /* HenryHub */,
+				900160661379F72A00E418AD /* Frameworks */,
+				900160641379F72A00E418AD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		900160641379F72A00E418AD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				900160631379F72A00E418AD /* HenryHub.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		900160661379F72A00E418AD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				900160671379F72A00E418AD /* UIKit.framework */,
+				900160691379F72A00E418AD /* Foundation.framework */,
+				9001606B1379F72A00E418AD /* CoreGraphics.framework */,
+				9001606D1379F72A00E418AD /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9001606F1379F72A00E418AD /* HenryHub */ = {
+			isa = PBXGroup;
+			children = (
+				900160781379F72A00E418AD /* HenryHubAppDelegate.h */,
+				900160791379F72A00E418AD /* HenryHubAppDelegate.m */,
+				9001607B1379F72A00E418AD /* MainWindow.xib */,
+				9001607E1379F72A00E418AD /* HenryHub.xcdatamodeld */,
+				900160701379F72A00E418AD /* Supporting Files */,
+			);
+			path = HenryHub;
+			sourceTree = "<group>";
+		};
+		900160701379F72A00E418AD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				900160711379F72A00E418AD /* HenryHub-Info.plist */,
+				900160721379F72A00E418AD /* InfoPlist.strings */,
+				900160751379F72A00E418AD /* HenryHub-Prefix.pch */,
+				900160761379F72A00E418AD /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		900160621379F72A00E418AD /* HenryHub */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 900160831379F72A00E418AD /* Build configuration list for PBXNativeTarget "HenryHub" */;
+			buildPhases = (
+				9001605F1379F72A00E418AD /* Sources */,
+				900160601379F72A00E418AD /* Frameworks */,
+				900160611379F72A00E418AD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HenryHub;
+			productName = HenryHub;
+			productReference = 900160631379F72A00E418AD /* HenryHub.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9001605A1379F72A00E418AD /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 9001605D1379F72A00E418AD /* Build configuration list for PBXProject "HenryHub" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 900160581379F72A00E418AD;
+			productRefGroup = 900160641379F72A00E418AD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				900160621379F72A00E418AD /* HenryHub */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		900160611379F72A00E418AD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				900160741379F72A00E418AD /* InfoPlist.strings in Resources */,
+				9001607D1379F72A00E418AD /* MainWindow.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9001605F1379F72A00E418AD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				900160771379F72A00E418AD /* main.m in Sources */,
+				9001607A1379F72A00E418AD /* HenryHubAppDelegate.m in Sources */,
+				900160801379F72A00E418AD /* HenryHub.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		900160721379F72A00E418AD /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				900160731379F72A00E418AD /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		9001607B1379F72A00E418AD /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9001607C1379F72A00E418AD /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		900160811379F72A00E418AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		900160821379F72A00E418AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		900160841379F72A00E418AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HenryHub/HenryHub-Prefix.pch";
+				INFOPLIST_FILE = "HenryHub/HenryHub-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		900160851379F72A00E418AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HenryHub/HenryHub-Prefix.pch";
+				INFOPLIST_FILE = "HenryHub/HenryHub-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9001605D1379F72A00E418AD /* Build configuration list for PBXProject "HenryHub" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				900160811379F72A00E418AD /* Debug */,
+				900160821379F72A00E418AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		900160831379F72A00E418AD /* Build configuration list for PBXNativeTarget "HenryHub" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				900160841379F72A00E418AD /* Debug */,
+				900160851379F72A00E418AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9001607E1379F72A00E418AD /* HenryHub.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9001607F1379F72A00E418AD /* HenryHub.xcdatamodel */,
+			);
+			currentVersion = 9001607F1379F72A00E418AD /* HenryHub.xcdatamodel */;
+			path = HenryHub.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 9001605A1379F72A00E418AD /* Project object */;
+}
