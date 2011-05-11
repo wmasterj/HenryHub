@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E94F6C3137A08BE00580A6C /* Scan.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E94F6C1137A08BE00580A6C /* Scan.m */; };
+		8E94F6C4137A08BE00580A6C /* Scan.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E94F6C2137A08BE00580A6C /* Scan.xib */; };
+		8E94F6C8137A08CC00580A6C /* Share.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E94F6C6137A08CC00580A6C /* Share.m */; };
+		8E94F6C9137A08CC00580A6C /* Share.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E94F6C7137A08CC00580A6C /* Share.xib */; };
+		8E94F6CD137A08D700580A6C /* Info.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E94F6CB137A08D700580A6C /* Info.m */; };
+		8E94F6CE137A08D700580A6C /* Info.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E94F6CC137A08D700580A6C /* Info.xib */; };
+		8E94F6D3137A0C7600580A6C /* Instructions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E94F6D1137A0C7600580A6C /* Instructions.m */; };
+		8E94F6D4137A0C7600580A6C /* Instructions.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E94F6D2137A0C7600580A6C /* Instructions.xib */; };
 		900160681379F72A00E418AD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 900160671379F72A00E418AD /* UIKit.framework */; };
 		9001606A1379F72A00E418AD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 900160691379F72A00E418AD /* Foundation.framework */; };
 		9001606C1379F72A00E418AD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9001606B1379F72A00E418AD /* CoreGraphics.framework */; };
@@ -26,6 +34,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8E94F6C0137A08BE00580A6C /* Scan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scan.h; sourceTree = "<group>"; };
+		8E94F6C1137A08BE00580A6C /* Scan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scan.m; sourceTree = "<group>"; };
+		8E94F6C2137A08BE00580A6C /* Scan.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Scan.xib; sourceTree = "<group>"; };
+		8E94F6C5137A08CC00580A6C /* Share.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Share.h; sourceTree = "<group>"; };
+		8E94F6C6137A08CC00580A6C /* Share.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Share.m; sourceTree = "<group>"; };
+		8E94F6C7137A08CC00580A6C /* Share.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Share.xib; sourceTree = "<group>"; };
+		8E94F6CA137A08D700580A6C /* Info.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Info.h; sourceTree = "<group>"; };
+		8E94F6CB137A08D700580A6C /* Info.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Info.m; sourceTree = "<group>"; };
+		8E94F6CC137A08D700580A6C /* Info.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Info.xib; sourceTree = "<group>"; };
+		8E94F6D0137A0C7600580A6C /* Instructions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Instructions.h; sourceTree = "<group>"; };
+		8E94F6D1137A0C7600580A6C /* Instructions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Instructions.m; sourceTree = "<group>"; };
+		8E94F6D2137A0C7600580A6C /* Instructions.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Instructions.xib; sourceTree = "<group>"; };
 		900160631379F72A00E418AD /* HenryHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HenryHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		900160671379F72A00E418AD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		900160691379F72A00E418AD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -66,6 +86,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8E94F6BC137A088000580A6C /* Scan */ = {
+			isa = PBXGroup;
+			children = (
+				8E94F6C0137A08BE00580A6C /* Scan.h */,
+				8E94F6C1137A08BE00580A6C /* Scan.m */,
+				8E94F6C2137A08BE00580A6C /* Scan.xib */,
+			);
+			name = Scan;
+			sourceTree = "<group>";
+		};
+		8E94F6BE137A089100580A6C /* Share */ = {
+			isa = PBXGroup;
+			children = (
+				8E94F6C5137A08CC00580A6C /* Share.h */,
+				8E94F6C6137A08CC00580A6C /* Share.m */,
+				8E94F6C7137A08CC00580A6C /* Share.xib */,
+			);
+			name = Share;
+			sourceTree = "<group>";
+		};
+		8E94F6BF137A08A500580A6C /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				8E94F6CA137A08D700580A6C /* Info.h */,
+				8E94F6CB137A08D700580A6C /* Info.m */,
+				8E94F6CC137A08D700580A6C /* Info.xib */,
+			);
+			name = Info;
+			sourceTree = "<group>";
+		};
+		8E94F6CF137A0C6300580A6C /* Instructions */ = {
+			isa = PBXGroup;
+			children = (
+				8E94F6D0137A0C7600580A6C /* Instructions.h */,
+				8E94F6D1137A0C7600580A6C /* Instructions.m */,
+				8E94F6D2137A0C7600580A6C /* Instructions.xib */,
+			);
+			name = Instructions;
+			sourceTree = "<group>";
+		};
 		900160581379F72A00E418AD = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +202,10 @@
 		902B81721379F7A30086518F /* Inside */ = {
 			isa = PBXGroup;
 			children = (
+				8E94F6CF137A0C6300580A6C /* Instructions */,
+				8E94F6BF137A08A500580A6C /* Info */,
+				8E94F6BE137A089100580A6C /* Share */,
+				8E94F6BC137A088000580A6C /* Scan */,
 				902B81B2137A004A0086518F /* InSide.h */,
 				902B81B3137A004A0086518F /* InSide.m */,
 				902B81B4137A004A0086518F /* InSide.xib */,
@@ -220,6 +284,10 @@
 				902B81AC137A001B0086518F /* HHubViewController.xib in Resources */,
 				902B81B1137A00350086518F /* OutSide.xib in Resources */,
 				902B81B6137A004A0086518F /* InSide.xib in Resources */,
+				8E94F6C4137A08BE00580A6C /* Scan.xib in Resources */,
+				8E94F6C9137A08CC00580A6C /* Share.xib in Resources */,
+				8E94F6CE137A08D700580A6C /* Info.xib in Resources */,
+				8E94F6D4137A0C7600580A6C /* Instructions.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +304,10 @@
 				902B81AA137A00020086518F /* HHubViewController.m in Sources */,
 				902B81B0137A00350086518F /* OutSide.m in Sources */,
 				902B81B5137A004A0086518F /* InSide.m in Sources */,
+				8E94F6C3137A08BE00580A6C /* Scan.m in Sources */,
+				8E94F6C8137A08CC00580A6C /* Share.m in Sources */,
+				8E94F6CD137A08D700580A6C /* Info.m in Sources */,
+				8E94F6D3137A0C7600580A6C /* Instructions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
