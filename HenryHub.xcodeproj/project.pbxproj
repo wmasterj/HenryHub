@@ -11,6 +11,8 @@
 		8E94F6C4137A08BE00580A6C /* Scan.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E94F6C2137A08BE00580A6C /* Scan.xib */; };
 		8E94F6C8137A08CC00580A6C /* HubPieceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E94F6C6137A08CC00580A6C /* HubPieceView.m */; };
 		8E94F6C9137A08CC00580A6C /* HubPieceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E94F6C7137A08CC00580A6C /* HubPieceView.xib */; };
+		8E94F711137B89CC00580A6C /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E94F710137B89CC00580A6C /* Default.png */; };
+		8E94F713137B89D900580A6C /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E94F712137B89D900580A6C /* icon.png */; };
 		900160681379F72A00E418AD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 900160671379F72A00E418AD /* UIKit.framework */; };
 		9001606A1379F72A00E418AD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 900160691379F72A00E418AD /* Foundation.framework */; };
 		9001606C1379F72A00E418AD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9001606B1379F72A00E418AD /* CoreGraphics.framework */; };
@@ -46,6 +48,8 @@
 		8E94F6C5137A08CC00580A6C /* HubPieceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HubPieceView.h; sourceTree = "<group>"; };
 		8E94F6C6137A08CC00580A6C /* HubPieceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HubPieceView.m; sourceTree = "<group>"; };
 		8E94F6C7137A08CC00580A6C /* HubPieceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HubPieceView.xib; sourceTree = "<group>"; };
+		8E94F710137B89CC00580A6C /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		8E94F712137B89D900580A6C /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		900160631379F72A00E418AD /* HenryHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HenryHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		900160671379F72A00E418AD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		900160691379F72A00E418AD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -129,7 +133,6 @@
 		900160581379F72A00E418AD = {
 			isa = PBXGroup;
 			children = (
-				902B81CC137A10470086518F /* libz.dylib */,
 				9001606F1379F72A00E418AD /* HenryHub */,
 				900160661379F72A00E418AD /* Frameworks */,
 				900160641379F72A00E418AD /* Products */,
@@ -173,6 +176,7 @@
 		900160701379F72A00E418AD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				902B81CC137A10470086518F /* libz.dylib */,
 				900160711379F72A00E418AD /* HenryHub-Info.plist */,
 				900160721379F72A00E418AD /* InfoPlist.strings */,
 				900160751379F72A00E418AD /* HenryHub-Prefix.pch */,
@@ -220,6 +224,8 @@
 			isa = PBXGroup;
 			children = (
 				902B81851379F83D0086518F /* mainLogo.png */,
+				8E94F712137B89D900580A6C /* icon.png */,
+				8E94F710137B89CC00580A6C /* Default.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -327,6 +333,8 @@
 				902B81B6137A004A0086518F /* InSide.xib in Resources */,
 				8E94F6C4137A08BE00580A6C /* Scan.xib in Resources */,
 				8E94F6C9137A08CC00580A6C /* HubPieceView.xib in Resources */,
+				8E94F711137B89CC00580A6C /* Default.png in Resources */,
+				8E94F713137B89D900580A6C /* icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
