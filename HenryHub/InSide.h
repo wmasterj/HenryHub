@@ -14,5 +14,6 @@
 }
 
 -(IBAction)InSideView;
+-(IBAction)scanTest;
 
 @end

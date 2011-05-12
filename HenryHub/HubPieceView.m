@@ -1,23 +1,30 @@
 //
-//  Info.m
+//  Share.m
 //  HenryHub
 //
 //  Created by Ohyoon Kwon on 11. 5. 10..
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "Info.h"
+#import "HubPieceView.h"
+#import "HubXMLConnection.h"
 
+@implementation HubPieceView
 
-@implementation Info
+@synthesize pieceConnection=_pieceConnection;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        // Something
     }
     return self;
+}
+
+- (void)useLoadedXML:(NSNotification *) notification
+{
+    NSLog(@"Loaded :)");
 }
 
 - (void)dealloc
@@ -37,6 +44,12 @@
 
 - (void)viewDidLoad
 {
+    [[NSNotificationCenter defaultCenter] 
+     addObserver:self 
+     selector:@selector(useLoadedXML:) 
+     name:@"HubXMLLoaded" 
+     object:nil ];
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }

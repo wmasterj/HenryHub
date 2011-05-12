@@ -7,7 +7,8 @@
 //
 
 #import "InSide.h"
-
+#import "HubXMLConnection.h"
+#import "HubPieceView.h"
 
 @implementation InSide
 
@@ -19,6 +20,36 @@
     [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.view.superview cache:YES];
     [self.view removeFromSuperview];
     [UIView commitAnimations];
+}
+
+/*!
+ This function creates a connection using the HubXMLConnection class and retrieves
+ the XML for the given destination.
+ 
+ TODO: Extend this to include a specific id.
+ */
+-(IBAction)scanTest
+{
+    HubXMLConnection *aConnection = [[HubXMLConnection alloc] init];    
+    // Connect
+    BOOL success = [aConnection connect];
+    
+    // If the connection was successful then load the actual HubPieceView
+    if(success) {
+        HubPieceView *pieceView = [[HubPieceView alloc] initWithNibName:@"HubPieceView" bundle:nil];
+        
+        pieceView.pieceConnection = aConnection;
+        
+        // Animate transition
+        [UIView beginAnimations:@"showPiece" context:nil];
+        [UIView setAnimationDuration:0.5];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+        [UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:self.view.superview cache:YES];
+        [self.view.superview addSubview:pieceView.view];
+        [self.view removeFromSuperview];
+        [UIView commitAnimations];
+    }
+    [aConnection release];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil

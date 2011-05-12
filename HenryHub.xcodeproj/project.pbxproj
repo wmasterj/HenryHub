@@ -9,12 +9,8 @@
 /* Begin PBXBuildFile section */
 		8E94F6C3137A08BE00580A6C /* Scan.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E94F6C1137A08BE00580A6C /* Scan.m */; };
 		8E94F6C4137A08BE00580A6C /* Scan.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E94F6C2137A08BE00580A6C /* Scan.xib */; };
-		8E94F6C8137A08CC00580A6C /* Share.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E94F6C6137A08CC00580A6C /* Share.m */; };
-		8E94F6C9137A08CC00580A6C /* Share.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E94F6C7137A08CC00580A6C /* Share.xib */; };
-		8E94F6CD137A08D700580A6C /* Info.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E94F6CB137A08D700580A6C /* Info.m */; };
-		8E94F6CE137A08D700580A6C /* Info.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E94F6CC137A08D700580A6C /* Info.xib */; };
-		8E94F6D3137A0C7600580A6C /* Instructions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E94F6D1137A0C7600580A6C /* Instructions.m */; };
-		8E94F6D4137A0C7600580A6C /* Instructions.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E94F6D2137A0C7600580A6C /* Instructions.xib */; };
+		8E94F6C8137A08CC00580A6C /* HubPieceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E94F6C6137A08CC00580A6C /* HubPieceView.m */; };
+		8E94F6C9137A08CC00580A6C /* HubPieceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E94F6C7137A08CC00580A6C /* HubPieceView.xib */; };
 		900160681379F72A00E418AD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 900160671379F72A00E418AD /* UIKit.framework */; };
 		9001606A1379F72A00E418AD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 900160691379F72A00E418AD /* Foundation.framework */; };
 		9001606C1379F72A00E418AD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9001606B1379F72A00E418AD /* CoreGraphics.framework */; };
@@ -31,21 +27,25 @@
 		902B81B1137A00350086518F /* OutSide.xib in Resources */ = {isa = PBXBuildFile; fileRef = 902B81AF137A00350086518F /* OutSide.xib */; };
 		902B81B5137A004A0086518F /* InSide.m in Sources */ = {isa = PBXBuildFile; fileRef = 902B81B3137A004A0086518F /* InSide.m */; };
 		902B81B6137A004A0086518F /* InSide.xib in Resources */ = {isa = PBXBuildFile; fileRef = 902B81B4137A004A0086518F /* InSide.xib */; };
+		902B81C5137A0FA80086518F /* HubPiece.m in Sources */ = {isa = PBXBuildFile; fileRef = 902B81BE137A0FA80086518F /* HubPiece.m */; };
+		902B81C6137A0FA80086518F /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 902B81C0137A0FA80086518F /* NSDataAdditions.m */; };
+		902B81C7137A0FA80086518F /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 902B81C2137A0FA80086518F /* TBXML.m */; };
+		902B81CD137A10470086518F /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 902B81CC137A10470086518F /* libz.dylib */; };
+		902B81D1137A148C0086518F /* HubXMLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 902B81CF137A148C0086518F /* HubXMLConnection.m */; };
+		902B81D5137A19130086518F /* HHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 902B81D4137A19120086518F /* HHViewController.m */; };
+		902B81D8137A1D710086518F /* HubPieceImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 902B81D7137A1D710086518F /* HubPieceImage.m */; };
+		902B81DB137AF3320086518F /* HubPieceVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 902B81DA137AF3320086518F /* HubPieceVideo.m */; };
+		902B81DE137AF7670086518F /* HubPieceAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 902B81DD137AF7670086518F /* HubPieceAudio.m */; };
+		902B81E1137AFE9B0086518F /* HubPieceMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 902B81E0137AFE9A0086518F /* HubPieceMedia.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8E94F6C0137A08BE00580A6C /* Scan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scan.h; sourceTree = "<group>"; };
 		8E94F6C1137A08BE00580A6C /* Scan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scan.m; sourceTree = "<group>"; };
 		8E94F6C2137A08BE00580A6C /* Scan.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Scan.xib; sourceTree = "<group>"; };
-		8E94F6C5137A08CC00580A6C /* Share.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Share.h; sourceTree = "<group>"; };
-		8E94F6C6137A08CC00580A6C /* Share.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Share.m; sourceTree = "<group>"; };
-		8E94F6C7137A08CC00580A6C /* Share.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Share.xib; sourceTree = "<group>"; };
-		8E94F6CA137A08D700580A6C /* Info.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Info.h; sourceTree = "<group>"; };
-		8E94F6CB137A08D700580A6C /* Info.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Info.m; sourceTree = "<group>"; };
-		8E94F6CC137A08D700580A6C /* Info.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Info.xib; sourceTree = "<group>"; };
-		8E94F6D0137A0C7600580A6C /* Instructions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Instructions.h; sourceTree = "<group>"; };
-		8E94F6D1137A0C7600580A6C /* Instructions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Instructions.m; sourceTree = "<group>"; };
-		8E94F6D2137A0C7600580A6C /* Instructions.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Instructions.xib; sourceTree = "<group>"; };
+		8E94F6C5137A08CC00580A6C /* HubPieceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HubPieceView.h; sourceTree = "<group>"; };
+		8E94F6C6137A08CC00580A6C /* HubPieceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HubPieceView.m; sourceTree = "<group>"; };
+		8E94F6C7137A08CC00580A6C /* HubPieceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HubPieceView.xib; sourceTree = "<group>"; };
 		900160631379F72A00E418AD /* HenryHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HenryHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		900160671379F72A00E418AD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		900160691379F72A00E418AD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -69,6 +69,25 @@
 		902B81B2137A004A0086518F /* InSide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InSide.h; sourceTree = "<group>"; };
 		902B81B3137A004A0086518F /* InSide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InSide.m; sourceTree = "<group>"; };
 		902B81B4137A004A0086518F /* InSide.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InSide.xib; sourceTree = "<group>"; };
+		902B81BD137A0FA80086518F /* HubPiece.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HubPiece.h; sourceTree = "<group>"; };
+		902B81BE137A0FA80086518F /* HubPiece.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HubPiece.m; sourceTree = "<group>"; };
+		902B81BF137A0FA80086518F /* NSDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDataAdditions.h; sourceTree = "<group>"; };
+		902B81C0137A0FA80086518F /* NSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDataAdditions.m; sourceTree = "<group>"; };
+		902B81C1137A0FA80086518F /* TBXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBXML.h; sourceTree = "<group>"; };
+		902B81C2137A0FA80086518F /* TBXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBXML.m; sourceTree = "<group>"; };
+		902B81CC137A10470086518F /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		902B81CE137A148C0086518F /* HubXMLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HubXMLConnection.h; sourceTree = "<group>"; };
+		902B81CF137A148C0086518F /* HubXMLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HubXMLConnection.m; sourceTree = "<group>"; };
+		902B81D3137A19120086518F /* HHViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHViewController.h; sourceTree = "<group>"; };
+		902B81D4137A19120086518F /* HHViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHViewController.m; sourceTree = "<group>"; };
+		902B81D6137A1D710086518F /* HubPieceImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HubPieceImage.h; sourceTree = "<group>"; };
+		902B81D7137A1D710086518F /* HubPieceImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HubPieceImage.m; sourceTree = "<group>"; };
+		902B81D9137AF3310086518F /* HubPieceVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HubPieceVideo.h; sourceTree = "<group>"; };
+		902B81DA137AF3320086518F /* HubPieceVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HubPieceVideo.m; sourceTree = "<group>"; };
+		902B81DC137AF7660086518F /* HubPieceAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HubPieceAudio.h; sourceTree = "<group>"; };
+		902B81DD137AF7670086518F /* HubPieceAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HubPieceAudio.m; sourceTree = "<group>"; };
+		902B81DF137AFE990086518F /* HubPieceMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HubPieceMedia.h; sourceTree = "<group>"; };
+		902B81E0137AFE9A0086518F /* HubPieceMedia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HubPieceMedia.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				902B81CD137A10470086518F /* libz.dylib in Frameworks */,
 				900160681379F72A00E418AD /* UIKit.framework in Frameworks */,
 				9001606A1379F72A00E418AD /* Foundation.framework in Frameworks */,
 				9001606C1379F72A00E418AD /* CoreGraphics.framework in Frameworks */,
@@ -96,39 +116,20 @@
 			name = Scan;
 			sourceTree = "<group>";
 		};
-		8E94F6BE137A089100580A6C /* Share */ = {
+		8E94F6BE137A089100580A6C /* HubPieceView */ = {
 			isa = PBXGroup;
 			children = (
-				8E94F6C5137A08CC00580A6C /* Share.h */,
-				8E94F6C6137A08CC00580A6C /* Share.m */,
-				8E94F6C7137A08CC00580A6C /* Share.xib */,
+				8E94F6C5137A08CC00580A6C /* HubPieceView.h */,
+				8E94F6C6137A08CC00580A6C /* HubPieceView.m */,
+				8E94F6C7137A08CC00580A6C /* HubPieceView.xib */,
 			);
-			name = Share;
-			sourceTree = "<group>";
-		};
-		8E94F6BF137A08A500580A6C /* Info */ = {
-			isa = PBXGroup;
-			children = (
-				8E94F6CA137A08D700580A6C /* Info.h */,
-				8E94F6CB137A08D700580A6C /* Info.m */,
-				8E94F6CC137A08D700580A6C /* Info.xib */,
-			);
-			name = Info;
-			sourceTree = "<group>";
-		};
-		8E94F6CF137A0C6300580A6C /* Instructions */ = {
-			isa = PBXGroup;
-			children = (
-				8E94F6D0137A0C7600580A6C /* Instructions.h */,
-				8E94F6D1137A0C7600580A6C /* Instructions.m */,
-				8E94F6D2137A0C7600580A6C /* Instructions.xib */,
-			);
-			name = Instructions;
+			name = HubPieceView;
 			sourceTree = "<group>";
 		};
 		900160581379F72A00E418AD = {
 			isa = PBXGroup;
 			children = (
+				902B81CC137A10470086518F /* libz.dylib */,
 				9001606F1379F72A00E418AD /* HenryHub */,
 				900160661379F72A00E418AD /* Frameworks */,
 				900160641379F72A00E418AD /* Products */,
@@ -162,7 +163,8 @@
 				900160791379F72A00E418AD /* HenryHubAppDelegate.m */,
 				9001607B1379F72A00E418AD /* MainWindow.xib */,
 				902B81841379F81A0086518F /* Views */,
-				9001607E1379F72A00E418AD /* HenryHub.xcdatamodeld */,
+				902B81BB137A0DA00086518F /* XML */,
+				902B81E2137B05ED0086518F /* Models */,
 				900160701379F72A00E418AD /* Supporting Files */,
 			);
 			path = HenryHub;
@@ -175,6 +177,7 @@
 				900160721379F72A00E418AD /* InfoPlist.strings */,
 				900160751379F72A00E418AD /* HenryHub-Prefix.pch */,
 				900160761379F72A00E418AD /* main.m */,
+				902B81CB137A0FEE0086518F /* TBXML */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -182,9 +185,9 @@
 		902B816F1379F77F0086518F /* Start */ = {
 			isa = PBXGroup;
 			children = (
-				902B81AB137A001B0086518F /* HHubViewController.xib */,
 				902B81A8137A00020086518F /* HHubViewController.h */,
 				902B81A9137A00020086518F /* HHubViewController.m */,
+				902B81AB137A001B0086518F /* HHubViewController.xib */,
 			);
 			name = Start;
 			sourceTree = "<group>";
@@ -202,13 +205,13 @@
 		902B81721379F7A30086518F /* Inside */ = {
 			isa = PBXGroup;
 			children = (
-				8E94F6CF137A0C6300580A6C /* Instructions */,
-				8E94F6BF137A08A500580A6C /* Info */,
-				8E94F6BE137A089100580A6C /* Share */,
+				8E94F6BE137A089100580A6C /* HubPieceView */,
 				8E94F6BC137A088000580A6C /* Scan */,
 				902B81B2137A004A0086518F /* InSide.h */,
 				902B81B3137A004A0086518F /* InSide.m */,
 				902B81B4137A004A0086518F /* InSide.xib */,
+				902B81D3137A19120086518F /* HHViewController.h */,
+				902B81D4137A19120086518F /* HHViewController.m */,
 			);
 			name = Inside;
 			sourceTree = "<group>";
@@ -229,6 +232,44 @@
 				902B816F1379F77F0086518F /* Start */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		902B81BB137A0DA00086518F /* XML */ = {
+			isa = PBXGroup;
+			children = (
+				902B81CE137A148C0086518F /* HubXMLConnection.h */,
+				902B81CF137A148C0086518F /* HubXMLConnection.m */,
+			);
+			name = XML;
+			sourceTree = "<group>";
+		};
+		902B81CB137A0FEE0086518F /* TBXML */ = {
+			isa = PBXGroup;
+			children = (
+				902B81BF137A0FA80086518F /* NSDataAdditions.h */,
+				902B81C0137A0FA80086518F /* NSDataAdditions.m */,
+				902B81C1137A0FA80086518F /* TBXML.h */,
+				902B81C2137A0FA80086518F /* TBXML.m */,
+			);
+			name = TBXML;
+			sourceTree = "<group>";
+		};
+		902B81E2137B05ED0086518F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9001607E1379F72A00E418AD /* HenryHub.xcdatamodeld */,
+				902B81BD137A0FA80086518F /* HubPiece.h */,
+				902B81BE137A0FA80086518F /* HubPiece.m */,
+				902B81DF137AFE990086518F /* HubPieceMedia.h */,
+				902B81E0137AFE9A0086518F /* HubPieceMedia.m */,
+				902B81D6137A1D710086518F /* HubPieceImage.h */,
+				902B81D7137A1D710086518F /* HubPieceImage.m */,
+				902B81D9137AF3310086518F /* HubPieceVideo.h */,
+				902B81DA137AF3320086518F /* HubPieceVideo.m */,
+				902B81DC137AF7660086518F /* HubPieceAudio.h */,
+				902B81DD137AF7670086518F /* HubPieceAudio.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,9 +326,7 @@
 				902B81B1137A00350086518F /* OutSide.xib in Resources */,
 				902B81B6137A004A0086518F /* InSide.xib in Resources */,
 				8E94F6C4137A08BE00580A6C /* Scan.xib in Resources */,
-				8E94F6C9137A08CC00580A6C /* Share.xib in Resources */,
-				8E94F6CE137A08D700580A6C /* Info.xib in Resources */,
-				8E94F6D4137A0C7600580A6C /* Instructions.xib in Resources */,
+				8E94F6C9137A08CC00580A6C /* HubPieceView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,9 +344,16 @@
 				902B81B0137A00350086518F /* OutSide.m in Sources */,
 				902B81B5137A004A0086518F /* InSide.m in Sources */,
 				8E94F6C3137A08BE00580A6C /* Scan.m in Sources */,
-				8E94F6C8137A08CC00580A6C /* Share.m in Sources */,
-				8E94F6CD137A08D700580A6C /* Info.m in Sources */,
-				8E94F6D3137A0C7600580A6C /* Instructions.m in Sources */,
+				8E94F6C8137A08CC00580A6C /* HubPieceView.m in Sources */,
+				902B81C5137A0FA80086518F /* HubPiece.m in Sources */,
+				902B81C6137A0FA80086518F /* NSDataAdditions.m in Sources */,
+				902B81C7137A0FA80086518F /* TBXML.m in Sources */,
+				902B81D1137A148C0086518F /* HubXMLConnection.m in Sources */,
+				902B81D5137A19130086518F /* HHViewController.m in Sources */,
+				902B81D8137A1D710086518F /* HubPieceImage.m in Sources */,
+				902B81DB137AF3320086518F /* HubPieceVideo.m in Sources */,
+				902B81DE137AF7670086518F /* HubPieceAudio.m in Sources */,
+				902B81E1137AFE9B0086518F /* HubPieceMedia.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class HubXMLConnection;
 
-@interface Share : UIViewController {
+@interface HubPieceView : UIViewController {
     
 }
+
+@property (nonatomic, retain) HubXMLConnection *pieceConnection;
 
 @end
