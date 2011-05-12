@@ -31,6 +31,7 @@
     self.window.rootViewController = self.startView;
     
     // Override point for customization after application launch.
+    [NSThread sleepForTimeInterval:0.5];
     [self.window makeKeyAndVisible];
     return YES;
 }
