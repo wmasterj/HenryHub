@@ -14,13 +14,13 @@
 @implementation HubXMLConnection
 
 // VARS
-@synthesize piece=_piece, pieceXML=_pieceXML, receivedData=_receivedData, stringXML=_stringXML;
+@synthesize pieceXML=_pieceXML, receivedData=_receivedData, stringXML=_stringXML;
 
-- (BOOL)connect
+- (BOOL)connect:(NSString *)idString
 {
     // Creating the request
     NSURLRequest *theRequest = [NSURLRequest 
-                                requestWithURL: [NSURL URLWithString:@"http://hub.henryart.org/hub_piece.xml"]
+                                requestWithURL: [NSURL URLWithString:[NSString stringWithFormat:@"http://hub.henryart.org/index.php/app/hubpiece/%@", idString]]
                                 cachePolicy: NSURLRequestUseProtocolCachePolicy
                                 timeoutInterval: 60.0];
     
@@ -90,7 +90,6 @@
 {
     // Release instance variables here
     [self.pieceXML release];
-    [self.piece release];
     [self.receivedData release];
     
     [super dealloc];

@@ -13,7 +13,9 @@
     
 }
 
--(IBAction)InSideView;
--(IBAction)scanTest;
+@property (nonatomic, retain) IBOutlet UITextField *idString;
 
+- (IBAction)InSideView;
+- (IBAction)scanTest;
+- (IBAction)textEditingDone:(id)sender;
 @end

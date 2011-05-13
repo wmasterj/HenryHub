@@ -12,6 +12,8 @@
 
 @implementation InSide
 
+@synthesize idString=_idString;
+
 -(IBAction)InSideView
 {
     [UIView beginAnimations:@"back" context:nil];
@@ -32,7 +34,7 @@
 {
     HubXMLConnection *aConnection = [[HubXMLConnection alloc] init];    
     // Connect
-    BOOL success = [aConnection connect];
+    BOOL success = [aConnection connect:self.idString.text];
     
     // If the connection was successful then load the actual HubPieceView
     if(success) {
@@ -52,6 +54,11 @@
     [aConnection release];
 }
 
+- (IBAction)textEditingDone:(id)sender
+{
+    
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -63,6 +70,7 @@
 
 - (void)dealloc
 {
+    
     [super dealloc];
 }
 

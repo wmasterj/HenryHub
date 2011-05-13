@@ -22,17 +22,15 @@
 @interface HubXMLConnection : NSObject {
     
     NSMutableData *receivedData;
-    HubPiece *piece;
     TBXMLElement *pieceXML;
     NSString *stringXML;
     
 }
 
 @property (nonatomic, retain) NSMutableData *receivedData;
-@property (nonatomic, retain) HubPiece *piece;
 @property (nonatomic, retain) TBXMLElement *pieceXML;
 @property (nonatomic, retain) NSString *stringXML;
 
--(BOOL)connect;
+-(BOOL)connect:(NSString *)idString;
 
 @end
