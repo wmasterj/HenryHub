@@ -81,7 +81,6 @@
     
     // Notify any observers about this having finished loading
     [[NSNotificationCenter defaultCenter] postNotificationName:@"HubXMLLoaded" object:nil];
-
 }
 
 /*      NSURLConnection delegate methods : END        */

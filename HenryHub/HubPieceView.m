@@ -8,6 +8,7 @@
 
 #import "HubPieceView.h"
 #import "HubXMLConnection.h"
+#import "HubPieceImage.h"
 #import "TBXML.h"
 #import "HubPiece.h"
 #import "InSide.h"
@@ -34,8 +35,6 @@
 
 - (void)useLoadedXML:(NSNotification *) notification
 {
-    NSLog(@"Loaded content:\n%@\n\nPretty nice :)", self.pieceConnection.stringXML);
-    
     // Parsing the XML data
     //
     TBXML *tbxml = [[TBXML tbxmlWithXMLString:self.pieceConnection.stringXML] retain];
@@ -44,60 +43,33 @@
     TBXMLElement *rootElement = tbxml.rootXMLElement;
     TBXMLElement *pieceXML = [TBXML childElementNamed:@"piece" parentElement:rootElement];
     
-    // STORING values
-    self.currentPiece = [[HubPiece alloc] init];
-    
-    // ID
-    self.currentPiece.piece_id = [NSNumber numberWithInt:
-                                  [[TBXML valueOfAttributeNamed:@"id" forElement:pieceXML] intValue]];
-    NSLog(@"This objects id is: %@", [self.currentPiece.piece_id stringValue]);
-    
-    // Title
-    TBXMLElement *titleXML = [TBXML childElementNamed:@"title" parentElement:pieceXML];
-    self.currentPiece.name = [NSString stringWithString:[TBXML textForElement:titleXML]];
-    if(self.currentPiece.name)
-    {
+    // Create the HubPiece data from the XML file
+    self.currentPiece = [[HubPiece alloc] initWithXML:pieceXML];
+
+    if(self.currentPiece.name) // Add title to UI
         self.hub_title.text = self.currentPiece.name;
-        NSLog(@"This objects name is: %@", self.currentPiece.name);         
-    }
     
     // Main image
-    // TODO: change if statement to test on if the image is there and loop all siblings
-    TBXMLElement *imageXML = [TBXML childElementNamed:@"image" parentElement:[TBXML childElementNamed:@"images" parentElement:pieceXML]];
-    NSString *backgroundImageURL = [TBXML textForElement:
-                                    [TBXML childElementNamed:@"url" parentElement:imageXML]];
-    if(backgroundImageURL)
+    if([self.currentPiece.images count] > 0)
     {
-        self.backgroundImage.image = [UIImage imageWithData:
-                                      [NSData dataWithContentsOfURL:
-                                       [NSURL URLWithString:backgroundImageURL]]];
-    } else {
-        NSLog(@"No image URL");
+        HubPieceImage *tmpImage = [self.currentPiece.images objectAtIndex:0];
+        if(tmpImage.asset_url)
+        {
+            self.backgroundImage.image = [UIImage imageWithData:
+                                          [NSData dataWithContentsOfURL: tmpImage.asset_url]];
+        } else {
+            NSLog(@"No image URL! No first image?? Error.");
+        }
     }
     
-    // Description
-    TBXMLElement *descriptionXML = [TBXML childElementNamed:@"asset_description" parentElement:pieceXML];
-    NSLog(@"got description");
-    NSString *descriptionString;
-    if(descriptionXML) {
-        descriptionString = [TBXML textForElement:descriptionXML];
-        NSLog(@"There was a description:\n%@", descriptionString);
-        // Add description to UITextView inside the information
-        self.hub_description.text = descriptionString;
-    }
-    else
-    {
-        NSLog(@"No description");
-    }
+    // Add description to UI
+    self.hub_description.text = self.currentPiece.description;
     
     // Show the UI controls that are hiding before everything has loaded
     self.infoToggle.hidden = NO;
     self.backButton.hidden = NO;
     
     [tbxml release];
-    
-    // iterating over a named list of children:
-    // http://stackoverflow.com/questions/4014704/tbxml-while-problem
 }
 
 - (IBAction)showInformation:(id)sender

@@ -10,6 +10,8 @@
 
 @class HubXMLConnection;
 @class HubPiece;
+@class HubPieceImage;
+@class TBXMLElement;
 
 @interface HubPieceView : UIViewController {
     
@@ -34,4 +36,5 @@
 //
 -(IBAction)showInformation:(id)sender;
 -(IBAction)backToScan:(id)sender;
+
 @end

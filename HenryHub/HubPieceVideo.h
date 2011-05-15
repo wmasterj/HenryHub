@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "HubPieceMedia.h"
+#import "TBXML.h"
 
 /*!
  @class HubPieceAudio
@@ -17,15 +18,14 @@
  */
 @interface HubPieceVideo : HubPieceMedia {
     
-    NSNumber        *external_id; // This videos id on youtube/vimeo.
-    NSURL           *image_url; // Direct link to the image online
-    NSNumber        *duration;  // Video duration in seconds
-    
 }
 
-@property (nonatomic, retain) NSNumber    *external_id;
+@property (nonatomic, retain) NSString    *external_id;
 @property (nonatomic, retain) NSURL       *image_url; 
 @property (nonatomic, retain) NSNumber    *duration;
+@property (nonatomic, retain) NSString    *views;
+
+-(id)initWithXML:(TBXMLElement *)videoXML;
 
 @end
     

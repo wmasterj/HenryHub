@@ -23,12 +23,11 @@
     NSURL       *page_url;  // URL to a this asset's page
     NSURL       *asset_url; // Direct link to this media asset
     
-    
 }
 
 @property (nonatomic, retain) NSString    *title;     
 @property (nonatomic, retain) NSString    *caption;   
-@property (nonatomic, retain) NSURL       *image_url; 
-@property (nonatomic, retain) NSString    *page_url;  
+@property (nonatomic, retain) NSURL       *page_url; 
+@property (nonatomic, retain) NSURL       *asset_url;  
 
 @end

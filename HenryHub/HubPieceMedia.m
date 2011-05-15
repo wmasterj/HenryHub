@@ -11,14 +11,14 @@
 
 @implementation HubPieceMedia
 
-@synthesize title=_title, caption=_caption, image_url=_image_url, page_url=_page_url;
+@synthesize title=_title, caption=_caption, page_url=_page_url, asset_url=_asset_url;
 
 - (void)dealloc
 {
     [self.title dealloc];
     [self.caption dealloc];
-    [self.image_url dealloc];
     [self.page_url dealloc];
+    [self.asset_url dealloc];
     
     [super dealloc];
 }

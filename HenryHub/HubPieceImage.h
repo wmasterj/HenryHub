@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "HubPieceMedia.h"
+#import "TBXML.h"
+
 
 /*!
  @class HubPieceImage
@@ -17,10 +19,8 @@
  */
 @interface HubPieceImage : HubPieceMedia {
     
-    NSURL *image_url;
-    
 }
 
-@property (nonatomic, retain) NSURL *image_url;
+-(id)initWithXML:(TBXMLElement *)imageXML;
 
 @end

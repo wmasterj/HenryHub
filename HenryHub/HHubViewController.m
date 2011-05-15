@@ -22,7 +22,7 @@
     [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.view cache:YES];
     [self.view addSubview:inView.view];
     [UIView commitAnimations];
-}
+}   
 
 -(IBAction)OutSideView
 {
