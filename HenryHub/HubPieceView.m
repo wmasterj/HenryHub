@@ -12,6 +12,7 @@
 #import "TBXML.h"
 #import "HubPiece.h"
 #import "InSide.h"
+#import "Modal.h"
 
 @implementation HubPieceView
 
@@ -22,7 +23,8 @@
 @synthesize infoToggle = _infoToggle;
 @synthesize hub_description = _hub_description;
 @synthesize hub_info = _hub_info;
-@synthesize backButton = _backButton;
+@synthesize movingMenu=_movingMenu;
+@synthesize sub_menu=_sub_menu;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -67,7 +69,6 @@
     
     // Show the UI controls that are hiding before everything has loaded
     self.infoToggle.hidden = NO;
-    self.backButton.hidden = NO;
     
     [tbxml release];
 }
@@ -77,6 +78,61 @@
     NSLog(@"Show info");
     self.hub_info.hidden = !self.hub_info.hidden;
 }
+
+
+- (IBAction)offMenu:(id)sender
+
+{
+    
+    CGFloat distance = 100;
+    
+    if(self.movingMenu){
+        
+        self.movingMenu = FALSE;
+        
+        distance = -100;
+        
+    } 
+    
+    else
+        
+    {
+        
+        self.movingMenu = TRUE;
+        
+    }
+    
+    NSLog(@"Off Menu");
+    
+    
+    
+    CGRect viewFrame = self.sub_menu.frame;
+    
+    viewFrame.origin.y += distance;
+    
+    
+    
+    [UIView beginAnimations:nil context:NULL];
+    
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    
+    [UIView setAnimationDuration:0.2];
+    
+    
+    
+    [self.sub_menu setFrame:viewFrame];
+    
+    
+    
+    [UIView commitAnimations];
+    
+    
+    
+    //self.hub_info.hidden = !self.hub_info.hidden;
+    
+}
+
+
 
 - (IBAction)backToScan:(id)sender
 {
@@ -92,6 +148,15 @@
     [UIView commitAnimations];
 }
 
+
+
+-(IBAction)ModalView
+
+{
+    Modal *modalView = [[Modal alloc]initWithNibName:@"Modal" bundle:nil];
+    [self presentModalViewController:modalView animated:YES];
+}
+
 // UIViewControlle standard methods
 
 - (void)dealloc
@@ -101,7 +166,6 @@
     [self.hub_info release];
     [self.hub_description release];
     [self.currentPiece release];
-    [self.backButton release];
     [super dealloc];
 }
 

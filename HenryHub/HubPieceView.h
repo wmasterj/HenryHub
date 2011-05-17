@@ -26,15 +26,18 @@
 // Information
 @property (nonatomic, retain) IBOutlet UIView *hub_info;
 @property (nonatomic, retain) IBOutlet UITextView *hub_description;
-
 // Other UI elements
 @property (nonatomic, retain) IBOutlet UIButton *infoToggle;
-@property (nonatomic, retain) IBOutlet UIButton *backButton;
+// Moving UIView
+@property (nonatomic, retain) IBOutlet UIView *sub_menu;
+@property (nonatomic, assign) BOOL movingMenu;
 
 
 // Methods
 //
 -(IBAction)showInformation:(id)sender;
 -(IBAction)backToScan:(id)sender;
+-(IBAction)offMenu:(id)sender;
+-(IBAction)ModalView;
 
 @end
