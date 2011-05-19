@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZBarSDK.h"
 
-
-@interface Scan : UIViewController {
+@interface Scan : UIViewController <ZBarReaderDelegate> {
     
 }
 

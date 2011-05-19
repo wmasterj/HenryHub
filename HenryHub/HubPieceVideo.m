@@ -34,9 +34,9 @@
 
 - (void)dealloc
 {
-    [self.image_url dealloc];
-    [self.external_id dealloc];
-    [self.duration dealloc];
+    [self.image_url release];
+    [self.external_id release];
+    [self.duration release];
     
     [super dealloc];
 }

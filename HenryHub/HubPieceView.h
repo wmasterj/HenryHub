@@ -31,7 +31,6 @@
 @property (nonatomic, retain) IBOutlet UIButton *infoToggle;
 @property (nonatomic, retain) IBOutlet UIButton *backButton;
 
-
 // Methods
 //
 -(IBAction)showInformation:(id)sender;

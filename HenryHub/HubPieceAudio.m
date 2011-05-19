@@ -19,17 +19,12 @@
     
     if(audioXML) 
     {
-        NSString *audioTitle = [TBXML textForElement: [TBXML childElementNamed:@"title" parentElement:audioXML]];
-        NSString *audioURL = [TBXML textForElement: [TBXML childElementNamed:@"url" parentElement:audioXML]];
-        NSString *audioPageURL = [TBXML textForElement: [TBXML childElementNamed:@"url" parentElement:audioXML]];
-        NSString *audioDescription = [TBXML textForElement: [TBXML childElementNamed:@"description" parentElement:audioXML]];
-        NSString *audioDuration = [TBXML textForElement: [TBXML childElementNamed:@"duration" parentElement:audioXML]];
         
-        self.title       = audioTitle;
-        self.asset_url   = [NSURL URLWithString:audioURL];
-        self.page_url    = [NSURL URLWithString:audioPageURL];
-        self.caption     = audioDescription;
-        self.duration    = [NSNumber numberWithInt:[audioDuration integerValue]];
+        self.title       = [TBXML textForElement: [TBXML childElementNamed:@"title" parentElement:audioXML] ];
+        self.asset_url   = [NSURL URLWithString:[TBXML textForElement: [TBXML childElementNamed:@"url" parentElement:audioXML] ] ];
+        self.page_url    = [NSURL URLWithString:[TBXML textForElement: [TBXML childElementNamed:@"url" parentElement:audioXML] ] ];
+        self.caption     = [TBXML textForElement: [TBXML childElementNamed:@"description" parentElement:audioXML] ];
+        self.duration    = [NSNumber numberWithInt:[[TBXML textForElement: [TBXML childElementNamed:@"duration" parentElement:audioXML]] integerValue]];
         return self;
     }
     return self;
@@ -37,7 +32,7 @@
 
 - (void)dealloc
 {
-    [self.duration dealloc];
+    [self.duration release];
     
     [super dealloc];
 }

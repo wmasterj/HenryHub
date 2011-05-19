@@ -20,14 +20,10 @@
     
     if(imageXML) 
     {
-        NSString *imageTitle = [TBXML textForElement: [TBXML childElementNamed:@"title" parentElement:imageXML]];
-        NSString *imageURL = [TBXML textForElement: [TBXML childElementNamed:@"url" parentElement:imageXML]];
-        NSString *imagePageURL = [TBXML textForElement: [TBXML childElementNamed:@"page_link" parentElement:imageXML]];
-        NSString *imageDescription = [TBXML textForElement: [TBXML childElementNamed:@"description" parentElement:imageXML]];
-        self.title = imageTitle;
-        self.asset_url = [NSURL URLWithString:imageURL];
-        self.page_url = [NSURL URLWithString:imagePageURL];
-        self.caption = imageDescription;
+        self.title = [TBXML textForElement: [TBXML childElementNamed:@"title" parentElement:imageXML]];;
+        self.asset_url = [NSURL URLWithString:[TBXML textForElement: [TBXML childElementNamed:@"url" parentElement:imageXML]] ];
+        self.page_url = [NSURL URLWithString:[TBXML textForElement: [TBXML childElementNamed:@"page_link" parentElement:imageXML]] ];
+        self.caption = [TBXML textForElement: [TBXML childElementNamed:@"description" parentElement:imageXML]];;
         return self;
     }
     return self;

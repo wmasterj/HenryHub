@@ -80,6 +80,8 @@
         //       Related pieces          //
         // ----------------------------- //
         TBXMLElement *relatedPiece = [TBXML childElementNamed:@"hubpiece" parentElement:[TBXML childElementNamed:@"related_hubpieces" parentElement:pieceXML]];
+        if(self.related != nil)
+            [self.related release];
         self.related = [[NSMutableArray alloc] init];
         if(relatedPiece) {
             do {
@@ -92,6 +94,8 @@
         //       Video clips             //
         // ----------------------------- //
         TBXMLElement *hubVideo = [TBXML childElementNamed:@"video" parentElement:[TBXML childElementNamed:@"videos" parentElement:pieceXML]];
+        if(self.videos != nil)
+            [self.videos release];
         self.videos = [[NSMutableArray alloc] init];
         if(hubVideo) {
             do {
@@ -103,6 +107,8 @@
         //       Images                  //
         // ----------------------------- //
         TBXMLElement *hubImage = [TBXML childElementNamed:@"image" parentElement:[TBXML childElementNamed:@"images" parentElement:pieceXML]];
+        if(self.images != nil)
+            [self.images release];
         self.images = [[NSMutableArray alloc] init];
         if(hubImage) {
             do {
@@ -112,8 +118,7 @@
         
         // ----------------------------- //
         //       Audio clips             //
-        // ----------------------------- //
-        
+        // ----------------------------- //        
     }
     
     return self;
@@ -121,6 +126,7 @@
 
 - (void) dealloc
 {
+    NSLog(@"Releasing HubPiece data");
     [self.piece_id release];
     [self.name release];
     [self.description release];

@@ -27,8 +27,8 @@
 {
     HHubViewController *HHView = [[HHubViewController alloc] initWithNibName:@"HHubViewController" bundle:[NSBundle mainBundle]];
     self.startView = HHView;
-    [HHView release];
     self.window.rootViewController = self.startView;
+    [HHView release];
     
     // Override point for customization after application launch.
     [NSThread sleepForTimeInterval:0.5];

@@ -35,6 +35,8 @@
 
 - (void)useLoadedXML:(NSNotification *) notification
 {
+    NSLog(@"useLoadedXML starting");
+    
     // Parsing the XML data
     //
     TBXML *tbxml = [[TBXML tbxmlWithXMLString:self.pieceConnection.stringXML] retain];
@@ -44,6 +46,8 @@
     TBXMLElement *pieceXML = [TBXML childElementNamed:@"piece" parentElement:rootElement];
     
     // Create the HubPiece data from the XML file
+    if(self.currentPiece != nil) 
+        [self.currentPiece release];
     self.currentPiece = [[HubPiece alloc] initWithXML:pieceXML];
 
     if(self.currentPiece.name) // Add title to UI
@@ -55,6 +59,12 @@
         HubPieceImage *tmpImage = [self.currentPiece.images objectAtIndex:0];
         if(tmpImage.asset_url)
         {
+            //NSLog(@"Adding background image: %@", tmpImage.asset_url);
+            if(self.backgroundImage.image != nil)
+            {
+                NSLog(@"Second time around, lets clean self.backgroundImage");
+                self.backgroundImage.image = nil;
+            }
             self.backgroundImage.image = [UIImage imageWithData:
                                           [NSData dataWithContentsOfURL: tmpImage.asset_url]];
         } else {
@@ -69,26 +79,27 @@
     self.infoToggle.hidden = NO;
     self.backButton.hidden = NO;
     
+    NSLog(@"All things are showing");
+    
     [tbxml release];
 }
 
 - (IBAction)showInformation:(id)sender
 {
-    NSLog(@"Show info");
+    // Show/hide information
     self.hub_info.hidden = !self.hub_info.hidden;
 }
 
 - (IBAction)backToScan:(id)sender
 {
     NSLog(@"Switching back");
-    InSide *inView = [[InSide alloc]initWithNibName:@"InSide" bundle:nil];
     
     [UIView beginAnimations:@"In Side From Object" context:nil];
     [UIView setAnimationDuration:0.5];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];  
     [UIView setAnimationTransition:UIViewAnimationTransitionCurlDown 
                            forView:self.view cache:YES];
-    [self.view.superview addSubview:inView.view];
+    [self.view removeFromSuperview];
     [UIView commitAnimations];
 }
 
@@ -117,6 +128,7 @@
 
 - (void)viewDidLoad
 {
+    NSLog(@"HubPiece view did load");
     [[NSNotificationCenter defaultCenter] 
      addObserver:self 
      selector:@selector(useLoadedXML:) 
@@ -129,7 +141,7 @@
 
 - (void)viewDidUnload
 {
-    
+    NSLog(@"HubPiece view did UN-load");
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

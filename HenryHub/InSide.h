@@ -7,15 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZBarSDK.h"
 
-
-@interface InSide : UIViewController {
+@interface InSide : UIViewController <ZBarReaderDelegate> {
     
 }
 
 @property (nonatomic, retain) IBOutlet UITextField *idString;
+@property (nonatomic, retain) ZBarReaderViewController *reader;
 
-- (IBAction)InSideView;
+- (IBAction)backToStart;
 - (IBAction)scanTest;
+- (IBAction)openScanner:(id)sender;
 - (IBAction)textEditingDone:(id)sender;
 @end

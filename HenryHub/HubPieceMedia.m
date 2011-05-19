@@ -15,10 +15,10 @@
 
 - (void)dealloc
 {
-    [self.title dealloc];
-    [self.caption dealloc];
-    [self.page_url dealloc];
-    [self.asset_url dealloc];
+    [self.title release];
+    [self.caption release];
+    [self.page_url release];
+    [self.asset_url release];
     
     [super dealloc];
 }
