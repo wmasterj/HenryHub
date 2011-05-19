@@ -12,7 +12,7 @@
 #import "TBXML.h"
 #import "HubPiece.h"
 #import "InSide.h"
-#import "Modal.h"
+#import "Video.h"
 
 @implementation HubPieceView
 
@@ -25,6 +25,9 @@
 @synthesize hub_info = _hub_info;
 @synthesize movingMenu=_movingMenu;
 @synthesize sub_menu=_sub_menu;
+@synthesize video_view=_video_view;
+@synthesize menu_layer=_menu_layer;
+@synthesize show_video=_show_video;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -119,19 +122,45 @@
     [UIView setAnimationDuration:0.2];
     
     
-    
     [self.sub_menu setFrame:viewFrame];
     
+    self.video_view.view.hidden = YES;
     
     
     [UIView commitAnimations];
+       
     
-    
-    
-    //self.hub_info.hidden = !self.hub_info.hidden;
+    self.menu_layer.hidden = !self.menu_layer.hidden;
     
 }
 
+/*
+-(void)showAlertMessage:(NSString *)alertTitle Message:(NSString *)alertMessage CancelButtonTitle:(NSString *)cancelTitle{
+	
+	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:alertTitle
+													message:alertMessage
+												   delegate:self 
+										  cancelButtonTitle:cancelTitle otherButtonTitles:nil];
+	[alert show];
+	[alert release];
+	
+}
+*/
+
+- (IBAction)flipVideo:(id)sender
+{
+    NSLog(@"Video View");
+    //[self showAlertMessage:@"Tien testing" Message:@"Testing" CancelButtonTitle:@"Nil"];
+    //self.video_view.hidden = !self.video_view.hidden;
+    
+    self.video_view = [[Video alloc] initWithNibName:@"Video" bundle:nil];
+    self.video_view.view.frame = CGRectMake(10,50,300,350);
+    
+    self.video_view.view.hidden = NO;
+    
+    [self.view addSubview:self.video_view.view];
+    
+}
 
 
 - (IBAction)backToScan:(id)sender
@@ -149,23 +178,20 @@
 }
 
 
-
--(IBAction)ModalView
-
-{
-    Modal *modalView = [[Modal alloc]initWithNibName:@"Modal" bundle:nil];
-    [self presentModalViewController:modalView animated:YES];
-}
-
 // UIViewControlle standard methods
 
 - (void)dealloc
 {
+    [self.show_video release];
+    [self.menu_layer release];
+    [self.movingMenu release];
+    [self.sub_menu release];
     [self.pieceConnection release];
     [self.hub_title release];
     [self.hub_info release];
     [self.hub_description release];
     [self.currentPiece release];
+    [self.video_view release];
     [super dealloc];
 }
 
@@ -186,6 +212,8 @@
      selector:@selector(useLoadedXML:) 
      name:@"HubXMLLoaded" 
      object:nil ];
+    
+    self.menu_layer.hidden = YES;
     
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.

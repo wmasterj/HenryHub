@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8E38417A137F3AD70007FE72 /* Modal.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E384178137F3AD70007FE72 /* Modal.m */; };
-		8E38417B137F3AD70007FE72 /* Modal.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E384179137F3AD70007FE72 /* Modal.xib */; };
 		8E94F6C3137A08BE00580A6C /* Scan.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E94F6C1137A08BE00580A6C /* Scan.m */; };
 		8E94F6C4137A08BE00580A6C /* Scan.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E94F6C2137A08BE00580A6C /* Scan.xib */; };
 		8E94F6C8137A08CC00580A6C /* HubPieceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E94F6C6137A08CC00580A6C /* HubPieceView.m */; };
 		8E94F711137B89CC00580A6C /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E94F710137B89CC00580A6C /* Default.png */; };
 		8E94F713137B89D900580A6C /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E94F712137B89D900580A6C /* icon.png */; };
+		8E9A543D13833E7600B5A5C7 /* Video.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9A543B13833E7600B5A5C7 /* Video.m */; };
+		8E9A543E13833E7600B5A5C7 /* Video.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E9A543C13833E7600B5A5C7 /* Video.xib */; };
 		8EED84A61380745C00096292 /* HubPieceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EED84A51380745C00096292 /* HubPieceView.xib */; };
 		900160681379F72A00E418AD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 900160671379F72A00E418AD /* UIKit.framework */; };
 		9001606A1379F72A00E418AD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 900160691379F72A00E418AD /* Foundation.framework */; };
@@ -46,9 +46,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8E384177137F3AD70007FE72 /* Modal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Modal.h; sourceTree = "<group>"; };
-		8E384178137F3AD70007FE72 /* Modal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Modal.m; sourceTree = "<group>"; };
-		8E384179137F3AD70007FE72 /* Modal.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Modal.xib; sourceTree = "<group>"; };
 		8E94F6C0137A08BE00580A6C /* Scan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scan.h; sourceTree = "<group>"; };
 		8E94F6C1137A08BE00580A6C /* Scan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scan.m; sourceTree = "<group>"; };
 		8E94F6C2137A08BE00580A6C /* Scan.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Scan.xib; sourceTree = "<group>"; };
@@ -56,6 +53,9 @@
 		8E94F6C6137A08CC00580A6C /* HubPieceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HubPieceView.m; sourceTree = "<group>"; };
 		8E94F710137B89CC00580A6C /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		8E94F712137B89D900580A6C /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		8E9A543A13833E7600B5A5C7 /* Video.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Video.h; sourceTree = "<group>"; };
+		8E9A543B13833E7600B5A5C7 /* Video.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Video.m; sourceTree = "<group>"; };
+		8E9A543C13833E7600B5A5C7 /* Video.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Video.xib; sourceTree = "<group>"; };
 		8EED84A51380745C00096292 /* HubPieceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HubPieceView.xib; sourceTree = "<group>"; };
 		900160631379F72A00E418AD /* HenryHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HenryHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		900160671379F72A00E418AD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -119,16 +119,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8E384171137F3A8C0007FE72 /* ModalView */ = {
-			isa = PBXGroup;
-			children = (
-				8E384177137F3AD70007FE72 /* Modal.h */,
-				8E384178137F3AD70007FE72 /* Modal.m */,
-				8E384179137F3AD70007FE72 /* Modal.xib */,
-			);
-			name = ModalView;
-			sourceTree = "<group>";
-		};
 		8E94F6BC137A088000580A6C /* Scan */ = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +137,16 @@
 				8EED84A51380745C00096292 /* HubPieceView.xib */,
 			);
 			name = HubPieceView;
+			sourceTree = "<group>";
+		};
+		8E9A5451138492CD00B5A5C7 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				8E9A543A13833E7600B5A5C7 /* Video.h */,
+				8E9A543B13833E7600B5A5C7 /* Video.m */,
+				8E9A543C13833E7600B5A5C7 /* Video.xib */,
+			);
+			name = Video;
 			sourceTree = "<group>";
 		};
 		900160581379F72A00E418AD = {
@@ -228,7 +228,7 @@
 		902B81721379F7A30086518F /* Inside */ = {
 			isa = PBXGroup;
 			children = (
-				8E384171137F3A8C0007FE72 /* ModalView */,
+				8E9A5451138492CD00B5A5C7 /* Video */,
 				8E94F6BE137A089100580A6C /* HubPieceView */,
 				8E94F6BC137A088000580A6C /* Scan */,
 				902B81B2137A004A0086518F /* InSide.h */,
@@ -358,8 +358,8 @@
 				8E94F713137B89D900580A6C /* icon.png in Resources */,
 				909B2A24137CFD030031A107 /* loadingscreen.png in Resources */,
 				909B2A25137CFD030031A107 /* loadingscreen@2x.png in Resources */,
-				8E38417B137F3AD70007FE72 /* Modal.xib in Resources */,
 				8EED84A61380745C00096292 /* HubPieceView.xib in Resources */,
+				8E9A543E13833E7600B5A5C7 /* Video.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,7 +387,7 @@
 				902B81DB137AF3320086518F /* HubPieceVideo.m in Sources */,
 				902B81DE137AF7670086518F /* HubPieceAudio.m in Sources */,
 				902B81E1137AFE9B0086518F /* HubPieceMedia.m in Sources */,
-				8E38417A137F3AD70007FE72 /* Modal.m in Sources */,
+				8E9A543D13833E7600B5A5C7 /* Video.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
