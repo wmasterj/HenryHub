@@ -7,15 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Video.h"
 
 @class HubXMLConnection;
 @class HubPiece;
 @class HubPieceImage;
 @class TBXMLElement;
 
+
 @interface HubPieceView : UIViewController {
     
+    Video *video_view;
+
 }
+
+@property(nonatomic, retain)  IBOutlet Video *video_view;
 
 @property (nonatomic, retain) HubXMLConnection *pieceConnection;
 @property (nonatomic, retain) HubPiece *currentPiece;
@@ -26,14 +32,18 @@
 // Information
 @property (nonatomic, retain) IBOutlet UIView *hub_info;
 @property (nonatomic, retain) IBOutlet UITextView *hub_description;
-
 // Other UI elements
 @property (nonatomic, retain) IBOutlet UIButton *infoToggle;
-@property (nonatomic, retain) IBOutlet UIButton *backButton;
-
+// Moving UIView
+@property (nonatomic, retain) IBOutlet UIView *sub_menu;
+@property (nonatomic, assign) BOOL movingMenu;
+// Video UIView
+@property (nonatomic, retain) IBOutlet UIButton *menu_layer;
+@property (nonatomic, retain) IBOutlet UIView *show_video;
 // Methods
 //
 -(IBAction)showInformation:(id)sender;
 -(IBAction)backToScan:(id)sender;
-
+-(IBAction)offMenu:(id)sender;
+-(IBAction)flipVideo:(id)sender;
 @end
