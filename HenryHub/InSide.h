@@ -20,4 +20,5 @@
 - (IBAction)scanTest;
 - (IBAction)openScanner:(id)sender;
 - (IBAction)textEditingDone:(id)sender;
+
 @end

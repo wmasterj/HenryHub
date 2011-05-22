@@ -13,6 +13,9 @@
 #import "HubPiece.h"
 #import "InSide.h"
 #import "Video.h"
+#import "Related.h"
+
+
 
 @implementation HubPieceView
 
@@ -23,24 +26,28 @@
 @synthesize infoToggle = _infoToggle;
 @synthesize hub_description = _hub_description;
 @synthesize hub_info = _hub_info;
-@synthesize movingMenu=_movingMenu;
-@synthesize sub_menu=_sub_menu;
-@synthesize video_view=_video_view;
-@synthesize menu_layer=_menu_layer;
-@synthesize show_video=_show_video;
+@synthesize backButton = _backButton;
+@synthesize movingMenu = _movingMenu;
+@synthesize sub_menu = _sub_menu;
+@synthesize video_view = _video_view;
+@synthesize related_view = _related_view;
+@synthesize facebookMock = _facebookMock;
+@synthesize menu_layer = _menu_layer;
+@synthesize contentViewFrame = _contentViewFrame;
+@synthesize spinner = _spinner;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Something
+        // do stuff
     }
     return self;
 }
 
-- (void)useLoadedXML:(NSNotification *) notification
+-(void)dataDidDownload:(BOOL)success // delegate set to this object in InSide.m
 {
-    NSLog(@"useLoadedXML starting");
+    NSLog(@"Data downloaded YEAY!");
     
     // Parsing the XML data
     //
@@ -51,129 +58,178 @@
     TBXMLElement *pieceXML = [TBXML childElementNamed:@"piece" parentElement:rootElement];
     
     // Create the HubPiece data from the XML file
-    if(self.currentPiece != nil) 
+    if(self.currentPiece != nil){
         [self.currentPiece release];
-    self.currentPiece = [[HubPiece alloc] initWithXML:pieceXML];
-
-    if(self.currentPiece.name) // Add title to UI
-        self.hub_title.text = self.currentPiece.name;
-    
-    // Main image
-    if([self.currentPiece.images count] > 0)
-    {
-        HubPieceImage *tmpImage = [self.currentPiece.images objectAtIndex:0];
-        if(tmpImage.asset_url)
-        {
-            //NSLog(@"Adding background image: %@", tmpImage.asset_url);
-            if(self.backgroundImage.image != nil)
-            {
-                NSLog(@"Second time around, lets clean self.backgroundImage");
-                self.backgroundImage.image = nil;
-            }
-            self.backgroundImage.image = [UIImage imageWithData:
-                                          [NSData dataWithContentsOfURL: tmpImage.asset_url]];
-        } else {
-            NSLog(@"No image URL! No first image?? Error.");
-        }
     }
+    self.currentPiece = [[HubPiece alloc] initWithXML:pieceXML]; // LEAKING!
     
-    // Add description to UI
-    self.hub_description.text = self.currentPiece.description;
-    
-    // Show the UI controls that are hiding before everything has loaded
-    self.infoToggle.hidden = NO;
-    
-    NSLog(@"All things are showing");
+    // If it returns something with an ID, then go ahead and show the rest of the stuff
+    if(self.currentPiece.piece_id) 
+    {
+        // Add title to UI
+        self.hub_title.text = self.currentPiece.name;
+        
+        // Main image
+        if([self.currentPiece.images count] > 0)
+        {
+            HubPieceImage *tmpImage = [self.currentPiece.images objectAtIndex:0];
+            if(tmpImage.asset_url)
+            {
+                //NSLog(@"Adding background image: %@", tmpImage.asset_url);
+                if(self.backgroundImage.image != nil)
+                {
+                    NSLog(@"Second time around, lets clean self.backgroundImage");
+                    self.backgroundImage.image = nil;
+                }
+                self.backgroundImage.image = [UIImage imageWithData:
+                                              [NSData dataWithContentsOfURL: tmpImage.asset_url]];
+            } else {
+                NSLog(@"No image URL! No first image?? Error.");
+            }
+        }
+        
+        // Add description to UI
+        self.hub_description.text = self.currentPiece.description;
+        
+        // Show the UI controls that are hiding before everything has loaded
+        // TODO: Animate these into the view
+        self.infoToggle.hidden = NO;
+        self.sub_menu.hidden = NO;
+        self.backButton.hidden = NO;
+        [self.spinner stopAnimating];
+        
+        NSLog(@"All things are showing");
+    }
+    else
+    {
+        NSLog(@"QR code invalid, didn't find an object matching the QR code.");
+    }
     
     [tbxml release];
 }
 
-- (IBAction)showInformation:(id)sender
+-(void)dataDidNotDownload:(BOOL)success // delegate set to this object in InSide.m
 {
-    // Show/hide information
-    self.hub_info.hidden = !self.hub_info.hidden;
+    NSLog(@"Data not downloaded BU!!");
 }
 
-
-- (IBAction)offMenu:(id)sender
-
+- (IBAction)hideAllViews:(id)sender
 {
-    
-    CGFloat distance = 100;
-    
-    if(self.movingMenu){
-        
-        self.movingMenu = FALSE;
-        
-        distance = -100;
-        
-    } 
-    
-    else
-        
-    {
-        
-        self.movingMenu = TRUE;
-        
-    }
-    
-    NSLog(@"Off Menu");
-    
-    
-    
+    // Hide ALL content views
+    self.video_view.view.hidden = YES;
+    self.related_view.view.hidden = YES;
+    self.hub_info.hidden = YES;
+    self.facebookMock.hidden = YES;
+}
+
+- (void)hideMenu
+{
+    // Tell the menu where to animate to
     CGRect viewFrame = self.sub_menu.frame;
+    viewFrame.origin.y = 415;
     
-    viewFrame.origin.y += distance;
-    
-    
-    
+    // Start animation
     [UIView beginAnimations:nil context:NULL];
-    
     [UIView setAnimationBeginsFromCurrentState:YES];
-    
-    [UIView setAnimationDuration:0.2];
-    
+    [UIView setAnimationDuration:MENU_ANIMITATION_DURATION];
     
     [self.sub_menu setFrame:viewFrame];
     
-    self.video_view.view.hidden = YES;
-    
-    
     [UIView commitAnimations];
-       
     
-    self.menu_layer.hidden = !self.menu_layer.hidden;
-    
+    self.backButton.hidden = YES; // TODO: Animate in own method
+    self.menu_layer.hidden = NO;
 }
 
-/*
--(void)showAlertMessage:(NSString *)alertTitle Message:(NSString *)alertMessage CancelButtonTitle:(NSString *)cancelTitle{
-	
-	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:alertTitle
-													message:alertMessage
-												   delegate:self 
-										  cancelButtonTitle:cancelTitle otherButtonTitles:nil];
-	[alert show];
-	[alert release];
-	
+- (IBAction)showMenu:(id)sender
+{
+    // Tell the menu where to animate to
+    CGRect viewFrame = self.sub_menu.frame;
+    viewFrame.origin.y = 272;
+    
+    // Start animation
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationDuration:MENU_ANIMITATION_DURATION];
+    
+    [self.sub_menu setFrame:viewFrame];
+    
+    [UIView commitAnimations];
+    
+    self.backButton.hidden = NO; // TODO: Animate in own method
+    self.infoToggle.hidden = NO; // TODO: Animate in own method
+    self.menu_layer.hidden = YES;
+    
+    
+    [self hideAllViews:sender];
 }
-*/
+
+- (IBAction)toggleInformation:(id)sender
+{
+    // Show/hide information
+    if(self.hub_info.hidden == NO)
+    {
+        // Hide menu, this also hides all content views
+        NSLog(@"Hide info");
+        [self showMenu:sender];
+    }        
+    else   
+    {
+        // Show info content view
+        NSLog(@"Show info");
+        self.hub_info.hidden = NO;
+        [self hideMenu];
+    }
+}
 
 - (IBAction)flipVideo:(id)sender
 {
+    // Hide menu
+    [self hideMenu];
+    [self hideAllViews:sender];
+    self.infoToggle.hidden = YES; // TODO: Animate in own method
+    
     NSLog(@"Video View");
-    //[self showAlertMessage:@"Tien testing" Message:@"Testing" CancelButtonTitle:@"Nil"];
-    //self.video_view.hidden = !self.video_view.hidden;
     
-    self.video_view = [[Video alloc] initWithNibName:@"Video" bundle:nil];
-    self.video_view.view.frame = CGRectMake(10,50,300,350);
-    
+    if(self.video_view == nil)
+        self.video_view = [[Video alloc] initWithNibName:@"Video" bundle:nil];
+    self.video_view.view.frame = self.contentViewFrame;
     self.video_view.view.hidden = NO;
     
     [self.view addSubview:self.video_view.view];
     
 }
 
+- (IBAction)flipRelated:(id)sender
+{
+    // Hide menu
+    [self hideMenu];
+    [self hideAllViews:sender];
+    self.infoToggle.hidden = YES; // TODO: Animate in own method
+    
+    NSLog(@"Related View");
+    
+    if(self.related_view == nil)
+        self.related_view = [[Related alloc] initWithNibName:@"Related" bundle:nil];
+    self.related_view.view.frame = self.contentViewFrame;
+    self.related_view.view.hidden = NO;
+    
+    [self.view addSubview:self.related_view.view];
+    
+}
+
+- (IBAction)flipSharing:(id)sender
+{
+    // Hide menu
+    [self hideMenu];
+    [self hideAllViews:sender];
+    self.infoToggle.hidden = YES; // TODO: Animate in own method
+    
+    NSLog(@"Sharing View");
+    
+    self.facebookMock.hidden = !self.facebookMock.hidden;
+    
+}
 
 - (IBAction)backToScan:(id)sender
 {
@@ -188,14 +244,30 @@
     [UIView commitAnimations];
 }
 
+- (void)connectionError
+{
+    NSLog(@"INTERNET: No connection!");
+    UIAlertView *alert = [[UIAlertView alloc] 
+                          initWithTitle:@"No internet connection"
+                          message:@"You are not connected to the internet and will not be able to enjoy the art with the phone."
+                          delegate:self 
+                          cancelButtonTitle:@"OK" otherButtonTitles:nil];
+	[alert show];
+	[alert release];
+}
 
-// UIViewControlle standard methods
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    // Connection was lost and after clicking this it goes back to the instruction page
+    [self backToScan:nil];
+}
+
+#pragma mark - UIViewControl standard methods
 
 - (void)dealloc
 {
-    [self.show_video release];
+    NSLog(@"Deallocking the stuff out of the self.currentPiece and more!");
     [self.menu_layer release];
-    [self.movingMenu release];
     [self.sub_menu release];
     [self.pieceConnection release];
     [self.hub_title release];
@@ -209,6 +281,7 @@
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.
+    NSLog(@">>  HubPieceView: Memory warning! <<");
     [super didReceiveMemoryWarning];
     
     // Release any cached data, images, etc that aren't in use.
@@ -217,15 +290,23 @@
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
-{
-    NSLog(@"HubPiece view did load");
-    [[NSNotificationCenter defaultCenter] 
-     addObserver:self 
-     selector:@selector(useLoadedXML:) 
-     name:@"HubXMLLoaded" 
-     object:nil ];
-    
+{    
+    // Do some initial UI setup
     self.menu_layer.hidden = YES;
+    self.contentViewFrame = CGRectMake(20,84,280,334);
+
+    // Add a spinner for loading
+    self.spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [self.view addSubview:self.spinner];
+    [self.spinner setCenter:CGPointMake(320/2, (480/2)+30)];
+    [self.spinner startAnimating];
+    
+    // Fix problem with info button surface
+    CGRect newInfoButtonRect = CGRectMake(self.infoToggle.frame.origin.x-25, 
+                                          self.infoToggle.frame.origin.y-25, 
+                                          self.infoToggle.frame.size.width+50, 
+                                          self.infoToggle.frame.size.height+50);
+    [self.infoToggle setFrame:newInfoButtonRect];
     
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -236,7 +317,14 @@
     NSLog(@"HubPiece view did UN-load");
     [super viewDidUnload];
     // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+    self.menu_layer      = nil;
+    self.sub_menu        = nil;
+    self.pieceConnection = nil;
+    self.hub_title       = nil;
+    self.hub_info        = nil;
+    self.hub_description = nil;
+    self.currentPiece    = nil;
+    self.video_view      = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

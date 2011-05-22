@@ -18,6 +18,9 @@
 
 -(IBAction)OutSideView
 {
+    // Hide status bar going back
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:NO];
+    
     [UIView beginAnimations:@"back" context:nil];
     [UIView setAnimationDuration:0.5];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
@@ -70,9 +73,10 @@
 - (void)viewDidLoad
 {
     spinner = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:NO];
     [self.view addSubview:spinner];
     [spinner setCenter:CGPointMake(ScreenWidth /2, ScreenHeight /2)];
-    [self goUrl:@"http://www.jquerymobile.com/demos"];
+    [self goUrl:@"http://hub.henryart.org/index.php/pages/"];
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }

@@ -12,6 +12,13 @@
 @class TBXML;
 @class TBXMLElement;
 
+@protocol HttpDataDelegate <NSObject>
+
+-(void)dataDidDownload:(BOOL)success;
+-(void)dataDidNotDownload:(BOOL)success;
+
+@end
+
 /*!
  @class HubXMLConnection
  
@@ -24,12 +31,13 @@
     NSMutableData *receivedData;
     TBXMLElement *pieceXML;
     NSString *stringXML;
+    id <HttpDataDelegate> delegate;
     
 }
 
 @property (nonatomic, retain) NSMutableData *receivedData;
-@property (nonatomic, retain) TBXMLElement *pieceXML;
 @property (nonatomic, retain) NSString *stringXML;
+@property (retain) id delegate;
 
 -(BOOL)connect:(NSString *)idString;
 

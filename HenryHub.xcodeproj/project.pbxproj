@@ -7,11 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8E94F6C3137A08BE00580A6C /* Scan.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E94F6C1137A08BE00580A6C /* Scan.m */; };
-		8E94F6C4137A08BE00580A6C /* Scan.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E94F6C2137A08BE00580A6C /* Scan.xib */; };
 		8E94F6C8137A08CC00580A6C /* HubPieceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E94F6C6137A08CC00580A6C /* HubPieceView.m */; };
-		8E94F711137B89CC00580A6C /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E94F710137B89CC00580A6C /* Default.png */; };
-		8E94F713137B89D900580A6C /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E94F712137B89D900580A6C /* icon.png */; };
 		8E9A543D13833E7600B5A5C7 /* Video.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9A543B13833E7600B5A5C7 /* Video.m */; };
 		8E9A543E13833E7600B5A5C7 /* Video.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E9A543C13833E7600B5A5C7 /* Video.xib */; };
 		8EED84A61380745C00096292 /* HubPieceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EED84A51380745C00096292 /* HubPieceView.xib */; };
@@ -29,6 +25,11 @@
 		9001607A1379F72A00E418AD /* HenryHubAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 900160791379F72A00E418AD /* HenryHubAppDelegate.m */; };
 		9001607D1379F72A00E418AD /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9001607B1379F72A00E418AD /* MainWindow.xib */; };
 		900160801379F72A00E418AD /* HenryHub.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9001607E1379F72A00E418AD /* HenryHub.xcdatamodeld */; };
+		90220C301387328000731424 /* qrcode.png in Resources */ = {isa = PBXBuildFile; fileRef = 90220C2F1387328000731424 /* qrcode.png */; };
+		90220C32138733CE00731424 /* videomock.png in Resources */ = {isa = PBXBuildFile; fileRef = 90220C31138733CE00731424 /* videomock.png */; };
+		90220C361387343800731424 /* Related.m in Sources */ = {isa = PBXBuildFile; fileRef = 90220C341387343800731424 /* Related.m */; };
+		90220C371387343800731424 /* Related.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90220C351387343800731424 /* Related.xib */; };
+		90220C4113873C0200731424 /* facebookmock.png in Resources */ = {isa = PBXBuildFile; fileRef = 90220C4013873C0200731424 /* facebookmock.png */; };
 		902B81861379F83D0086518F /* mainLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 902B81851379F83D0086518F /* mainLogo.png */; };
 		902B81AA137A00020086518F /* HHubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 902B81A9137A00020086518F /* HHubViewController.m */; };
 		902B81AC137A001B0086518F /* HHubViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 902B81AB137A001B0086518F /* HHubViewController.xib */; };
@@ -41,11 +42,16 @@
 		902B81C7137A0FA80086518F /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 902B81C2137A0FA80086518F /* TBXML.m */; };
 		902B81CD137A10470086518F /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 902B81CC137A10470086518F /* libz.dylib */; };
 		902B81D1137A148C0086518F /* HubXMLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 902B81CF137A148C0086518F /* HubXMLConnection.m */; };
-		902B81D5137A19130086518F /* HHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 902B81D4137A19120086518F /* HHViewController.m */; };
 		902B81D8137A1D710086518F /* HubPieceImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 902B81D7137A1D710086518F /* HubPieceImage.m */; };
 		902B81DB137AF3320086518F /* HubPieceVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 902B81DA137AF3320086518F /* HubPieceVideo.m */; };
 		902B81DE137AF7670086518F /* HubPieceAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 902B81DD137AF7670086518F /* HubPieceAudio.m */; };
 		902B81E1137AFE9B0086518F /* HubPieceMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 902B81E0137AFE9A0086518F /* HubPieceMedia.m */; };
+		906F40231384BD9900617877 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 906F40181384BD9900617877 /* NSObject+SBJSON.m */; };
+		906F40241384BD9900617877 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 906F401A1384BD9900617877 /* NSString+SBJSON.m */; };
+		906F40251384BD9900617877 /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 906F401C1384BD9900617877 /* SBJSON.m */; };
+		906F40261384BD9900617877 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 906F401E1384BD9900617877 /* SBJsonBase.m */; };
+		906F40271384BD9900617877 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 906F40201384BD9900617877 /* SBJsonParser.m */; };
+		906F40281384BD9900617877 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 906F40221384BD9900617877 /* SBJsonWriter.m */; };
 		90728E9A138054B400F95A36 /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 90728E94138054B400F95A36 /* libzbar.a */; };
 		90728E9B138054B400F95A36 /* zbar-back.png in Resources */ = {isa = PBXBuildFile; fileRef = 90728E96138054B400F95A36 /* zbar-back.png */; };
 		90728E9C138054B400F95A36 /* zbar-help.html in Resources */ = {isa = PBXBuildFile; fileRef = 90728E97138054B400F95A36 /* zbar-help.html */; };
@@ -56,20 +62,32 @@
 		90728EA51380554400F95A36 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90728EA41380554400F95A36 /* CoreVideo.framework */; };
 		90728EA71380555100F95A36 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 90728EA61380555100F95A36 /* libiconv.dylib */; };
 		90728EA91380555E00F95A36 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90728EA81380555E00F95A36 /* QuartzCore.framework */; };
+		9086AD3E1385F272001B2F9D /* menu_buttons.png in Resources */ = {isa = PBXBuildFile; fileRef = 9086AD3C1385F272001B2F9D /* menu_buttons.png */; };
+		9086AD3F1385F272001B2F9D /* menu_buttons@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9086AD3D1385F272001B2F9D /* menu_buttons@2x.png */; };
 		909B2A24137CFD030031A107 /* loadingscreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 909B2A22137CFD030031A107 /* loadingscreen.png */; };
 		909B2A25137CFD030031A107 /* loadingscreen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 909B2A23137CFD030031A107 /* loadingscreen@2x.png */; };
+		90AC6EA81388AA9E009B486C /* loadingscreen-v2.png in Resources */ = {isa = PBXBuildFile; fileRef = 90AC6EA61388AA9E009B486C /* loadingscreen-v2.png */; };
+		90AC6EA91388AA9E009B486C /* loadingscreen-v2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90AC6EA71388AA9E009B486C /* loadingscreen-v2@2x.png */; };
+		90AC6EAA1388AAC3009B486C /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 90F6FDC81384F7FE00A96A02 /* Default.png */; };
+		90AC6EAC1388AAD9009B486C /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90AC6EAB1388AAD9009B486C /* Default@2x.png */; };
+		90AC6EB21388C307009B486C /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90AC6EB11388C307009B486C /* icon@2x.png */; };
+		90AC6EB41388C30E009B486C /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 90AC6EB31388C30E009B486C /* icon.png */; };
+		90ADBE651386C8A400B3D09E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90ADBE631386C8A400B3D09E /* AudioToolbox.framework */; };
+		90ADBE661386C8A400B3D09E /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90ADBE641386C8A400B3D09E /* OpenAL.framework */; };
+		90ADBE761386C99900B3D09E /* Decoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 90ADBE691386C99900B3D09E /* Decoder.m */; };
+		90ADBE771386C99900B3D09E /* Finch.m in Sources */ = {isa = PBXBuildFile; fileRef = 90ADBE6B1386C99900B3D09E /* Finch.m */; };
+		90ADBE781386C99900B3D09E /* PCMDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 90ADBE6D1386C99900B3D09E /* PCMDecoder.m */; };
+		90ADBE791386C99900B3D09E /* Reporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 90ADBE6F1386C99900B3D09E /* Reporter.m */; };
+		90ADBE7A1386C99900B3D09E /* RevolverSound.m in Sources */ = {isa = PBXBuildFile; fileRef = 90ADBE711386C99900B3D09E /* RevolverSound.m */; };
+		90ADBE7B1386C99900B3D09E /* Sample.m in Sources */ = {isa = PBXBuildFile; fileRef = 90ADBE731386C99900B3D09E /* Sample.m */; };
+		90ADBE7C1386C99900B3D09E /* Sound.m in Sources */ = {isa = PBXBuildFile; fileRef = 90ADBE751386C99900B3D09E /* Sound.m */; };
 		90BB22E713832ED900C7797F /* scan_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 90BB22E513832ED900C7797F /* scan_logo.png */; };
 		90BB22E813832ED900C7797F /* scan_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90BB22E613832ED900C7797F /* scan_logo@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8E94F6C0137A08BE00580A6C /* Scan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scan.h; sourceTree = "<group>"; };
-		8E94F6C1137A08BE00580A6C /* Scan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scan.m; sourceTree = "<group>"; };
-		8E94F6C2137A08BE00580A6C /* Scan.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Scan.xib; sourceTree = "<group>"; };
 		8E94F6C5137A08CC00580A6C /* HubPieceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HubPieceView.h; sourceTree = "<group>"; };
 		8E94F6C6137A08CC00580A6C /* HubPieceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HubPieceView.m; sourceTree = "<group>"; };
-		8E94F710137B89CC00580A6C /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		8E94F712137B89D900580A6C /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		8E9A543A13833E7600B5A5C7 /* Video.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Video.h; sourceTree = "<group>"; };
 		8E9A543B13833E7600B5A5C7 /* Video.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Video.m; sourceTree = "<group>"; };
 		8E9A543C13833E7600B5A5C7 /* Video.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Video.xib; sourceTree = "<group>"; };
@@ -84,7 +102,7 @@
 		90010FF31384991000015FD2 /* FBLoginDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBLoginDialog.m; sourceTree = "<group>"; };
 		90010FF41384991000015FD2 /* FBDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBDialog.h; sourceTree = "<group>"; };
 		90010FF51384991000015FD2 /* FBDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBDialog.m; sourceTree = "<group>"; };
-		900160631379F72A00E418AD /* HenryHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HenryHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		900160631379F72A00E418AD /* Henry Hi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Henry Hi.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		900160671379F72A00E418AD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		900160691379F72A00E418AD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9001606B1379F72A00E418AD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -97,6 +115,12 @@
 		900160791379F72A00E418AD /* HenryHubAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HenryHubAppDelegate.m; sourceTree = "<group>"; };
 		9001607C1379F72A00E418AD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
 		9001607F1379F72A00E418AD /* HenryHub.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HenryHub.xcdatamodel; sourceTree = "<group>"; };
+		90220C2F1387328000731424 /* qrcode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qrcode.png; sourceTree = "<group>"; };
+		90220C31138733CE00731424 /* videomock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = videomock.png; sourceTree = "<group>"; };
+		90220C331387343800731424 /* Related.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Related.h; sourceTree = "<group>"; };
+		90220C341387343800731424 /* Related.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Related.m; sourceTree = "<group>"; };
+		90220C351387343800731424 /* Related.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Related.xib; sourceTree = "<group>"; };
+		90220C4013873C0200731424 /* facebookmock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebookmock.png; sourceTree = "<group>"; };
 		902B81851379F83D0086518F /* mainLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mainLogo.png; sourceTree = "<group>"; };
 		902B81A8137A00020086518F /* HHubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHubViewController.h; sourceTree = "<group>"; };
 		902B81A9137A00020086518F /* HHubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHubViewController.m; sourceTree = "<group>"; };
@@ -116,8 +140,6 @@
 		902B81CC137A10470086518F /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		902B81CE137A148C0086518F /* HubXMLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HubXMLConnection.h; sourceTree = "<group>"; };
 		902B81CF137A148C0086518F /* HubXMLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HubXMLConnection.m; sourceTree = "<group>"; };
-		902B81D3137A19120086518F /* HHViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHViewController.h; sourceTree = "<group>"; };
-		902B81D4137A19120086518F /* HHViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHViewController.m; sourceTree = "<group>"; };
 		902B81D6137A1D710086518F /* HubPieceImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HubPieceImage.h; sourceTree = "<group>"; };
 		902B81D7137A1D710086518F /* HubPieceImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HubPieceImage.m; sourceTree = "<group>"; };
 		902B81D9137AF3310086518F /* HubPieceVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HubPieceVideo.h; sourceTree = "<group>"; };
@@ -126,6 +148,19 @@
 		902B81DD137AF7670086518F /* HubPieceAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HubPieceAudio.m; sourceTree = "<group>"; };
 		902B81DF137AFE990086518F /* HubPieceMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HubPieceMedia.h; sourceTree = "<group>"; };
 		902B81E0137AFE9A0086518F /* HubPieceMedia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HubPieceMedia.m; sourceTree = "<group>"; };
+		906F40161384BD9900617877 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
+		906F40171384BD9900617877 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
+		906F40181384BD9900617877 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
+		906F40191384BD9900617877 /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
+		906F401A1384BD9900617877 /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SBJSON.m"; sourceTree = "<group>"; };
+		906F401B1384BD9900617877 /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON.h; sourceTree = "<group>"; };
+		906F401C1384BD9900617877 /* SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJSON.m; sourceTree = "<group>"; };
+		906F401D1384BD9900617877 /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
+		906F401E1384BD9900617877 /* SBJsonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonBase.m; sourceTree = "<group>"; };
+		906F401F1384BD9900617877 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		906F40201384BD9900617877 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		906F40211384BD9900617877 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		906F40221384BD9900617877 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		90728E81138054B400F95A36 /* Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Decoder.h; sourceTree = "<group>"; };
 		90728E82138054B400F95A36 /* Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exception.h; sourceTree = "<group>"; };
 		90728E83138054B400F95A36 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
@@ -155,10 +190,34 @@
 		90728EA41380554400F95A36 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		90728EA61380555100F95A36 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 		90728EA81380555E00F95A36 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		9086AD3C1385F272001B2F9D /* menu_buttons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_buttons.png; sourceTree = "<group>"; };
+		9086AD3D1385F272001B2F9D /* menu_buttons@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_buttons@2x.png"; sourceTree = "<group>"; };
 		909B2A22137CFD030031A107 /* loadingscreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loadingscreen.png; sourceTree = "<group>"; };
 		909B2A23137CFD030031A107 /* loadingscreen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loadingscreen@2x.png"; sourceTree = "<group>"; };
+		90AC6EA61388AA9E009B486C /* loadingscreen-v2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loadingscreen-v2.png"; sourceTree = "<group>"; };
+		90AC6EA71388AA9E009B486C /* loadingscreen-v2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loadingscreen-v2@2x.png"; sourceTree = "<group>"; };
+		90AC6EAB1388AAD9009B486C /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
+		90AC6EB11388C307009B486C /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "../icon@2x.png"; sourceTree = "<group>"; };
+		90AC6EB31388C30E009B486C /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../icon.png; sourceTree = "<group>"; };
+		90ADBE631386C8A400B3D09E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		90ADBE641386C8A400B3D09E /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+		90ADBE681386C99900B3D09E /* Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Decoder.h; path = Finch/Source/Decoder.h; sourceTree = "<group>"; };
+		90ADBE691386C99900B3D09E /* Decoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Decoder.m; path = Finch/Source/Decoder.m; sourceTree = "<group>"; };
+		90ADBE6A1386C99900B3D09E /* Finch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Finch.h; path = Finch/Source/Finch.h; sourceTree = "<group>"; };
+		90ADBE6B1386C99900B3D09E /* Finch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Finch.m; path = Finch/Source/Finch.m; sourceTree = "<group>"; };
+		90ADBE6C1386C99900B3D09E /* PCMDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PCMDecoder.h; path = Finch/Source/PCMDecoder.h; sourceTree = "<group>"; };
+		90ADBE6D1386C99900B3D09E /* PCMDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PCMDecoder.m; path = Finch/Source/PCMDecoder.m; sourceTree = "<group>"; };
+		90ADBE6E1386C99900B3D09E /* Reporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reporter.h; path = Finch/Source/Reporter.h; sourceTree = "<group>"; };
+		90ADBE6F1386C99900B3D09E /* Reporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reporter.m; path = Finch/Source/Reporter.m; sourceTree = "<group>"; };
+		90ADBE701386C99900B3D09E /* RevolverSound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RevolverSound.h; path = Finch/Source/RevolverSound.h; sourceTree = "<group>"; };
+		90ADBE711386C99900B3D09E /* RevolverSound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RevolverSound.m; path = Finch/Source/RevolverSound.m; sourceTree = "<group>"; };
+		90ADBE721386C99900B3D09E /* Sample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Sample.h; path = Finch/Source/Sample.h; sourceTree = "<group>"; };
+		90ADBE731386C99900B3D09E /* Sample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Sample.m; path = Finch/Source/Sample.m; sourceTree = "<group>"; };
+		90ADBE741386C99900B3D09E /* Sound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Sound.h; path = Finch/Source/Sound.h; sourceTree = "<group>"; };
+		90ADBE751386C99900B3D09E /* Sound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Sound.m; path = Finch/Source/Sound.m; sourceTree = "<group>"; };
 		90BB22E513832ED900C7797F /* scan_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scan_logo.png; sourceTree = "<group>"; };
 		90BB22E613832ED900C7797F /* scan_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scan_logo@2x.png"; sourceTree = "<group>"; };
+		90F6FDC81384F7FE00A96A02 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +225,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90ADBE651386C8A400B3D09E /* AudioToolbox.framework in Frameworks */,
+				90ADBE661386C8A400B3D09E /* OpenAL.framework in Frameworks */,
 				90728EA91380555E00F95A36 /* QuartzCore.framework in Frameworks */,
 				90728EA71380555100F95A36 /* libiconv.dylib in Frameworks */,
 				90728EA51380554400F95A36 /* CoreVideo.framework in Frameworks */,
@@ -183,16 +244,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8E94F6BC137A088000580A6C /* Scan */ = {
-			isa = PBXGroup;
-			children = (
-				8E94F6C0137A08BE00580A6C /* Scan.h */,
-				8E94F6C1137A08BE00580A6C /* Scan.m */,
-				8E94F6C2137A08BE00580A6C /* Scan.xib */,
-			);
-			name = Scan;
-			sourceTree = "<group>";
-		};
 		8E94F6BE137A089100580A6C /* HubPieceView */ = {
 			isa = PBXGroup;
 			children = (
@@ -225,7 +276,7 @@
 		900160641379F72A00E418AD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				900160631379F72A00E418AD /* HenryHub.app */,
+				900160631379F72A00E418AD /* Henry Hi.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -233,6 +284,8 @@
 		900160661379F72A00E418AD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				90ADBE631386C8A400B3D09E /* AudioToolbox.framework */,
+				90ADBE641386C8A400B3D09E /* OpenAL.framework */,
 				90728EA81380555E00F95A36 /* QuartzCore.framework */,
 				90728EA41380554400F95A36 /* CoreVideo.framework */,
 				90728EA21380553E00F95A36 /* CoreMedia.framework */,
@@ -253,7 +306,7 @@
 				900160791379F72A00E418AD /* HenryHubAppDelegate.m */,
 				9001607B1379F72A00E418AD /* MainWindow.xib */,
 				902B81841379F81A0086518F /* Views */,
-				902B81BB137A0DA00086518F /* XML */,
+				902B81BB137A0DA00086518F /* Connection */,
 				902B81E2137B05ED0086518F /* Models */,
 				900160701379F72A00E418AD /* Supporting Files */,
 			);
@@ -263,13 +316,14 @@
 		900160701379F72A00E418AD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				905410DC1384984A000BC652 /* FacebookSDK */,
+				90ADBE671386C97F00B3D09E /* Finch */,
 				900160711379F72A00E418AD /* HenryHub-Info.plist */,
 				900160721379F72A00E418AD /* InfoPlist.strings */,
 				900160751379F72A00E418AD /* HenryHub-Prefix.pch */,
 				900160761379F72A00E418AD /* main.m */,
 				902B81CC137A10470086518F /* libz.dylib */,
 				90728EA61380555100F95A36 /* libiconv.dylib */,
+				905410DC1384984A000BC652 /* FacebookSDK */,
 				90728E7D138054B400F95A36 /* ZBarSDK */,
 				902B81CB137A0FEE0086518F /* TBXML */,
 			);
@@ -299,14 +353,14 @@
 		902B81721379F7A30086518F /* Inside */ = {
 			isa = PBXGroup;
 			children = (
-				8E9A5451138492CD00B5A5C7 /* Video */,
 				8E94F6BE137A089100580A6C /* HubPieceView */,
-				8E94F6BC137A088000580A6C /* Scan */,
+				90ADBE621386480500B3D09E /* Audio */,
+				90ADBE61138647FB00B3D09E /* Images */,
+				90ADBE60138647EC00B3D09E /* Related */,
+				8E9A5451138492CD00B5A5C7 /* Video */,
 				902B81B2137A004A0086518F /* InSide.h */,
 				902B81B3137A004A0086518F /* InSide.m */,
 				902B81B4137A004A0086518F /* InSide.xib */,
-				902B81D3137A19120086518F /* HHViewController.h */,
-				902B81D4137A19120086518F /* HHViewController.m */,
 			);
 			name = Inside;
 			sourceTree = "<group>";
@@ -314,11 +368,20 @@
 		902B81831379F8120086518F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				90AC6EB31388C30E009B486C /* icon.png */,
+				90AC6EB11388C307009B486C /* icon@2x.png */,
+				90AC6EAB1388AAD9009B486C /* Default@2x.png */,
+				90AC6EA61388AA9E009B486C /* loadingscreen-v2.png */,
+				90AC6EA71388AA9E009B486C /* loadingscreen-v2@2x.png */,
+				90220C4013873C0200731424 /* facebookmock.png */,
+				90220C31138733CE00731424 /* videomock.png */,
+				90220C2F1387328000731424 /* qrcode.png */,
+				9086AD3C1385F272001B2F9D /* menu_buttons.png */,
+				9086AD3D1385F272001B2F9D /* menu_buttons@2x.png */,
 				909B2A22137CFD030031A107 /* loadingscreen.png */,
 				909B2A23137CFD030031A107 /* loadingscreen@2x.png */,
+				90F6FDC81384F7FE00A96A02 /* Default.png */,
 				902B81851379F83D0086518F /* mainLogo.png */,
-				8E94F712137B89D900580A6C /* icon.png */,
-				8E94F710137B89CC00580A6C /* Default.png */,
 				90BB22E513832ED900C7797F /* scan_logo.png */,
 				90BB22E613832ED900C7797F /* scan_logo@2x.png */,
 			);
@@ -335,13 +398,13 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
-		902B81BB137A0DA00086518F /* XML */ = {
+		902B81BB137A0DA00086518F /* Connection */ = {
 			isa = PBXGroup;
 			children = (
 				902B81CE137A148C0086518F /* HubXMLConnection.h */,
 				902B81CF137A148C0086518F /* HubXMLConnection.m */,
 			);
-			name = XML;
+			name = Connection;
 			sourceTree = "<group>";
 		};
 		902B81CB137A0FEE0086518F /* TBXML */ = {
@@ -376,6 +439,7 @@
 		905410DC1384984A000BC652 /* FacebookSDK */ = {
 			isa = PBXGroup;
 			children = (
+				906F40151384BD7F00617877 /* JSON */,
 				90010FEC1384991000015FD2 /* FBDialog.bundle */,
 				90010FED1384991000015FD2 /* FBConnect.h */,
 				90010FEE1384991000015FD2 /* FBRequest.h */,
@@ -388,6 +452,26 @@
 				90010FF51384991000015FD2 /* FBDialog.m */,
 			);
 			name = FacebookSDK;
+			sourceTree = "<group>";
+		};
+		906F40151384BD7F00617877 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				906F40161384BD9900617877 /* JSON.h */,
+				906F40171384BD9900617877 /* NSObject+SBJSON.h */,
+				906F40181384BD9900617877 /* NSObject+SBJSON.m */,
+				906F40191384BD9900617877 /* NSString+SBJSON.h */,
+				906F401A1384BD9900617877 /* NSString+SBJSON.m */,
+				906F401B1384BD9900617877 /* SBJSON.h */,
+				906F401C1384BD9900617877 /* SBJSON.m */,
+				906F401D1384BD9900617877 /* SBJsonBase.h */,
+				906F401E1384BD9900617877 /* SBJsonBase.m */,
+				906F401F1384BD9900617877 /* SBJsonParser.h */,
+				906F40201384BD9900617877 /* SBJsonParser.m */,
+				906F40211384BD9900617877 /* SBJsonWriter.h */,
+				906F40221384BD9900617877 /* SBJsonWriter.m */,
+			);
+			name = JSON;
 			sourceTree = "<group>";
 		};
 		90728E7D138054B400F95A36 /* ZBarSDK */ = {
@@ -453,6 +537,51 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		90ADBE60138647EC00B3D09E /* Related */ = {
+			isa = PBXGroup;
+			children = (
+				90220C331387343800731424 /* Related.h */,
+				90220C341387343800731424 /* Related.m */,
+				90220C351387343800731424 /* Related.xib */,
+			);
+			name = Related;
+			sourceTree = "<group>";
+		};
+		90ADBE61138647FB00B3D09E /* Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		90ADBE621386480500B3D09E /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Audio;
+			sourceTree = "<group>";
+		};
+		90ADBE671386C97F00B3D09E /* Finch */ = {
+			isa = PBXGroup;
+			children = (
+				90ADBE681386C99900B3D09E /* Decoder.h */,
+				90ADBE691386C99900B3D09E /* Decoder.m */,
+				90ADBE6A1386C99900B3D09E /* Finch.h */,
+				90ADBE6B1386C99900B3D09E /* Finch.m */,
+				90ADBE6C1386C99900B3D09E /* PCMDecoder.h */,
+				90ADBE6D1386C99900B3D09E /* PCMDecoder.m */,
+				90ADBE6E1386C99900B3D09E /* Reporter.h */,
+				90ADBE6F1386C99900B3D09E /* Reporter.m */,
+				90ADBE701386C99900B3D09E /* RevolverSound.h */,
+				90ADBE711386C99900B3D09E /* RevolverSound.m */,
+				90ADBE721386C99900B3D09E /* Sample.h */,
+				90ADBE731386C99900B3D09E /* Sample.m */,
+				90ADBE741386C99900B3D09E /* Sound.h */,
+				90ADBE751386C99900B3D09E /* Sound.m */,
+			);
+			name = Finch;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -470,7 +599,7 @@
 			);
 			name = HenryHub;
 			productName = HenryHub;
-			productReference = 900160631379F72A00E418AD /* HenryHub.app */;
+			productReference = 900160631379F72A00E418AD /* Henry Hi.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -506,9 +635,6 @@
 				902B81AC137A001B0086518F /* HHubViewController.xib in Resources */,
 				902B81B1137A00350086518F /* OutSide.xib in Resources */,
 				902B81B6137A004A0086518F /* InSide.xib in Resources */,
-				8E94F6C4137A08BE00580A6C /* Scan.xib in Resources */,
-				8E94F711137B89CC00580A6C /* Default.png in Resources */,
-				8E94F713137B89D900580A6C /* icon.png in Resources */,
 				909B2A24137CFD030031A107 /* loadingscreen.png in Resources */,
 				909B2A25137CFD030031A107 /* loadingscreen@2x.png in Resources */,
 				90728E9B138054B400F95A36 /* zbar-back.png in Resources */,
@@ -520,6 +646,18 @@
 				90010FF61384991000015FD2 /* FBDialog.bundle in Resources */,
 				8EED84A61380745C00096292 /* HubPieceView.xib in Resources */,
 				8E9A543E13833E7600B5A5C7 /* Video.xib in Resources */,
+				9086AD3E1385F272001B2F9D /* menu_buttons.png in Resources */,
+				9086AD3F1385F272001B2F9D /* menu_buttons@2x.png in Resources */,
+				90220C301387328000731424 /* qrcode.png in Resources */,
+				90220C32138733CE00731424 /* videomock.png in Resources */,
+				90220C371387343800731424 /* Related.xib in Resources */,
+				90220C4113873C0200731424 /* facebookmock.png in Resources */,
+				90AC6EA81388AA9E009B486C /* loadingscreen-v2.png in Resources */,
+				90AC6EA91388AA9E009B486C /* loadingscreen-v2@2x.png in Resources */,
+				90AC6EAA1388AAC3009B486C /* Default.png in Resources */,
+				90AC6EAC1388AAD9009B486C /* Default@2x.png in Resources */,
+				90AC6EB21388C307009B486C /* icon@2x.png in Resources */,
+				90AC6EB41388C30E009B486C /* icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,13 +674,11 @@
 				902B81AA137A00020086518F /* HHubViewController.m in Sources */,
 				902B81B0137A00350086518F /* OutSide.m in Sources */,
 				902B81B5137A004A0086518F /* InSide.m in Sources */,
-				8E94F6C3137A08BE00580A6C /* Scan.m in Sources */,
 				8E94F6C8137A08CC00580A6C /* HubPieceView.m in Sources */,
 				902B81C5137A0FA80086518F /* HubPiece.m in Sources */,
 				902B81C6137A0FA80086518F /* NSDataAdditions.m in Sources */,
 				902B81C7137A0FA80086518F /* TBXML.m in Sources */,
 				902B81D1137A148C0086518F /* HubXMLConnection.m in Sources */,
-				902B81D5137A19130086518F /* HHViewController.m in Sources */,
 				902B81D8137A1D710086518F /* HubPieceImage.m in Sources */,
 				902B81DB137AF3320086518F /* HubPieceVideo.m in Sources */,
 				902B81DE137AF7670086518F /* HubPieceAudio.m in Sources */,
@@ -552,6 +688,20 @@
 				90010FF91384991000015FD2 /* FBLoginDialog.m in Sources */,
 				90010FFA1384991000015FD2 /* FBDialog.m in Sources */,
 				8E9A543D13833E7600B5A5C7 /* Video.m in Sources */,
+				906F40231384BD9900617877 /* NSObject+SBJSON.m in Sources */,
+				906F40241384BD9900617877 /* NSString+SBJSON.m in Sources */,
+				906F40251384BD9900617877 /* SBJSON.m in Sources */,
+				906F40261384BD9900617877 /* SBJsonBase.m in Sources */,
+				906F40271384BD9900617877 /* SBJsonParser.m in Sources */,
+				906F40281384BD9900617877 /* SBJsonWriter.m in Sources */,
+				90ADBE761386C99900B3D09E /* Decoder.m in Sources */,
+				90ADBE771386C99900B3D09E /* Finch.m in Sources */,
+				90ADBE781386C99900B3D09E /* PCMDecoder.m in Sources */,
+				90ADBE791386C99900B3D09E /* Reporter.m in Sources */,
+				90ADBE7A1386C99900B3D09E /* RevolverSound.m in Sources */,
+				90ADBE7B1386C99900B3D09E /* Sample.m in Sources */,
+				90ADBE7C1386C99900B3D09E /* Sound.m in Sources */,
+				90220C361387343800731424 /* Related.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -622,7 +772,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/HenryHub/ZBarSDK\"",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Henry Hi";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -639,7 +789,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/HenryHub/ZBarSDK\"",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Henry Hi";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};

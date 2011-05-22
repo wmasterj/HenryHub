@@ -14,7 +14,9 @@
 @implementation HubXMLConnection
 
 // VARS
-@synthesize pieceXML=_pieceXML, receivedData=_receivedData, stringXML=_stringXML;
+@synthesize receivedData = _receivedData;
+@synthesize stringXML = _stringXML;
+@synthesize delegate = _delegate;
 
 - (BOOL)connect:(NSString *)idString
 {
@@ -31,14 +33,11 @@
         NSLog(@"Connection established.");
         self.receivedData = [[NSMutableData alloc] retain];
         [theConnection release];
-        //[theRequest release];
         return TRUE;
     }
     else 
     {
         NSLog(@"Connection failed.");
-        [theConnection release];
-        //[theRequest release];
     }
     return FALSE;
 }
@@ -68,7 +67,10 @@
     // Report NSError sent
     NSLog(@"Failed with error: %@ %@", [error localizedDescription], [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]);
     
-    [connection release];
+    // TODO: Change this to using a delegate    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"HubXMLConnectionFailed" object:nil];
+    
+    //[connection release]; // released in side other method
     [self.receivedData release];    
 }
 
@@ -79,8 +81,9 @@
     // All data loaded now do something with it.
     self.stringXML = [[NSString alloc] initWithData:self.receivedData encoding:NSUTF8StringEncoding];
     
-    // Notify any observers about this having finished loading
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"HubXMLLoaded" object:nil];
+    // Notify the delegate that the data has finished loading
+    [self.delegate dataDidDownload:YES];
+    NSLog(@"Notified delegate");
 }
 
 /*      NSURLConnection delegate methods : END        */
@@ -88,7 +91,6 @@
 - (void)dealloc
 {
     // Release instance variables here
-    [self.pieceXML release];
     [self.receivedData release];
     
     [super dealloc];

@@ -10,6 +10,11 @@
 #import "HubXMLConnection.h"
 #import "HubPieceView.h"
 #import "ZBarSDK.h"
+#import "Finch.h"
+#import "Sound.h"
+#import <AVFoundation/AVFoundation.h>
+#import <AudioToolbox/AudioToolbox.h>
+
 
 @implementation InSide
 
@@ -22,6 +27,7 @@
     [UIView setAnimationDuration:0.5];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
     [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.view.superview cache:YES];
+    if(self.view == nil) NSLog(@"self.view not there");
     [self.view removeFromSuperview];
     [UIView commitAnimations];
 }
@@ -29,8 +35,6 @@
 /*!
  This function creates a connection using the HubXMLConnection class and retrieves
  the XML for the given destination.
- 
- TODO: Extend this to include a specific id.
  */
 -(IBAction)scanTest
 {
@@ -43,15 +47,9 @@
         HubPieceView *pieceView = [[HubPieceView alloc] initWithNibName:@"HubPieceView" bundle:nil];
         
         pieceView.pieceConnection = aConnection;
-        
-        // Animate transition
-//        [UIView beginAnimations:@"showPiece" context:nil];
-//        [UIView setAnimationDuration:0.5];
-//        [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-//        [UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:self.view.superview cache:YES];
+
         [self.view.superview addSubview:pieceView.view];
         [self.view removeFromSuperview];
-//        [UIView commitAnimations];
     }
     [aConnection release];
 }
@@ -86,6 +84,18 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
+    // ADD sound here
+    // Initializes OpenAL
+//    Finch *soundEngine = [[Finch alloc] init];
+//    NSBundle *bundle = [NSBundle mainBundle];
+//    
+//    // Simple sound, only one instance can play at a time.
+//    // If you call ‘play’ and the sound is still playing,
+//    // it will start from the beginning.
+//    Sound *click = [[Sound alloc] initWithFile:
+//                    [bundle URLForResource:@"click" withExtension:@"wav"]];
+//    [click play];
+    
     // Hide the scanner
     [self.reader dismissModalViewControllerAnimated:YES];
     
@@ -101,22 +111,19 @@
     
     // OPEN HUB PIECE
     HubXMLConnection *aConnection = [[HubXMLConnection alloc] init];    
+    HubPieceView *pieceView = [[HubPieceView alloc] 
+                               initWithNibName:@"HubPieceView" bundle:nil];
+    aConnection.delegate = pieceView;
+    
     // Connect
     BOOL success = [aConnection connect:symbol.data];
     
     // If the connection was successful then load the actual HubPieceView
     if(success) {
-        HubPieceView *pieceView = [[HubPieceView alloc] initWithNibName:@"HubPieceView" bundle:nil];
+        NSLog(@"Connected, getting the stuff...");
         pieceView.pieceConnection = aConnection;
-        
-        // Animate transition
-//        [UIView beginAnimations:@"showPiece" context:nil];
-//        [UIView setAnimationDuration:0.5];
-//        [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-//        [UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:self.view.superview cache:YES];
+        // Show the actual hub piece
         [self.view addSubview:pieceView.view];
-        //[self.view removeFromSuperview];
-//        [UIView commitAnimations];
     }
     else
     {
@@ -128,7 +135,7 @@
 
 - (void)readerControllerDidFailToRead:(ZBarReaderController *)reader withRetry:(BOOL)retry
 {
-    NSLog(@"Something went wrong!");
+    NSLog(@"SCANNING: Something went wrong!");
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -148,8 +155,12 @@
     [super dealloc];
 }
 
+#pragma mark - UIView methods
+
 - (void)didReceiveMemoryWarning
 {
+    NSLog(@">>  InSide: Memory warning! <<");
+    
     // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
     
@@ -161,6 +172,15 @@
 - (void)viewDidLoad
 {
     NSLog(@"InSide view did load");
+    
+    // Configure the audio session so that the app can play sounds
+    NSError *error = nil;
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    [session setCategory:AVAudioSessionCategoryPlayback error:&error];
+    NSAssert(error == nil, @"Failed to set audio session category.");
+    [session setActive:YES error:&error];
+    NSAssert(error == nil, @"Failed to activate audio session.");
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }

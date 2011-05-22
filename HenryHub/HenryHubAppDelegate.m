@@ -36,6 +36,11 @@
     return YES;
 }
 
+-(void)applicationDidReceiveMemoryWarning:(UIApplication *)application
+{
+    NSLog(@">> App deletegate: Memory warning! <<");
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     /*

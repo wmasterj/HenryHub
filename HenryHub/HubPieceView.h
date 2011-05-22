@@ -7,26 +7,34 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Video.h"
+#import "HubXMLConnection.h" // Imports "HttpDataDelegate"
 
+@class Related;
+@class Video;
 @class HubXMLConnection;
 @class HubPiece;
 @class HubPieceImage;
 @class TBXMLElement;
 
+#define MENU_ANIMITATION_DURATION 0.25
 
-@interface HubPieceView : UIViewController {
-    
-    Video *video_view;
+@interface HubPieceView : UIViewController <HttpDataDelegate> {
 
 }
 
-@property(nonatomic, retain)  IBOutlet Video *video_view;
+// Content views
+//
+@property (nonatomic, retain) IBOutlet Video *video_view;
+@property (nonatomic, retain) IBOutlet Related *related_view;
+@property (nonatomic, retain) IBOutlet UIView *facebookMock;
 
+// Data & connection
+//
 @property (nonatomic, retain) HubXMLConnection *pieceConnection;
 @property (nonatomic, retain) HubPiece *currentPiece;
 
 // Hub Piece elements
+//
 @property (nonatomic, retain) IBOutlet UITextView *hub_title;
 @property (nonatomic, retain) IBOutlet UIImageView *backgroundImage;
 // Information
@@ -34,16 +42,24 @@
 @property (nonatomic, retain) IBOutlet UITextView *hub_description;
 // Other UI elements
 @property (nonatomic, retain) IBOutlet UIButton *infoToggle;
+@property (nonatomic, assign) CGRect contentViewFrame;
+@property (nonatomic, retain) IBOutlet UIButton *backButton;
+@property (nonatomic, retain) UIActivityIndicatorView *spinner;
 // Moving UIView
-@property (nonatomic, retain) IBOutlet UIView *sub_menu;
-@property (nonatomic, assign) BOOL movingMenu;
-// Video UIView
-@property (nonatomic, retain) IBOutlet UIButton *menu_layer;
-@property (nonatomic, retain) IBOutlet UIView *show_video;
+@property (nonatomic, retain) IBOutlet UIView *sub_menu; // 6 button menu
+@property (nonatomic, assign) BOOL movingMenu; 
+@property (nonatomic, retain) IBOutlet UIButton *menu_layer; // menu bottom tap overlay
+
 // Methods
 //
--(IBAction)showInformation:(id)sender;
+-(IBAction)toggleInformation:(id)sender;
 -(IBAction)backToScan:(id)sender;
--(IBAction)offMenu:(id)sender;
 -(IBAction)flipVideo:(id)sender;
+-(IBAction)flipRelated:(id)sender;
+-(IBAction)flipSharing:(id)sender;
+-(IBAction)hideAllViews:(id)sender;
+-(void)hideMenu;
+-(IBAction)showMenu:(id)sender;
+-(void)connectionError;
+
 @end
