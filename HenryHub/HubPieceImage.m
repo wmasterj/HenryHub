@@ -20,10 +20,14 @@
     
     if(imageXML) 
     {
-        self.title = [TBXML textForElement: [TBXML childElementNamed:@"title" parentElement:imageXML]];;
-        self.asset_url = [NSURL URLWithString:[TBXML textForElement: [TBXML childElementNamed:@"url" parentElement:imageXML]] ];
-        self.page_url = [NSURL URLWithString:[TBXML textForElement: [TBXML childElementNamed:@"page_link" parentElement:imageXML]] ];
-        self.caption = [TBXML textForElement: [TBXML childElementNamed:@"description" parentElement:imageXML]];;
+        self.title = [TBXML textForElement: 
+                      [TBXML childElementNamed:@"title" parentElement:imageXML]];
+        self.asset_url = [TBXML textForElement: 
+                          [TBXML childElementNamed:@"url" parentElement:imageXML]];
+        self.page_url = [TBXML textForElement:
+                         [TBXML childElementNamed:@"page_link" parentElement:imageXML]];
+        self.caption = [TBXML textForElement:
+                        [TBXML childElementNamed:@"description" parentElement:imageXML]];
         return self;
     }
     return self;

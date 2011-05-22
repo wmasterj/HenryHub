@@ -14,27 +14,23 @@
 #import "InSide.h"
 #import "Video.h"
 #import "Related.h"
+#import "FBConnect.h"
 
 
+NSString *const kAppId = @"154049007996025";
+NSString *const kAppKey = @"f5c29dab6560b715d6864cd4fd3eb6d1";
+NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
 
 @implementation HubPieceView
 
-@synthesize pieceConnection = _pieceConnection;
-@synthesize currentPiece = _currentPiece;
-@synthesize hub_title = _hub_title;
-@synthesize backgroundImage = _backgroundImage;
-@synthesize infoToggle = _infoToggle;
-@synthesize hub_description = _hub_description;
-@synthesize hub_info = _hub_info;
-@synthesize backButton = _backButton;
-@synthesize movingMenu = _movingMenu;
-@synthesize sub_menu = _sub_menu;
-@synthesize video_view = _video_view;
-@synthesize related_view = _related_view;
-@synthesize facebookMock = _facebookMock;
-@synthesize menu_layer = _menu_layer;
-@synthesize contentViewFrame = _contentViewFrame;
-@synthesize spinner = _spinner;
+@synthesize pieceConnection = _pieceConnection, currentPiece = _currentPiece;
+@synthesize hub_title = _hub_title,backgroundImage = _backgroundImage;
+@synthesize infoToggle = _infoToggle, hub_description = _hub_description, hub_info = _hub_info;
+@synthesize backButton = _backButton, movingMenu = _movingMenu,sub_menu = _sub_menu;
+@synthesize video_view = _video_view, related_view = _related_view;
+@synthesize facebookMock = _facebookMock, menu_layer = _menu_layer;
+@synthesize contentViewFrame = _contentViewFrame, spinner = _spinner;
+@synthesize facebook = _facebook;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -82,7 +78,8 @@
                     self.backgroundImage.image = nil;
                 }
                 self.backgroundImage.image = [UIImage imageWithData:
-                                              [NSData dataWithContentsOfURL: tmpImage.asset_url]];
+                                              [NSData dataWithContentsOfURL: 
+                                               [NSURL URLWithString:tmpImage.asset_url]]];
             } else {
                 NSLog(@"No image URL! No first image?? Error.");
             }
@@ -110,6 +107,7 @@
 
 -(void)dataDidNotDownload:(BOOL)success // delegate set to this object in InSide.m
 {
+    // TODO: Implement
     NSLog(@"Data not downloaded BU!!");
 }
 
@@ -145,7 +143,7 @@
 {
     // Tell the menu where to animate to
     CGRect viewFrame = self.sub_menu.frame;
-    viewFrame.origin.y = 272;
+    viewFrame.origin.y = 289;
     
     // Start animation
     [UIView beginAnimations:nil context:NULL];
@@ -170,13 +168,11 @@
     if(self.hub_info.hidden == NO)
     {
         // Hide menu, this also hides all content views
-        NSLog(@"Hide info");
         [self showMenu:sender];
     }        
     else   
     {
         // Show info content view
-        NSLog(@"Show info");
         self.hub_info.hidden = NO;
         [self hideMenu];
     }
@@ -188,8 +184,6 @@
     [self hideMenu];
     [self hideAllViews:sender];
     self.infoToggle.hidden = YES; // TODO: Animate in own method
-    
-    NSLog(@"Video View");
     
     if(self.video_view == nil)
         self.video_view = [[Video alloc] initWithNibName:@"Video" bundle:nil];
@@ -207,8 +201,6 @@
     [self hideAllViews:sender];
     self.infoToggle.hidden = YES; // TODO: Animate in own method
     
-    NSLog(@"Related View");
-    
     if(self.related_view == nil)
         self.related_view = [[Related alloc] initWithNibName:@"Related" bundle:nil];
     self.related_view.view.frame = self.contentViewFrame;
@@ -225,10 +217,20 @@
     [self hideAllViews:sender];
     self.infoToggle.hidden = YES; // TODO: Animate in own method
     
-    NSLog(@"Sharing View");
+    // Open up a Facebook dialog here, will prompt for login
+    HubPieceImage *fbImage = [self.currentPiece.images objectAtIndex:0];
+    NSString *fbTitle = [NSString stringWithFormat:@"Henry Art Gallery: %@", self.currentPiece.name];
+    NSMutableDictionary* params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                   kAppId, @"app_id",
+                                   @"http://www.facebook.com/henryartgallery", @"link",
+                                   fbImage.asset_url, @"picture",
+                                   fbTitle, @"name",
+                                   self.currentPiece.share_copy, @"description",
+                                   @"I'm at the Henry...",  @"message",
+                                   nil];
     
-    self.facebookMock.hidden = !self.facebookMock.hidden;
-    
+    [self.facebook dialog:@"feed" andParams:params andDelegate:self];
+
 }
 
 - (IBAction)backToScan:(id)sender
@@ -275,6 +277,8 @@
     [self.hub_description release];
     [self.currentPiece release];
     [self.video_view release];
+    [self.facebook release];
+    
     [super dealloc];
 }
 
@@ -308,6 +312,9 @@
                                           self.infoToggle.frame.size.height+50);
     [self.infoToggle setFrame:newInfoButtonRect];
     
+    // Setup facebook object
+    self.facebook = [[Facebook alloc] initWithAppId:kAppId];
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
@@ -325,6 +332,7 @@
     self.hub_description = nil;
     self.currentPiece    = nil;
     self.video_view      = nil;
+    self.facebook        = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

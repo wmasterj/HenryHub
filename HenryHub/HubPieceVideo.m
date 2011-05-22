@@ -22,9 +22,9 @@
     {
         self.title = [TBXML textForElement: [TBXML childElementNamed:@"title" parentElement:videoXML]];
         self.external_id = [TBXML textForElement: [TBXML childElementNamed:@"serviceid" parentElement:videoXML]];
-        self.asset_url = [NSURL URLWithString:[TBXML textForElement: [TBXML childElementNamed:@"url" parentElement:videoXML]]];
-        self.image_url = [NSURL URLWithString:[TBXML textForElement: [TBXML childElementNamed:@"thumbnail" parentElement:videoXML]]];
-        self.page_url = [NSURL URLWithString:[TBXML textForElement: [TBXML childElementNamed:@"url" parentElement:videoXML]]];
+        self.asset_url = [TBXML textForElement: [TBXML childElementNamed:@"url" parentElement:videoXML]];
+        self.image_url = [TBXML textForElement: [TBXML childElementNamed:@"thumbnail" parentElement:videoXML]];
+        self.page_url = [TBXML textForElement: [TBXML childElementNamed:@"url" parentElement:videoXML]];
         self.caption = [TBXML textForElement: [TBXML childElementNamed:@"description" parentElement:videoXML]];;
         self.duration = [NSNumber numberWithInt: [[TBXML textForElement: [TBXML childElementNamed:@"duration" parentElement:videoXML]] integerValue]];
         self.views = [TBXML textForElement: [TBXML childElementNamed:@"views" parentElement:videoXML]];

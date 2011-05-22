@@ -20,11 +20,17 @@
     if(audioXML) 
     {
         
-        self.title       = [TBXML textForElement: [TBXML childElementNamed:@"title" parentElement:audioXML] ];
-        self.asset_url   = [NSURL URLWithString:[TBXML textForElement: [TBXML childElementNamed:@"url" parentElement:audioXML] ] ];
-        self.page_url    = [NSURL URLWithString:[TBXML textForElement: [TBXML childElementNamed:@"url" parentElement:audioXML] ] ];
-        self.caption     = [TBXML textForElement: [TBXML childElementNamed:@"description" parentElement:audioXML] ];
-        self.duration    = [NSNumber numberWithInt:[[TBXML textForElement: [TBXML childElementNamed:@"duration" parentElement:audioXML]] integerValue]];
+        self.title       = [TBXML textForElement: 
+                            [TBXML childElementNamed:@"title" parentElement:audioXML] ];
+        self.asset_url   = [TBXML textForElement: 
+                            [TBXML childElementNamed:@"url" parentElement:audioXML]];
+        self.page_url    = [TBXML textForElement: 
+                            [TBXML childElementNamed:@"url" parentElement:audioXML] ];
+        self.caption     = [TBXML textForElement: 
+                            [TBXML childElementNamed:@"description" parentElement:audioXML] ];
+        self.duration    = [NSNumber numberWithInt:
+                            [[TBXML textForElement: 
+                              [TBXML childElementNamed:@"duration" parentElement:audioXML]] integerValue]];
         return self;
     }
     return self;

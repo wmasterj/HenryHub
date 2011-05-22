@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "HubXMLConnection.h" // Imports "HttpDataDelegate"
+#import "FBConnect.h"
 
 @class Related;
 @class Video;
@@ -18,7 +19,7 @@
 
 #define MENU_ANIMITATION_DURATION 0.25
 
-@interface HubPieceView : UIViewController <HttpDataDelegate> {
+@interface HubPieceView : UIViewController <HttpDataDelegate, FBDialogDelegate> {
 
 }
 
@@ -32,6 +33,7 @@
 //
 @property (nonatomic, retain) HubXMLConnection *pieceConnection;
 @property (nonatomic, retain) HubPiece *currentPiece;
+@property (nonatomic, retain) Facebook *facebook;
 
 // Hub Piece elements
 //

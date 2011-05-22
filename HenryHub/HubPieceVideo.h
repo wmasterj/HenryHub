@@ -21,7 +21,7 @@
 }
 
 @property (nonatomic, retain) NSString    *external_id;
-@property (nonatomic, retain) NSURL       *image_url; 
+@property (nonatomic, retain) NSString    *image_url; 
 @property (nonatomic, retain) NSNumber    *duration;
 @property (nonatomic, retain) NSString    *views;
 
