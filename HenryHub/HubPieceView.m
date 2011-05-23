@@ -71,12 +71,10 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
             HubPieceImage *tmpImage = [self.currentPiece.images objectAtIndex:0];
             if(tmpImage.asset_url)
             {
-                //NSLog(@"Adding background image: %@", tmpImage.asset_url);
-                if(self.backgroundImage.image != nil)
-                {
-                    NSLog(@"Second time around, lets clean self.backgroundImage");
-                    self.backgroundImage.image = nil;
-                }
+//                if(self.backgroundImage.image != nil)
+//                {
+//                    self.backgroundImage.image = nil;
+//                }
                 self.backgroundImage.image = [UIImage imageWithData:
                                               [NSData dataWithContentsOfURL: 
                                                [NSURL URLWithString:tmpImage.asset_url]]];
@@ -120,11 +118,11 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     self.facebookMock.hidden = YES;
 }
 
-- (void)hideMenu
+- (IBAction)hideMenu:(id)sender
 {
     // Tell the menu where to animate to
     CGRect viewFrame = self.sub_menu.frame;
-    viewFrame.origin.y = 415;
+    viewFrame.origin.y = 425;
     
     // Start animation
     [UIView beginAnimations:nil context:NULL];
@@ -136,6 +134,7 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     [UIView commitAnimations];
     
     self.backButton.hidden = YES; // TODO: Animate in own method
+    self.infoToggle.hidden = YES; // TODO: Animate in own method
     self.menu_layer.hidden = NO;
 }
 
@@ -174,19 +173,20 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     {
         // Show info content view
         self.hub_info.hidden = NO;
-        [self hideMenu];
+        [self hideMenu:sender];
     }
 }
 
 - (IBAction)flipVideo:(id)sender
 {
     // Hide menu
-    [self hideMenu];
+    [self hideMenu:sender];
     [self hideAllViews:sender];
     self.infoToggle.hidden = YES; // TODO: Animate in own method
     
     if(self.video_view == nil)
         self.video_view = [[Video alloc] initWithNibName:@"Video" bundle:nil];
+    self.video_view.videoListData = self.currentPiece.videos;
     self.video_view.view.frame = self.contentViewFrame;
     self.video_view.view.hidden = NO;
     
@@ -197,7 +197,7 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
 - (IBAction)flipRelated:(id)sender
 {
     // Hide menu
-    [self hideMenu];
+    [self hideMenu:sender];
     [self hideAllViews:sender];
     self.infoToggle.hidden = YES; // TODO: Animate in own method
     
@@ -213,7 +213,7 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
 - (IBAction)flipSharing:(id)sender
 {
     // Hide menu
-    [self hideMenu];
+    [self hideMenu:sender];
     [self hideAllViews:sender];
     self.infoToggle.hidden = YES; // TODO: Animate in own method
     

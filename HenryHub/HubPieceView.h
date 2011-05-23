@@ -60,7 +60,7 @@
 -(IBAction)flipRelated:(id)sender;
 -(IBAction)flipSharing:(id)sender;
 -(IBAction)hideAllViews:(id)sender;
--(void)hideMenu;
+-(IBAction)hideMenu:(id)sender;
 -(IBAction)showMenu:(id)sender;
 -(void)connectionError;
 

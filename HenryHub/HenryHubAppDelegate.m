@@ -31,7 +31,7 @@
     [HHView release];
     
     // Override point for customization after application launch.
-    [NSThread sleepForTimeInterval:0.5];
+    [NSThread sleepForTimeInterval:1];
     [self.window makeKeyAndVisible];
     return YES;
 }
