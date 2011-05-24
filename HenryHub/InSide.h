@@ -17,7 +17,6 @@
 @property (nonatomic, retain) ZBarReaderViewController *reader;
 
 - (IBAction)backToStart;
-- (IBAction)scanTest;
 - (IBAction)openScanner:(id)sender;
 - (IBAction)textEditingDone:(id)sender;
 

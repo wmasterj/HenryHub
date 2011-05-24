@@ -67,8 +67,8 @@
     // Report NSError sent
     NSLog(@"Failed with error: %@ %@", [error localizedDescription], [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]);
     
-    // TODO: Change this to using a delegate    
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"HubXMLConnectionFailed" object:nil];
+    // Tell the delegate that the connection failed
+    [self.delegate dataDidNotDownload:YES];
     
     //[connection release]; // released in side other method
     [self.receivedData release];    

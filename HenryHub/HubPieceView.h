@@ -49,8 +49,11 @@
 @property (nonatomic, retain) UIActivityIndicatorView *spinner;
 // Moving UIView
 @property (nonatomic, retain) IBOutlet UIView *sub_menu; // 6 button menu
-@property (nonatomic, assign) BOOL movingMenu; 
 @property (nonatomic, retain) IBOutlet UIButton *menu_layer; // menu bottom tap overlay
+
+// Toggles
+@property (nonatomic, assign) BOOL showingBackground;
+@property (nonatomic, assign) BOOL movingMenu; 
 
 // Methods
 //
@@ -62,6 +65,6 @@
 -(IBAction)hideAllViews:(id)sender;
 -(IBAction)hideMenu:(id)sender;
 -(IBAction)showMenu:(id)sender;
--(void)connectionError;
+-(IBAction)showBackground:(id)sender;
 
 @end

@@ -30,7 +30,7 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
 @synthesize video_view = _video_view, related_view = _related_view;
 @synthesize facebookMock = _facebookMock, menu_layer = _menu_layer;
 @synthesize contentViewFrame = _contentViewFrame, spinner = _spinner;
-@synthesize facebook = _facebook;
+@synthesize facebook = _facebook, showingBackground = _showingBackground;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -41,7 +41,7 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     return self;
 }
 
--(void)dataDidDownload:(BOOL)success // delegate set to this object in InSide.m
+-(void)dataDidDownload:(BOOL)success // delegate set to this object from InSide.m
 {
     NSLog(@"Data downloaded YEAY!");
     
@@ -98,16 +98,37 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     else
     {
         NSLog(@"QR code invalid, didn't find an object matching the QR code.");
+        UIAlertView *alert = [[UIAlertView alloc] 
+                              initWithTitle:@"Oops, wrong code"
+                              message:@"It seems that you scanned a QR code that doesn't correspond to a Henry Art Gallery object. Please try again with another QR code."
+                              delegate:self 
+                              cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        [alert release];
     }
     
     [tbxml release];
 }
 
--(void)dataDidNotDownload:(BOOL)success // delegate set to this object in InSide.m
+-(void)dataDidNotDownload:(BOOL)success // delegate set to this object from InSide.m
 {
-    // TODO: Implement
-    NSLog(@"Data not downloaded BU!!");
+    NSLog(@"INTERNET: No connection!");
+    UIAlertView *alert = [[UIAlertView alloc] 
+                          initWithTitle:@"No internet connection"
+                          message:@"You are not connected to the internet, make sure it isn't in Flight mode and that services for data transfer are turned on (3G, WiFi)."
+                          delegate:self 
+                          cancelButtonTitle:@"OK" otherButtonTitles:nil];
+	[alert show];
+	[alert release];
 }
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    // Connection was lost and after clicking this it goes back to the instruction page
+    if(alertView.title == @"No internet connection")
+        [self backToScan:nil];
+}
+
 
 - (IBAction)hideAllViews:(id)sender
 {
@@ -159,6 +180,15 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     
     
     [self hideAllViews:sender];
+}
+
+-(IBAction)showBackground:(id)sender
+{
+    [self hideMenu:sender];
+    if([self showingBackground])
+    {
+        /// do something 
+    }
 }
 
 - (IBAction)toggleInformation:(id)sender
@@ -246,38 +276,20 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     [UIView commitAnimations];
 }
 
-- (void)connectionError
-{
-    NSLog(@"INTERNET: No connection!");
-    UIAlertView *alert = [[UIAlertView alloc] 
-                          initWithTitle:@"No internet connection"
-                          message:@"You are not connected to the internet and will not be able to enjoy the art with the phone."
-                          delegate:self 
-                          cancelButtonTitle:@"OK" otherButtonTitles:nil];
-	[alert show];
-	[alert release];
-}
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    // Connection was lost and after clicking this it goes back to the instruction page
-    [self backToScan:nil];
-}
-
 #pragma mark - UIViewControl standard methods
 
 - (void)dealloc
 {
     NSLog(@"Deallocking the stuff out of the self.currentPiece and more!");
-    [self.menu_layer release];
-    [self.sub_menu release];
-    [self.pieceConnection release];
-    [self.hub_title release];
-    [self.hub_info release];
-    [self.hub_description release];
-    [self.currentPiece release];
-    [self.video_view release];
-    [self.facebook release];
+    [self.menu_layer dealloc];
+    [self.sub_menu dealloc];
+    [self.pieceConnection dealloc];
+    [self.hub_title dealloc];
+    [self.hub_info dealloc];
+    [self.hub_description dealloc];
+    [self.currentPiece dealloc];
+    [self.video_view dealloc];
+    [self.facebook dealloc];
     
     [super dealloc];
 }

@@ -32,28 +32,6 @@
     [UIView commitAnimations];
 }
 
-/*!
- This function creates a connection using the HubXMLConnection class and retrieves
- the XML for the given destination.
- */
--(IBAction)scanTest
-{
-    HubXMLConnection *aConnection = [[HubXMLConnection alloc] init];    
-    // Connect
-    BOOL success = [aConnection connect:self.idString.text];
-    
-    // If the connection was successful then load the actual HubPieceView
-    if(success) {
-        HubPieceView *pieceView = [[HubPieceView alloc] initWithNibName:@"HubPieceView" bundle:nil];
-        
-        pieceView.pieceConnection = aConnection;
-
-        [self.view.superview addSubview:pieceView.view];
-        [self.view removeFromSuperview];
-    }
-    [aConnection release];
-}
-
 - (IBAction)textEditingDone:(id)sender
 {
     
