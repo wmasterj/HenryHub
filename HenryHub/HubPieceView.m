@@ -127,6 +127,10 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     // Connection was lost and after clicking this it goes back to the instruction page
     if(alertView.title == @"No internet connection")
         [self backToScan:nil];
+    
+    // The QR code scanned, but the returned data couldnt be parsed to return an id string.
+    if(alertView.title == @"Oops, wrong code")
+        [self backToScan:nil];
 }
 
 
@@ -260,8 +264,30 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
                                    nil];
     
     [self.facebook dialog:@"feed" andParams:params andDelegate:self];
-
 }
+
+-(void)dialog:(FBDialog *)dialog didFailWithError:(NSError *)error
+{
+    NSLog(@"Facebook: Failed with error");
+    UIAlertView *alert = [[UIAlertView alloc] 
+                          initWithTitle:@"Facebook error"
+                          message:@"There seems to be something wrong with sharing this art object using Facebook please try again."
+                          delegate:self 
+                          cancelButtonTitle:@"OK" otherButtonTitles:nil];
+	[alert show];
+	[alert release];
+}
+
+-(void)dialogDidComplete:(FBDialog *)dialog
+{
+    [self showMenu:nil];
+}
+
+-(void)dialogDidNotComplete:(FBDialog *)dialog
+{
+    [self showMenu:nil];
+}
+
 
 - (IBAction)backToScan:(id)sender
 {
