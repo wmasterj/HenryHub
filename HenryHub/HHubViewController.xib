@@ -47,15 +47,16 @@
 					<object class="IBUIImageView" id="343533271">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{19, 20}, {113, 107}}</string>
+						<string key="NSFrame">{{20, 20}, {62, 50}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="114489832"/>
+						<int key="IBUIContentMode">2</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<object class="NSCustomResource" key="IBUIImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">icon@2x.png</string>
+							<string key="NSResourceName">start-logo.png</string>
 						</object>
 					</object>
 					<object class="IBUIButton" id="978547720">
@@ -325,8 +326,8 @@
 							<reference ref="1003115745"/>
 							<reference ref="978547720"/>
 							<reference ref="930179990"/>
-							<reference ref="343533271"/>
 							<reference ref="512095444"/>
+							<reference ref="343533271"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -489,13 +490,13 @@
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<object class="NSArray" key="dict.sortedKeys">
 				<bool key="EncodedWithXMLCoder">YES</bool>
-				<string>icon@2x.png</string>
 				<string>qrcode.png</string>
+				<string>start-logo.png</string>
 			</object>
 			<object class="NSMutableArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
-				<string>{114, 114}</string>
 				<string>{159, 156}</string>
+				<string>{62, 50}</string>
 			</object>
 		</object>
 		<string key="IBCocoaTouchPluginVersion">301</string>
