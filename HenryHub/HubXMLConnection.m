@@ -76,8 +76,16 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    NSLog(@"Finished loading. Received %d  bytes of data", [self.receivedData length]);
+    NSUInteger dataLength = [self.receivedData length];
+    NSLog(@"Finished loading. Received %d  bytes of data", dataLength);
     
+    if(dataLength < 150.0)
+    {
+        // To little data = probably error in xml
+        NSLog(@"ERROR: to little data");
+        [self.delegate dataResultInvalid:YES];
+        return;
+    }
     // All data loaded now do something with it.
     self.stringXML = [[NSString alloc] initWithData:self.receivedData encoding:NSUTF8StringEncoding];
     

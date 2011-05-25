@@ -122,6 +122,18 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
 	[alert release];
 }
 
+-(void)dataResultInvalid:(BOOL)success
+{
+    NSLog(@"Returned data was to small of an amount to be valid");
+    UIAlertView *alert = [[UIAlertView alloc] 
+                          initWithTitle:@"Crazy failure"
+                          message:@"Something seems to have gone wrong with reading the information, please try again."
+                          delegate:self 
+                          cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+    [alert release];
+}
+
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     // Connection was lost and after clicking this it goes back to the instruction page
@@ -130,6 +142,10 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     
     // The QR code scanned, but the returned data couldnt be parsed to return an id string.
     if(alertView.title == @"Oops, wrong code")
+        [self backToScan:nil];
+    
+    // Returned data was to small of an amount to be valid
+    if(alertView.title == @"Crazy failure")
         [self backToScan:nil];
 }
 
@@ -147,7 +163,7 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
 {
     // Tell the menu where to animate to
     CGRect viewFrame = self.sub_menu.frame;
-    viewFrame.origin.y = 425;
+    viewFrame.origin.y = 451;
     
     // Start animation
     [UIView beginAnimations:nil context:NULL];
@@ -167,7 +183,7 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
 {
     // Tell the menu where to animate to
     CGRect viewFrame = self.sub_menu.frame;
-    viewFrame.origin.y = 289;
+    viewFrame.origin.y = 384;
     
     // Start animation
     [UIView beginAnimations:nil context:NULL];
@@ -178,6 +194,7 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     
     [UIView commitAnimations];
     
+    [self.video_view closeYoutubeVideo:nil];
     self.backButton.hidden = NO; // TODO: Animate in own method
     self.infoToggle.hidden = NO; // TODO: Animate in own method
     self.menu_layer.hidden = YES;
@@ -335,6 +352,7 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
 {    
     // Do some initial UI setup
     self.menu_layer.hidden = YES;
+    self.backButton.hidden = YES;
     self.contentViewFrame = CGRectMake(20,84,280,334);
 
     // Add a spinner for loading

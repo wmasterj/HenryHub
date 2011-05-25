@@ -16,6 +16,7 @@
 
 -(void)dataDidDownload:(BOOL)success;
 -(void)dataDidNotDownload:(BOOL)success;
+-(void)dataResultInvalid:(BOOL)success;
 
 @end
 
