@@ -24,8 +24,9 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
 @implementation HubPieceView
 
 @synthesize pieceConnection = _pieceConnection, currentPiece = _currentPiece;
-@synthesize hub_title = _hub_title,backgroundImage = _backgroundImage;
-@synthesize infoToggle = _infoToggle, hub_description = _hub_description, hub_info = _hub_info;
+@synthesize hub_title = _hub_title, hub_artist = _hub_artist;
+@synthesize backgroundImage = _backgroundImage;
+@synthesize hub_description = _hub_description, hub_info = _hub_info;
 @synthesize backButton = _backButton, movingMenu = _movingMenu,sub_menu = _sub_menu;
 @synthesize video_view = _video_view, related_view = _related_view;
 @synthesize facebookMock = _facebookMock, menu_layer = _menu_layer;
@@ -65,16 +66,15 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
         // Add title to UI
         self.hub_title.text = self.currentPiece.name;
         
+        // Add artist name
+        self.hub_artist.text = self.currentPiece.artist;
+        
         // Main image
         if([self.currentPiece.images count] > 0)
         {
             HubPieceImage *tmpImage = [self.currentPiece.images objectAtIndex:0];
             if(tmpImage.asset_url)
             {
-//                if(self.backgroundImage.image != nil)
-//                {
-//                    self.backgroundImage.image = nil;
-//                }
                 self.backgroundImage.image = [UIImage imageWithData:
                                               [NSData dataWithContentsOfURL: 
                                                [NSURL URLWithString:tmpImage.asset_url]]];
@@ -88,9 +88,10 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
         
         // Show the UI controls that are hiding before everything has loaded
         // TODO: Animate these into the view
-        self.infoToggle.hidden = NO;
         self.sub_menu.hidden = NO;
         self.backButton.hidden = NO;
+        self.hub_artist.hidden = NO;
+        self.hub_title.hidden = NO;
         [self.spinner stopAnimating];
         
         NSLog(@"All things are showing");
@@ -163,7 +164,7 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
 {
     // Tell the menu where to animate to
     CGRect viewFrame = self.sub_menu.frame;
-    viewFrame.origin.y = 451;
+    viewFrame.origin.y = 430;
     
     // Start animation
     [UIView beginAnimations:nil context:NULL];
@@ -175,7 +176,7 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     [UIView commitAnimations];
     
     self.backButton.hidden = YES; // TODO: Animate in own method
-    self.infoToggle.hidden = YES; // TODO: Animate in own method
+    [self hideHeader:YES];
     self.menu_layer.hidden = NO;
 }
 
@@ -195,12 +196,26 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     [UIView commitAnimations];
     
     [self.video_view closeYoutubeVideo:nil];
+    [self hideHeader:NO];
     self.backButton.hidden = NO; // TODO: Animate in own method
-    self.infoToggle.hidden = NO; // TODO: Animate in own method
     self.menu_layer.hidden = YES;
     
     
     [self hideAllViews:sender];
+}
+
+-(void) hideHeader: (BOOL) hide
+{
+    if(hide) 
+    {
+        self.hub_title.hidden = YES;
+        self.hub_artist.hidden = YES;
+    }
+    else 
+    {
+        self.hub_title.hidden = NO;
+        self.hub_artist.hidden = NO;
+    }
 }
 
 -(IBAction)showBackground:(id)sender
@@ -233,7 +248,6 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     // Hide menu
     [self hideMenu:sender];
     [self hideAllViews:sender];
-    self.infoToggle.hidden = YES; // TODO: Animate in own method
     
     if(self.video_view == nil)
         self.video_view = [[Video alloc] initWithNibName:@"Video" bundle:nil];
@@ -250,7 +264,6 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     // Hide menu
     [self hideMenu:sender];
     [self hideAllViews:sender];
-    self.infoToggle.hidden = YES; // TODO: Animate in own method
     
     if(self.related_view == nil)
         self.related_view = [[Related alloc] initWithNibName:@"Related" bundle:nil];
@@ -266,7 +279,6 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     // Hide menu
     [self hideMenu:sender];
     [self hideAllViews:sender];
-    self.infoToggle.hidden = YES; // TODO: Animate in own method
     
     // Open up a Facebook dialog here, will prompt for login
     HubPieceImage *fbImage = [self.currentPiece.images objectAtIndex:0];
@@ -282,6 +294,32 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     
     [self.facebook dialog:@"feed" andParams:params andDelegate:self];
 }
+
+-(void)hideBackButton:(BOOL)doHide
+{
+    // Tell the history modal where to animate to
+    CGRect viewFrame = self.backButton.frame;
+    if(!doHide)
+    {
+        viewFrame.origin.x = -10; 
+    }
+    else
+    {
+        viewFrame.origin.x = -73;
+    }
+    
+    // Start animation
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];  
+    [UIView setAnimationDuration:0.25];
+    
+    [self.backButton setFrame:viewFrame];
+    
+    [UIView commitAnimations];
+}
+
+#pragma mark - Facebook
 
 -(void)dialog:(FBDialog *)dialog didFailWithError:(NSError *)error
 {
@@ -305,6 +343,7 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     [self showMenu:nil];
 }
 
+#pragma mark - Navigation
 
 - (IBAction)backToScan:(id)sender
 {
@@ -358,15 +397,8 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     // Add a spinner for loading
     self.spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     [self.view addSubview:self.spinner];
-    [self.spinner setCenter:CGPointMake(320/2, (480/2)+30)];
+    [self.spinner setCenter:CGPointMake((320/2)-5, (480/2)+30)];
     [self.spinner startAnimating];
-    
-    // Fix problem with info button surface
-    CGRect newInfoButtonRect = CGRectMake(self.infoToggle.frame.origin.x-25, 
-                                          self.infoToggle.frame.origin.y-25, 
-                                          self.infoToggle.frame.size.width+50, 
-                                          self.infoToggle.frame.size.height+50);
-    [self.infoToggle setFrame:newInfoButtonRect];
     
     // Setup facebook object
     self.facebook = [[Facebook alloc] initWithAppId:kAppId];

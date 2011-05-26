@@ -38,12 +38,12 @@
 // Hub Piece elements
 //
 @property (nonatomic, retain) IBOutlet UITextView *hub_title;
+@property (nonatomic, retain) IBOutlet UILabel *hub_artist;
 @property (nonatomic, retain) IBOutlet UIImageView *backgroundImage;
 // Information
 @property (nonatomic, retain) IBOutlet UIView *hub_info;
 @property (nonatomic, retain) IBOutlet UITextView *hub_description;
 // Other UI elements
-@property (nonatomic, retain) IBOutlet UIButton *infoToggle;
 @property (nonatomic, assign) CGRect contentViewFrame;
 @property (nonatomic, retain) IBOutlet UIButton *backButton;
 @property (nonatomic, retain) UIActivityIndicatorView *spinner;
@@ -57,14 +57,16 @@
 
 // Methods
 //
--(IBAction)toggleInformation:(id)sender;
--(IBAction)backToScan:(id)sender;
--(IBAction)flipVideo:(id)sender;
--(IBAction)flipRelated:(id)sender;
--(IBAction)flipSharing:(id)sender;
--(IBAction)hideAllViews:(id)sender;
--(IBAction)hideMenu:(id)sender;
--(IBAction)showMenu:(id)sender;
--(IBAction)showBackground:(id)sender;
+- (IBAction) toggleInformation: (id) sender;
+- (IBAction) backToScan: (id) sender;
+- (IBAction) flipVideo: (id) sender;
+- (IBAction) flipRelated: (id) sender;
+- (IBAction) flipSharing: (id) sender;
+- (IBAction) hideAllViews: (id) sender;
+- (IBAction) hideMenu: (id) sender;
+- (IBAction) showMenu: (id) sender;
+- (void) hideHeader: (BOOL) hide;
+- (IBAction) showBackground: (id) sender;
+- (void) hideBackButton: (BOOL) doHide;
 
 @end

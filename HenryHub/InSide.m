@@ -20,6 +20,11 @@
 
 @synthesize idString=_idString;
 @synthesize reader=_reader;
+// History controls
+@synthesize historyLabel = _historyLabel;
+@synthesize historyModal = _historyModal;
+@synthesize historyModalArrow = _historyModalArrow;
+@synthesize historyDismissLayer = _historyDismissLayer;
 
 -(IBAction)backToStart
 {
@@ -116,6 +121,34 @@
     NSLog(@"SCANNING: Something went wrong!");
 }
 
+-(IBAction)toggleHistory:(id)sender
+{
+    // Tell the history modal where to animate to
+    CGRect viewFrame = self.historyModal.frame;
+    if(self.historyModal.frame.origin.y > 200)
+    {
+        viewFrame.origin.y = 98; 
+        self.historyDismissLayer.hidden = NO;
+        self.historyModalArrow.highlighted = YES; // down arrow
+    }
+    else
+    {
+        viewFrame.origin.y = 444;
+        self.historyDismissLayer.hidden = YES;
+        self.historyModalArrow.highlighted = NO; // up arrow
+    }
+    
+    // Start animation
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];  
+    [UIView setAnimationDuration:0.25];
+    
+    [self.historyModal setFrame:viewFrame];
+    
+    [UIView commitAnimations];
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -152,12 +185,14 @@
     NSLog(@"InSide view did load");
     
     // Configure the audio session so that the app can play sounds
-    NSError *error = nil;
-    AVAudioSession *session = [AVAudioSession sharedInstance];
-    [session setCategory:AVAudioSessionCategoryPlayback error:&error];
-    NSAssert(error == nil, @"Failed to set audio session category.");
-    [session setActive:YES error:&error];
-    NSAssert(error == nil, @"Failed to activate audio session.");
+//    NSError *error = nil;
+//    AVAudioSession *session = [AVAudioSession sharedInstance];
+//    [session setCategory:AVAudioSessionCategoryPlayback error:&error];
+//    NSAssert(error == nil, @"Failed to set audio session category.");
+//    [session setActive:YES error:&error];
+//    NSAssert(error == nil, @"Failed to activate audio session.");
+    
+    self.historyDismissLayer.hidden = YES;
     
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.

@@ -18,6 +18,9 @@
 @synthesize selected_videoDescription = _selected_videoDescription;
 @synthesize selected_videoDuration = _selected_videoDuration;
 @synthesize selected_videoClose = _selected_videoClose;
+@synthesize videoTableView = _videoTableView;
+
+#pragma mark - Instance methods
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -44,33 +47,8 @@
 {
     // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-    
     // Release any cached data, images, etc that aren't in use.
 }
-
-//-(void)embedYouTube:(NSString *)videoId withFrame:(CGRect)frame
-//{
-//    NSString *embedVideo = @"\
-//    <html><head>\
-//    <style type=\"text/css\">\
-//    body {\
-//    background-color: transparent;\
-//    color: white;\
-//    }\
-//    </style>\
-//    </head><body style=\"margin:0;\">\
-//    <embed id=\"yt\" src=\"%@\" type=\"application/x-shockwave-flash\" \
-//    width=\"%0.0f\" height=\"%0.0f\"></embed>\
-//    </body></html>";
-//    NSString *url = [NSString stringWithFormat:@"http://www.youtube.com/watch?v=%@", videoId];
-//    NSString *html = [NSString stringWithFormat:embedVideo, url, 
-//                      frame.size.width, frame.size.height];
-//    if(self.selected_videoWebView != nil)
-//        self.selected_videoWebView = nil;
-//    self.selected_videoWebView = [[UIWebView alloc] initWithFrame:frame];
-//    [self.selected_videoWebView loadHTMLString:html baseURL:nil];
-//    NSLog(@"Add url: http://www.youtube.com/watch?v=%@, width: %0.0f, height: %0.0f", videoId, frame.size.width, frame.size.width);
-//} 
 
 - (void)embedYouTube:(NSString *)videoId withFrame:(CGRect)frame {
     NSString *embedHTML = @"\
@@ -93,7 +71,12 @@
     NSLog(@"Add url: %@, width: %0.0f, height: %0.0f", videoId, frame.size.width, frame.size.width);
 }
 
-#pragma mark - Table View Data Source Methods
+-(IBAction)closeYoutubeVideo:(id)sender
+{
+    self.selected_video.hidden = YES;
+}
+
+#pragma mark - Table view delegate methods
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -118,7 +101,8 @@
     
     // Title
     cell.textLabel.text = [NSString stringWithFormat:@"%@", video.title];
-    cell.textLabel.font = [UIFont boldSystemFontOfSize:14];
+    cell.textLabel.font = [UIFont boldSystemFontOfSize:13];
+    cell.textLabel.textColor = [UIColor colorWithRed:255.0 green:255.0 blue:255.0 alpha:255.0];
     
     // Image
     UIImage *cellImage = [UIImage imageWithData:[NSData dataWithContentsOfURL: 
@@ -134,9 +118,9 @@
     return cell;
 }
 
--(IBAction)closeYoutubeVideo:(id)sender
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.selected_video.hidden = YES;
+    return 60;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -164,6 +148,9 @@
 
 - (void)viewDidLoad
 {
+    // Change cell seperator color for table
+    self.videoTableView.separatorColor = [UIColor clearColor];
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }

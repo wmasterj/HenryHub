@@ -49,5 +49,12 @@
 	<array/>
 	<key>UTImportedTypeDeclarations</key>
 	<array/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Brandon_reg_it.otf</string>
+		<string>Brandon_reg.otf</string>
+		<string>Brandon_bld_it.otf</string>
+		<string>Brandon_bld.otf</string>
+	</array>
 </dict>
 </plist>

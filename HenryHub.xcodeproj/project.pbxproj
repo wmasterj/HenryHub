@@ -24,7 +24,6 @@
 		900160771379F72A00E418AD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 900160761379F72A00E418AD /* main.m */; };
 		9001607A1379F72A00E418AD /* HenryHubAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 900160791379F72A00E418AD /* HenryHubAppDelegate.m */; };
 		9001607D1379F72A00E418AD /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9001607B1379F72A00E418AD /* MainWindow.xib */; };
-		900160801379F72A00E418AD /* HenryHub.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9001607E1379F72A00E418AD /* HenryHub.xcdatamodeld */; };
 		9002E843138B6DA900CA2AEF /* back-button-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 9002E83F138B6DA900CA2AEF /* back-button-pressed.png */; };
 		9002E844138B6DA900CA2AEF /* back-button-pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9002E840138B6DA900CA2AEF /* back-button-pressed@2x.png */; };
 		9002E845138B6DA900CA2AEF /* back-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 9002E841138B6DA900CA2AEF /* back-button.png */; };
@@ -49,15 +48,9 @@
 		902B81B1137A00350086518F /* OutSide.xib in Resources */ = {isa = PBXBuildFile; fileRef = 902B81AF137A00350086518F /* OutSide.xib */; };
 		902B81B5137A004A0086518F /* InSide.m in Sources */ = {isa = PBXBuildFile; fileRef = 902B81B3137A004A0086518F /* InSide.m */; };
 		902B81B6137A004A0086518F /* InSide.xib in Resources */ = {isa = PBXBuildFile; fileRef = 902B81B4137A004A0086518F /* InSide.xib */; };
-		902B81C5137A0FA80086518F /* HubPiece.m in Sources */ = {isa = PBXBuildFile; fileRef = 902B81BE137A0FA80086518F /* HubPiece.m */; };
 		902B81C6137A0FA80086518F /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 902B81C0137A0FA80086518F /* NSDataAdditions.m */; };
 		902B81C7137A0FA80086518F /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 902B81C2137A0FA80086518F /* TBXML.m */; };
 		902B81CD137A10470086518F /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 902B81CC137A10470086518F /* libz.dylib */; };
-		902B81D1137A148C0086518F /* HubXMLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 902B81CF137A148C0086518F /* HubXMLConnection.m */; };
-		902B81D8137A1D710086518F /* HubPieceImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 902B81D7137A1D710086518F /* HubPieceImage.m */; };
-		902B81DB137AF3320086518F /* HubPieceVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 902B81DA137AF3320086518F /* HubPieceVideo.m */; };
-		902B81DE137AF7670086518F /* HubPieceAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 902B81DD137AF7670086518F /* HubPieceAudio.m */; };
-		902B81E1137AFE9B0086518F /* HubPieceMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 902B81E0137AFE9A0086518F /* HubPieceMedia.m */; };
 		906F40231384BD9900617877 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 906F40181384BD9900617877 /* NSObject+SBJSON.m */; };
 		906F40241384BD9900617877 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 906F401A1384BD9900617877 /* NSString+SBJSON.m */; };
 		906F40251384BD9900617877 /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 906F401C1384BD9900617877 /* SBJSON.m */; };
@@ -78,6 +71,17 @@
 		9086AD3F1385F272001B2F9D /* menu_buttons@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9086AD3D1385F272001B2F9D /* menu_buttons@2x.png */; };
 		909B2A24137CFD030031A107 /* loadingscreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 909B2A22137CFD030031A107 /* loadingscreen.png */; };
 		909B2A25137CFD030031A107 /* loadingscreen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 909B2A23137CFD030031A107 /* loadingscreen@2x.png */; };
+		90A1864B138DB1A20056C382 /* HubXMLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A1864A138DB1A20056C382 /* HubXMLConnection.m */; };
+		90A18659138DB8F70056C382 /* HenryHub.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 90A1864D138DB8F70056C382 /* HenryHub.xcdatamodeld */; };
+		90A1865A138DB8F70056C382 /* HubPiece.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A18650138DB8F70056C382 /* HubPiece.m */; };
+		90A1865B138DB8F70056C382 /* HubPieceAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A18652138DB8F70056C382 /* HubPieceAudio.m */; };
+		90A1865C138DB8F70056C382 /* HubPieceImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A18654138DB8F70056C382 /* HubPieceImage.m */; };
+		90A1865D138DB8F70056C382 /* HubPieceMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A18656138DB8F70056C382 /* HubPieceMedia.m */; };
+		90A1865E138DB8F70056C382 /* HubPieceVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A18658138DB8F70056C382 /* HubPieceVideo.m */; };
+		90A18663138DB9A30056C382 /* HHLabel_BrandonRegular.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A18662138DB9A30056C382 /* HHLabel_BrandonRegular.m */; };
+		90A18666138DBAAB0056C382 /* HHLabel_BrandonBold.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A18665138DBAAB0056C382 /* HHLabel_BrandonBold.m */; };
+		90A18669138DBB280056C382 /* HHTextView_BrandonRegular.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A18668138DBB280056C382 /* HHTextView_BrandonRegular.m */; };
+		90A1866C138DBCE90056C382 /* HHTextView_BrandonBold.m in Sources */ = {isa = PBXBuildFile; fileRef = 90A1866B138DBCE90056C382 /* HHTextView_BrandonBold.m */; };
 		90AC6EA81388AA9E009B486C /* loadingscreen-v2.png in Resources */ = {isa = PBXBuildFile; fileRef = 90AC6EA61388AA9E009B486C /* loadingscreen-v2.png */; };
 		90AC6EA91388AA9E009B486C /* loadingscreen-v2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90AC6EA71388AA9E009B486C /* loadingscreen-v2@2x.png */; };
 		90AC6EAA1388AAC3009B486C /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 90F6FDC81384F7FE00A96A02 /* Default.png */; };
@@ -99,6 +103,10 @@
 		90B105A2138AC3E600611725 /* share-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90B1059E138AC3E600611725 /* share-icon@2x.png */; };
 		90BB22E713832ED900C7797F /* scan_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 90BB22E513832ED900C7797F /* scan_logo.png */; };
 		90BB22E813832ED900C7797F /* scan_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90BB22E613832ED900C7797F /* scan_logo@2x.png */; };
+		90E0B6FD138D9C79006FB6D0 /* Brandon_bld_it.otf in Resources */ = {isa = PBXBuildFile; fileRef = 90E0B6F9138D9C79006FB6D0 /* Brandon_bld_it.otf */; };
+		90E0B6FE138D9C79006FB6D0 /* Brandon_bld.otf in Resources */ = {isa = PBXBuildFile; fileRef = 90E0B6FA138D9C79006FB6D0 /* Brandon_bld.otf */; };
+		90E0B6FF138D9C79006FB6D0 /* Brandon_reg_it.otf in Resources */ = {isa = PBXBuildFile; fileRef = 90E0B6FB138D9C79006FB6D0 /* Brandon_reg_it.otf */; };
+		90E0B700138D9C79006FB6D0 /* Brandon_reg.otf in Resources */ = {isa = PBXBuildFile; fileRef = 90E0B6FC138D9C79006FB6D0 /* Brandon_reg.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -130,7 +138,6 @@
 		900160781379F72A00E418AD /* HenryHubAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HenryHubAppDelegate.h; sourceTree = "<group>"; };
 		900160791379F72A00E418AD /* HenryHubAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HenryHubAppDelegate.m; sourceTree = "<group>"; };
 		9001607C1379F72A00E418AD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
-		9001607F1379F72A00E418AD /* HenryHub.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HenryHub.xcdatamodel; sourceTree = "<group>"; };
 		9002E83F138B6DA900CA2AEF /* back-button-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back-button-pressed.png"; sourceTree = "<group>"; };
 		9002E840138B6DA900CA2AEF /* back-button-pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back-button-pressed@2x.png"; sourceTree = "<group>"; };
 		9002E841138B6DA900CA2AEF /* back-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back-button.png"; sourceTree = "<group>"; };
@@ -159,23 +166,11 @@
 		902B81B2137A004A0086518F /* InSide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InSide.h; sourceTree = "<group>"; };
 		902B81B3137A004A0086518F /* InSide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InSide.m; sourceTree = "<group>"; };
 		902B81B4137A004A0086518F /* InSide.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InSide.xib; sourceTree = "<group>"; };
-		902B81BD137A0FA80086518F /* HubPiece.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HubPiece.h; sourceTree = "<group>"; };
-		902B81BE137A0FA80086518F /* HubPiece.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HubPiece.m; sourceTree = "<group>"; };
 		902B81BF137A0FA80086518F /* NSDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDataAdditions.h; sourceTree = "<group>"; };
 		902B81C0137A0FA80086518F /* NSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDataAdditions.m; sourceTree = "<group>"; };
 		902B81C1137A0FA80086518F /* TBXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBXML.h; sourceTree = "<group>"; };
 		902B81C2137A0FA80086518F /* TBXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBXML.m; sourceTree = "<group>"; };
 		902B81CC137A10470086518F /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		902B81CE137A148C0086518F /* HubXMLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HubXMLConnection.h; sourceTree = "<group>"; };
-		902B81CF137A148C0086518F /* HubXMLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HubXMLConnection.m; sourceTree = "<group>"; };
-		902B81D6137A1D710086518F /* HubPieceImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HubPieceImage.h; sourceTree = "<group>"; };
-		902B81D7137A1D710086518F /* HubPieceImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HubPieceImage.m; sourceTree = "<group>"; };
-		902B81D9137AF3310086518F /* HubPieceVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HubPieceVideo.h; sourceTree = "<group>"; };
-		902B81DA137AF3320086518F /* HubPieceVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HubPieceVideo.m; sourceTree = "<group>"; };
-		902B81DC137AF7660086518F /* HubPieceAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HubPieceAudio.h; sourceTree = "<group>"; };
-		902B81DD137AF7670086518F /* HubPieceAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HubPieceAudio.m; sourceTree = "<group>"; };
-		902B81DF137AFE990086518F /* HubPieceMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HubPieceMedia.h; sourceTree = "<group>"; };
-		902B81E0137AFE9A0086518F /* HubPieceMedia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HubPieceMedia.m; sourceTree = "<group>"; };
 		906F40161384BD9900617877 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
 		906F40171384BD9900617877 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
 		906F40181384BD9900617877 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
@@ -222,6 +217,27 @@
 		9086AD3D1385F272001B2F9D /* menu_buttons@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_buttons@2x.png"; sourceTree = "<group>"; };
 		909B2A22137CFD030031A107 /* loadingscreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loadingscreen.png; sourceTree = "<group>"; };
 		909B2A23137CFD030031A107 /* loadingscreen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loadingscreen@2x.png"; sourceTree = "<group>"; };
+		90A18649138DB1A20056C382 /* HubXMLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HubXMLConnection.h; sourceTree = "<group>"; };
+		90A1864A138DB1A20056C382 /* HubXMLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HubXMLConnection.m; sourceTree = "<group>"; };
+		90A1864E138DB8F70056C382 /* HenryHub.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HenryHub.xcdatamodel; sourceTree = "<group>"; };
+		90A1864F138DB8F70056C382 /* HubPiece.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HubPiece.h; sourceTree = "<group>"; };
+		90A18650138DB8F70056C382 /* HubPiece.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HubPiece.m; sourceTree = "<group>"; };
+		90A18651138DB8F70056C382 /* HubPieceAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HubPieceAudio.h; sourceTree = "<group>"; };
+		90A18652138DB8F70056C382 /* HubPieceAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HubPieceAudio.m; sourceTree = "<group>"; };
+		90A18653138DB8F70056C382 /* HubPieceImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HubPieceImage.h; sourceTree = "<group>"; };
+		90A18654138DB8F70056C382 /* HubPieceImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HubPieceImage.m; sourceTree = "<group>"; };
+		90A18655138DB8F70056C382 /* HubPieceMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HubPieceMedia.h; sourceTree = "<group>"; };
+		90A18656138DB8F70056C382 /* HubPieceMedia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HubPieceMedia.m; sourceTree = "<group>"; };
+		90A18657138DB8F70056C382 /* HubPieceVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HubPieceVideo.h; sourceTree = "<group>"; };
+		90A18658138DB8F70056C382 /* HubPieceVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HubPieceVideo.m; sourceTree = "<group>"; };
+		90A18661138DB9A30056C382 /* HHLabel_BrandonRegular.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHLabel_BrandonRegular.h; sourceTree = "<group>"; };
+		90A18662138DB9A30056C382 /* HHLabel_BrandonRegular.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHLabel_BrandonRegular.m; sourceTree = "<group>"; };
+		90A18664138DBAAB0056C382 /* HHLabel_BrandonBold.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHLabel_BrandonBold.h; sourceTree = "<group>"; };
+		90A18665138DBAAB0056C382 /* HHLabel_BrandonBold.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHLabel_BrandonBold.m; sourceTree = "<group>"; };
+		90A18667138DBB280056C382 /* HHTextView_BrandonRegular.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHTextView_BrandonRegular.h; sourceTree = "<group>"; };
+		90A18668138DBB280056C382 /* HHTextView_BrandonRegular.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHTextView_BrandonRegular.m; sourceTree = "<group>"; };
+		90A1866A138DBCE80056C382 /* HHTextView_BrandonBold.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHTextView_BrandonBold.h; sourceTree = "<group>"; };
+		90A1866B138DBCE90056C382 /* HHTextView_BrandonBold.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHTextView_BrandonBold.m; sourceTree = "<group>"; };
 		90AC6EA61388AA9E009B486C /* loadingscreen-v2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loadingscreen-v2.png"; sourceTree = "<group>"; };
 		90AC6EA71388AA9E009B486C /* loadingscreen-v2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loadingscreen-v2@2x.png"; sourceTree = "<group>"; };
 		90AC6EAB1388AAD9009B486C /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
@@ -249,6 +265,10 @@
 		90B1059E138AC3E600611725 /* share-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share-icon@2x.png"; sourceTree = "<group>"; };
 		90BB22E513832ED900C7797F /* scan_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scan_logo.png; sourceTree = "<group>"; };
 		90BB22E613832ED900C7797F /* scan_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scan_logo@2x.png"; sourceTree = "<group>"; };
+		90E0B6F9138D9C79006FB6D0 /* Brandon_bld_it.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_bld_it.otf; sourceTree = "<group>"; };
+		90E0B6FA138D9C79006FB6D0 /* Brandon_bld.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_bld.otf; sourceTree = "<group>"; };
+		90E0B6FB138D9C79006FB6D0 /* Brandon_reg_it.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_reg_it.otf; sourceTree = "<group>"; };
+		90E0B6FC138D9C79006FB6D0 /* Brandon_reg.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_reg.otf; sourceTree = "<group>"; };
 		90F6FDC81384F7FE00A96A02 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -333,13 +353,12 @@
 		9001606F1379F72A00E418AD /* HenryHub */ = {
 			isa = PBXGroup;
 			children = (
+				90A1864C138DB7C50056C382 /* Custom Classes */,
 				902B81831379F8120086518F /* Images */,
 				900160781379F72A00E418AD /* HenryHubAppDelegate.h */,
 				900160791379F72A00E418AD /* HenryHubAppDelegate.m */,
 				9001607B1379F72A00E418AD /* MainWindow.xib */,
 				902B81841379F81A0086518F /* Views */,
-				902B81BB137A0DA00086518F /* Connection */,
-				902B81E2137B05ED0086518F /* Models */,
 				900160701379F72A00E418AD /* Supporting Files */,
 			);
 			path = HenryHub;
@@ -348,6 +367,7 @@
 		900160701379F72A00E418AD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				90E0B6F7138D9C4E006FB6D0 /* Fonts */,
 				90ADBE671386C97F00B3D09E /* Finch */,
 				900160711379F72A00E418AD /* HenryHub-Info.plist */,
 				900160721379F72A00E418AD /* InfoPlist.strings */,
@@ -431,15 +451,6 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
-		902B81BB137A0DA00086518F /* Connection */ = {
-			isa = PBXGroup;
-			children = (
-				902B81CE137A148C0086518F /* HubXMLConnection.h */,
-				902B81CF137A148C0086518F /* HubXMLConnection.m */,
-			);
-			name = Connection;
-			sourceTree = "<group>";
-		};
 		902B81CB137A0FEE0086518F /* TBXML */ = {
 			isa = PBXGroup;
 			children = (
@@ -449,24 +460,6 @@
 				902B81C2137A0FA80086518F /* TBXML.m */,
 			);
 			name = TBXML;
-			sourceTree = "<group>";
-		};
-		902B81E2137B05ED0086518F /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				9001607E1379F72A00E418AD /* HenryHub.xcdatamodeld */,
-				902B81BD137A0FA80086518F /* HubPiece.h */,
-				902B81BE137A0FA80086518F /* HubPiece.m */,
-				902B81DF137AFE990086518F /* HubPieceMedia.h */,
-				902B81E0137AFE9A0086518F /* HubPieceMedia.m */,
-				902B81D6137A1D710086518F /* HubPieceImage.h */,
-				902B81D7137A1D710086518F /* HubPieceImage.m */,
-				902B81D9137AF3310086518F /* HubPieceVideo.h */,
-				902B81DA137AF3320086518F /* HubPieceVideo.m */,
-				902B81DC137AF7660086518F /* HubPieceAudio.h */,
-				902B81DD137AF7670086518F /* HubPieceAudio.m */,
-			);
-			name = Models;
 			sourceTree = "<group>";
 		};
 		905410DC1384984A000BC652 /* FacebookSDK */ = {
@@ -570,6 +563,50 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		90A1864C138DB7C50056C382 /* Custom Classes */ = {
+			isa = PBXGroup;
+			children = (
+				90A18660138DB9810056C382 /* TextClasses */,
+				90A1865F138DB8FB0056C382 /* Model */,
+				90A18649138DB1A20056C382 /* HubXMLConnection.h */,
+				90A1864A138DB1A20056C382 /* HubXMLConnection.m */,
+			);
+			name = "Custom Classes";
+			sourceTree = "<group>";
+		};
+		90A1865F138DB8FB0056C382 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				90A1864F138DB8F70056C382 /* HubPiece.h */,
+				90A18650138DB8F70056C382 /* HubPiece.m */,
+				90A18651138DB8F70056C382 /* HubPieceAudio.h */,
+				90A18652138DB8F70056C382 /* HubPieceAudio.m */,
+				90A18653138DB8F70056C382 /* HubPieceImage.h */,
+				90A18654138DB8F70056C382 /* HubPieceImage.m */,
+				90A18655138DB8F70056C382 /* HubPieceMedia.h */,
+				90A18656138DB8F70056C382 /* HubPieceMedia.m */,
+				90A18657138DB8F70056C382 /* HubPieceVideo.h */,
+				90A18658138DB8F70056C382 /* HubPieceVideo.m */,
+				90A1864D138DB8F70056C382 /* HenryHub.xcdatamodeld */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		90A18660138DB9810056C382 /* TextClasses */ = {
+			isa = PBXGroup;
+			children = (
+				90A18661138DB9A30056C382 /* HHLabel_BrandonRegular.h */,
+				90A18662138DB9A30056C382 /* HHLabel_BrandonRegular.m */,
+				90A18664138DBAAB0056C382 /* HHLabel_BrandonBold.h */,
+				90A18665138DBAAB0056C382 /* HHLabel_BrandonBold.m */,
+				90A18667138DBB280056C382 /* HHTextView_BrandonRegular.h */,
+				90A18668138DBB280056C382 /* HHTextView_BrandonRegular.m */,
+				90A1866A138DBCE80056C382 /* HHTextView_BrandonBold.h */,
+				90A1866B138DBCE90056C382 /* HHTextView_BrandonBold.m */,
+			);
+			name = TextClasses;
+			sourceTree = "<group>";
+		};
 		90ADBE60138647EC00B3D09E /* Related */ = {
 			isa = PBXGroup;
 			children = (
@@ -636,6 +673,17 @@
 				9086AD3D1385F272001B2F9D /* menu_buttons@2x.png */,
 			);
 			name = Buttons;
+			sourceTree = "<group>";
+		};
+		90E0B6F7138D9C4E006FB6D0 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				90E0B6F9138D9C79006FB6D0 /* Brandon_bld_it.otf */,
+				90E0B6FA138D9C79006FB6D0 /* Brandon_bld.otf */,
+				90E0B6FB138D9C79006FB6D0 /* Brandon_reg_it.otf */,
+				90E0B6FC138D9C79006FB6D0 /* Brandon_reg.otf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -730,6 +778,10 @@
 				9002E853138B7C7500CA2AEF /* start-logo@2x.png in Resources */,
 				9002E856138B8F2A00CA2AEF /* arrow-down.png in Resources */,
 				9002E857138B8F2A00CA2AEF /* arrow-up.png in Resources */,
+				90E0B6FD138D9C79006FB6D0 /* Brandon_bld_it.otf in Resources */,
+				90E0B6FE138D9C79006FB6D0 /* Brandon_bld.otf in Resources */,
+				90E0B6FF138D9C79006FB6D0 /* Brandon_reg_it.otf in Resources */,
+				90E0B700138D9C79006FB6D0 /* Brandon_reg.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -742,19 +794,12 @@
 			files = (
 				900160771379F72A00E418AD /* main.m in Sources */,
 				9001607A1379F72A00E418AD /* HenryHubAppDelegate.m in Sources */,
-				900160801379F72A00E418AD /* HenryHub.xcdatamodeld in Sources */,
 				902B81AA137A00020086518F /* HHubViewController.m in Sources */,
 				902B81B0137A00350086518F /* OutSide.m in Sources */,
 				902B81B5137A004A0086518F /* InSide.m in Sources */,
 				8E94F6C8137A08CC00580A6C /* HubPieceView.m in Sources */,
-				902B81C5137A0FA80086518F /* HubPiece.m in Sources */,
 				902B81C6137A0FA80086518F /* NSDataAdditions.m in Sources */,
 				902B81C7137A0FA80086518F /* TBXML.m in Sources */,
-				902B81D1137A148C0086518F /* HubXMLConnection.m in Sources */,
-				902B81D8137A1D710086518F /* HubPieceImage.m in Sources */,
-				902B81DB137AF3320086518F /* HubPieceVideo.m in Sources */,
-				902B81DE137AF7670086518F /* HubPieceAudio.m in Sources */,
-				902B81E1137AFE9B0086518F /* HubPieceMedia.m in Sources */,
 				90010FF71384991000015FD2 /* FBRequest.m in Sources */,
 				90010FF81384991000015FD2 /* Facebook.m in Sources */,
 				90010FF91384991000015FD2 /* FBLoginDialog.m in Sources */,
@@ -774,6 +819,17 @@
 				90ADBE7B1386C99900B3D09E /* Sample.m in Sources */,
 				90ADBE7C1386C99900B3D09E /* Sound.m in Sources */,
 				90220C361387343800731424 /* Related.m in Sources */,
+				90A1864B138DB1A20056C382 /* HubXMLConnection.m in Sources */,
+				90A18659138DB8F70056C382 /* HenryHub.xcdatamodeld in Sources */,
+				90A1865A138DB8F70056C382 /* HubPiece.m in Sources */,
+				90A1865B138DB8F70056C382 /* HubPieceAudio.m in Sources */,
+				90A1865C138DB8F70056C382 /* HubPieceImage.m in Sources */,
+				90A1865D138DB8F70056C382 /* HubPieceMedia.m in Sources */,
+				90A1865E138DB8F70056C382 /* HubPieceVideo.m in Sources */,
+				90A18663138DB9A30056C382 /* HHLabel_BrandonRegular.m in Sources */,
+				90A18666138DBAAB0056C382 /* HHLabel_BrandonBold.m in Sources */,
+				90A18669138DBB280056C382 /* HHTextView_BrandonRegular.m in Sources */,
+				90A1866C138DBCE90056C382 /* HHTextView_BrandonBold.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -891,12 +947,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		9001607E1379F72A00E418AD /* HenryHub.xcdatamodeld */ = {
+		90A1864D138DB8F70056C382 /* HenryHub.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				9001607F1379F72A00E418AD /* HenryHub.xcdatamodel */,
+				90A1864E138DB8F70056C382 /* HenryHub.xcdatamodel */,
 			);
-			currentVersion = 9001607F1379F72A00E418AD /* HenryHub.xcdatamodel */;
+			currentVersion = 90A1864E138DB8F70056C382 /* HenryHub.xcdatamodel */;
 			path = HenryHub.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

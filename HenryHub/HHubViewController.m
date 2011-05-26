@@ -12,10 +12,7 @@
 
 @implementation HHubViewController
 
-@synthesize historyLabel = _historyLabel;
-@synthesize historyModal = _historyModal;
-@synthesize historyModalArrow = _historyModalArrow;
-@synthesize historyDismissLayer = _historyDismissLayer;
+@synthesize labelExplore = _labelExplore;
 
 -(IBAction)InSideView
 {
@@ -41,34 +38,6 @@
     [UIView commitAnimations];
 }
 
--(IBAction)toggleHistory:(id)sender
-{
-    // Tell the history modal where to animate to
-    CGRect viewFrame = self.historyModal.frame;
-    if(self.historyModal.frame.origin.y > 200)
-    {
-        viewFrame.origin.y = 98; 
-        self.historyDismissLayer.hidden = NO;
-        self.historyModalArrow.highlighted = YES; // down arrow
-    }
-    else
-    {
-        viewFrame.origin.y = 444;
-        self.historyDismissLayer.hidden = YES;
-        self.historyModalArrow.highlighted = NO; // up arrow
-    }
-    
-    // Start animation
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationBeginsFromCurrentState:YES];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];  
-    [UIView setAnimationDuration:0.25];
-    
-    [self.historyModal setFrame:viewFrame];
-    
-    [UIView commitAnimations];
-}
-
 - (void)dealloc
 {
     [super dealloc];
@@ -84,13 +53,10 @@
 
 #pragma mark - View lifecycle
 
-/*
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 }
-*/
 
 - (void)viewDidUnload
 {
