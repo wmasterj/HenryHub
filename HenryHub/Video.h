@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+#define kTitleValueTag      1
+#define kDurationValueTag   2
+#define kImageValueTag      3
 
 @interface Video : UIViewController <UITableViewDelegate, UITableViewDataSource> {
     
@@ -21,10 +24,12 @@
 @property (nonatomic, retain) IBOutlet UILabel *selected_videoDuration;
 @property (nonatomic, retain) IBOutlet UIButton *selected_videoClose;
 @property (nonatomic, retain) IBOutlet UITableView *videoTableView;
+@property (nonatomic, retain) IBOutlet UITableViewCell *videoTableViewCell;
 
 @property (nonatomic, retain) NSArray *videoListData; // Will hold HubPieceVideo objects
 
--(void)embedYouTube:(NSString *)videoId withFrame:(CGRect)frame;
--(IBAction)closeYoutubeVideo:(id)sender;
+- (void) embedYouTube: (NSString *) videoId withFrame: (CGRect) frame;
+- (IBAction) closeYoutubeVideo: (id) sender;
++ (NSString *) getDurationStringFromSeconds: (NSNumber *) seconds;
 
 @end

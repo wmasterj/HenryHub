@@ -25,13 +25,14 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
 
 @synthesize pieceConnection = _pieceConnection, currentPiece = _currentPiece;
 @synthesize hub_title = _hub_title, hub_artist = _hub_artist;
-@synthesize backgroundImage = _backgroundImage;
+@synthesize backgroundImage = _backgroundImage, menu_layer = _menu_layer;
 @synthesize hub_description = _hub_description, hub_info = _hub_info;
 @synthesize backButton = _backButton, movingMenu = _movingMenu,sub_menu = _sub_menu;
 @synthesize video_view = _video_view, related_view = _related_view;
-@synthesize facebookMock = _facebookMock, menu_layer = _menu_layer;
 @synthesize contentViewFrame = _contentViewFrame, spinner = _spinner;
 @synthesize facebook = _facebook, showingBackground = _showingBackground;
+
+#pragma mark -
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -157,7 +158,6 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     self.video_view.view.hidden = YES;
     self.related_view.view.hidden = YES;
     self.hub_info.hidden = YES;
-    self.facebookMock.hidden = YES;
 }
 
 - (IBAction)hideMenu:(id)sender

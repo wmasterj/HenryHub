@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ZBarSDK.h"
 
-@interface InSide : UIViewController <ZBarReaderDelegate> {
+@interface InSide : UIViewController <ZBarReaderDelegate, UITableViewDelegate, UITableViewDataSource> {
     
 }
 
@@ -19,6 +19,7 @@
 @property (nonatomic, retain) IBOutlet UIView *historyModal;
 @property (nonatomic, retain) IBOutlet UIImageView *historyModalArrow;
 @property (nonatomic, retain) IBOutlet UIButton *historyDismissLayer;
+@property (nonatomic, retain) IBOutlet UITableView *historyTableView;
 
 - (IBAction)backToStart;
 - (IBAction)openScanner:(id)sender;

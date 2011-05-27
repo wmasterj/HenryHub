@@ -19,6 +19,7 @@
 @synthesize selected_videoDuration = _selected_videoDuration;
 @synthesize selected_videoClose = _selected_videoClose;
 @synthesize videoTableView = _videoTableView;
+@synthesize videoTableViewCell = _videoTableViewCell;
 
 #pragma mark - Instance methods
 
@@ -34,12 +35,15 @@
 - (void)dealloc
 {
     [self.videoListData release];
-    [self.selected_video dealloc];
-    [self.selected_videoWebView dealloc];
-    [self.selected_videoTitle dealloc];
-    [self.selected_videoDescription dealloc];
-    [self.selected_videoDuration dealloc];    
-    [self.selected_videoClose dealloc];
+    [self.selected_video release];
+    [self.selected_videoWebView release];
+    [self.selected_videoTitle release];
+    [self.selected_videoDescription release];
+    [self.selected_videoDuration release];    
+    [self.selected_videoClose release];
+    [self.videoTableView release];
+    [self.videoTableViewCell release];
+    
     [super dealloc];
 }
 
@@ -86,36 +90,59 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *SimpleTableIdentifier = @"SimpleTableIdentifier";
-    UITableViewCell *cell =  [tableView 
-                              dequeueReusableCellWithIdentifier:SimpleTableIdentifier];
+    NSLog(@"Trying to return a cell...");
+    static NSString *VideoTableViewCellIdentifier = @"VideoTableViewCellIdentifier";
+    UITableViewCell *cell = [tableView 
+                             dequeueReusableCellWithIdentifier:VideoTableViewCellIdentifier];
     if(cell == nil)
     {
-        cell = [[[UITableViewCell alloc] 
-                 initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:SimpleTableIdentifier] autorelease];
+        NSLog(@"cell = nil");
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"VideoTableViewCell" 
+                                                     owner:self 
+                                                   options:nil];
+        if([nib count] > 0)
+        {
+            NSLog(@"Setting cell to something");
+            cell = self.videoTableViewCell;
+        } 
+        else
+        {
+            NSLog(@"Failed to load videoTableViewCell nig file!");
+        }
     }
     
     // Get the correct video
     NSUInteger row = [indexPath row];
+    NSLog(@"...at row: %i", row);
     HubPieceVideo *video = [self.videoListData objectAtIndex:row];
     
     // Title
-    cell.textLabel.text = [NSString stringWithFormat:@"%@", video.title];
-    cell.textLabel.font = [UIFont boldSystemFontOfSize:13];
-    cell.textLabel.textColor = [UIColor colorWithRed:255.0 green:255.0 blue:255.0 alpha:255.0];
+    UILabel *videoTitleLabel = (UILabel *)[cell viewWithTag:kTitleValueTag];
+    videoTitleLabel.text = [NSString stringWithFormat:@"%@", video.title];
     
     // Image
-    UIImage *cellImage = [UIImage imageWithData:[NSData dataWithContentsOfURL: 
+    UIImageView *videoImageView = (UIImageView *)[cell viewWithTag:kImageValueTag];
+    videoImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL: 
                                                  [NSURL URLWithString:video.image_url]]];
-    cell.imageView.image = cellImage;
     
     // Calculate time
-    double delta = [video.duration doubleValue];
-    int minutes = floor(delta/60);
-    int seconds = trunc(delta - (minutes*60));
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"Duration %i:%i", minutes, seconds];
+    UILabel *videoDurationLabel = (UILabel *)[cell viewWithTag:kDurationValueTag];
+    videoDurationLabel.text = [Video getDurationStringFromSeconds:video.duration];
     
+    NSLog(@"returning");
     return cell;
+}
+
++(NSString *)getDurationStringFromSeconds:(NSNumber *)seconds
+{
+    if(seconds)
+    {
+        double delta = [seconds doubleValue];
+        int minutes = floor(delta/60);
+        int seconds = trunc(delta - (minutes*60));
+        return [NSString stringWithFormat:@"Duration %i:%i", minutes, seconds];
+    }
+    return nil;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -158,6 +185,14 @@
 - (void)viewDidUnload
 {
     self.videoListData = nil;
+    self.selected_video = nil;
+    self.selected_videoWebView = nil;
+    self.selected_videoTitle = nil;
+    self.selected_videoDescription = nil;
+    self.selected_videoDuration = nil;
+    self.selected_videoClose = nil;
+    self.videoTableView = nil;
+    self.videoTableViewCell = nil;
     
     [super viewDidUnload];
     // Release any retained subviews of the main view.

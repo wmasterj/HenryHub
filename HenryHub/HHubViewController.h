@@ -13,7 +13,7 @@
 }
 
 @property (nonatomic, retain) IBOutlet UILabel *labelExplore;
-
+@property (nonatomic, retain) IBOutlet UILabel *welcomeText;
 
 -(IBAction)InSideView;
 -(IBAction)OutSideView;

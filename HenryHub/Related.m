@@ -8,8 +8,9 @@
 
 #import "Related.h"
 
-
 @implementation Related
+
+@synthesize relatedTableView = _relatedTableView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -37,6 +38,8 @@
 
 - (void)viewDidLoad
 {
+    self.relatedTableView.separatorColor = [UIColor clearColor];
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }

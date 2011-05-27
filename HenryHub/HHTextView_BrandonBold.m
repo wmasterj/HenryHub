@@ -25,8 +25,8 @@
 {
     if ((self = [super initWithCoder:aDecoder])) 
     {
-        [self setFont: [UIFont fontWithName: @"BrandonGrotesque-Bold" 
-                                       size: self.font.pointSize]];
+        [self setFont:[UIFont fontWithName: @"BrandonGrotesque-Bold" 
+                                      size: self.font.pointSize]];
     }
     
     return self;

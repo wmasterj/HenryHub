@@ -58,9 +58,9 @@
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<string key="IBUIText">To see more about an object</string>
-						<object class="NSFont" key="IBUIFont" id="44331365">
+						<object class="NSFont" key="IBUIFont">
 							<string key="NSName">Helvetica</string>
-							<double key="NSSize">18</double>
+							<double key="NSSize">19</double>
 							<int key="NSfFlags">16</int>
 						</object>
 						<object class="NSColor" key="IBUITextColor" id="1013487489">
@@ -68,9 +68,13 @@
 							<bytes key="NSRGB">MSAxIDEAA</bytes>
 						</object>
 						<nil key="IBUIHighlightedColor"/>
+						<object class="NSColor" key="IBUIShadowColor">
+							<int key="NSColorSpace">1</int>
+							<bytes key="NSRGB">MCAwIDAAA</bytes>
+						</object>
+						<string key="IBUIShadowOffset">{1, 1}</string>
 						<int key="IBUIBaselineAdjustment">1</int>
-						<float key="IBUIMinimumFontSize">10</float>
-						<int key="IBUINumberOfLines">6</int>
+						<float key="IBUIMinimumFontSize">19</float>
 						<int key="IBUITextAlignment">1</int>
 					</object>
 					<object class="IBUIButton" id="952978900">
@@ -125,9 +129,17 @@
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<string key="IBUIText">SCAN THIS</string>
-						<reference key="IBUIFont" ref="44331365"/>
+						<object class="NSFont" key="IBUIFont">
+							<string key="NSName">Helvetica</string>
+							<double key="NSSize">18</double>
+							<int key="NSfFlags">16</int>
+						</object>
 						<reference key="IBUITextColor" ref="1013487489"/>
 						<nil key="IBUIHighlightedColor"/>
+						<object class="NSColor" key="IBUIShadowColor">
+							<int key="NSColorSpace">1</int>
+							<bytes key="NSRGB">MC4zOTYzMTMzNjQxIDAuMDg4OTQ3MzkwOTQgMC4yODkwMDc0ODE2AA</bytes>
+						</object>
 						<int key="IBUIBaselineAdjustment">1</int>
 						<float key="IBUIMinimumFontSize">10</float>
 						<int key="IBUITextAlignment">1</int>
@@ -221,6 +233,10 @@
 									<bytes key="NSWhite">MC41MzY0OTYzNTA0AA</bytes>
 								</object>
 								<nil key="IBUIHighlightedColor"/>
+								<object class="NSColor" key="IBUIShadowColor">
+									<int key="NSColorSpace">1</int>
+									<bytes key="NSRGB">MC4xMTUyMDczNzMzIDAuMTE1MjA3MzczMyAwLjExNTIwNzM3MzMAA</bytes>
+								</object>
 								<int key="IBUIBaselineAdjustment">1</int>
 								<float key="IBUIMinimumFontSize">10</float>
 							</object>
@@ -389,6 +405,14 @@
 					</object>
 					<int key="connectionID">73</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">historyTableView</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="204301831"/>
+					</object>
+					<int key="connectionID">74</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -550,7 +574,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">73</int>
+			<int key="maxID">74</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -628,6 +652,7 @@
 							<string>historyLabel</string>
 							<string>historyModal</string>
 							<string>historyModalArrow</string>
+							<string>historyTableView</string>
 							<string>idString</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
@@ -636,6 +661,7 @@
 							<string>UILabel</string>
 							<string>UIView</string>
 							<string>UIImageView</string>
+							<string>UITableView</string>
 							<string>UITextField</string>
 						</object>
 					</object>
@@ -647,6 +673,7 @@
 							<string>historyLabel</string>
 							<string>historyModal</string>
 							<string>historyModalArrow</string>
+							<string>historyTableView</string>
 							<string>idString</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
@@ -666,6 +693,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">historyModalArrow</string>
 								<string key="candidateClassName">UIImageView</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">historyTableView</string>
+								<string key="candidateClassName">UITableView</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">idString</string>

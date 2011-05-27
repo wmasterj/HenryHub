@@ -27,6 +27,7 @@
     {
         [self setFont: [UIFont fontWithName: @"BrandonGrotesque-Bold" 
                                        size: self.font.pointSize]];
+        [self alignTop];
     }
     
     return self;

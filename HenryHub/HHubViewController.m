@@ -13,6 +13,7 @@
 @implementation HHubViewController
 
 @synthesize labelExplore = _labelExplore;
+@synthesize welcomeText = _welcomeText;
 
 -(IBAction)InSideView
 {

@@ -25,13 +25,14 @@
 @synthesize historyModal = _historyModal;
 @synthesize historyModalArrow = _historyModalArrow;
 @synthesize historyDismissLayer = _historyDismissLayer;
+@synthesize historyTableView = _historyTableView;
 
 -(IBAction)backToStart
 {
     [UIView beginAnimations:@"back" context:nil];
     [UIView setAnimationDuration:0.5];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.view.superview cache:YES];
+    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.view.superview cache:YES];
     if(self.view == nil) NSLog(@"self.view not there");
     [self.view removeFromSuperview];
     [UIView commitAnimations];
@@ -193,6 +194,8 @@
 //    NSAssert(error == nil, @"Failed to activate audio session.");
     
     self.historyDismissLayer.hidden = YES;
+    
+    self.historyTableView.separatorColor = [UIColor clearColor];
     
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.

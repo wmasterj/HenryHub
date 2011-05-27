@@ -27,7 +27,6 @@
 //
 @property (nonatomic, retain) IBOutlet Video *video_view;
 @property (nonatomic, retain) IBOutlet Related *related_view;
-@property (nonatomic, retain) IBOutlet UIView *facebookMock;
 
 // Data & connection
 //
@@ -37,7 +36,7 @@
 
 // Hub Piece elements
 //
-@property (nonatomic, retain) IBOutlet UITextView *hub_title;
+@property (nonatomic, retain) IBOutlet UILabel *hub_title;
 @property (nonatomic, retain) IBOutlet UILabel *hub_artist;
 @property (nonatomic, retain) IBOutlet UIImageView *backgroundImage;
 // Information
