@@ -116,9 +116,22 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     // Show the UI controls that are hiding before everything has loaded
     // TODO: Animate these into the view
     self.sub_menu.hidden = NO;
+    
+//    NSInvocation *invoc = [NSInvocation invocationWithMethodSignature:[HubPieceView instanceMethodSignatureForSelector:@selector(hideBackButton:)] ];                   
+//    [invoc setTarget:self];
+//    [invoc setSelector:@selector(hideBackButton:)];
+//    [invoc setArgument:NO atIndex:2];
+//    [NSTimer scheduledTimerWithTimeInterval:1 invocation:invoc repeats:NO];
+
+//    
+//    [NSTimer scheduledTimerWithTimeInterval:1 
+//                                     target:self 
+//                                   selector:@selector(hideHeader:NO) 
+//                                   userInfo:nil 
+//                                    repeats:NO];
     [self hideBackButton:NO];
-    self.hub_artist.hidden = NO;
-    self.hub_title.hidden = NO;
+    [self hideHeader:NO];
+    
     [self.spinner stopAnimating];
     
     NSLog(@"All things are showing");
@@ -361,6 +374,7 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
 -(void)dialogDidComplete:(FBDialog *)dialog
 {
     [self showMenu:nil];
+    NSLog(@"SHARED?!?! If so then give that feedback is possible.");
 }
 
 -(void)dialogDidNotComplete:(FBDialog *)dialog
