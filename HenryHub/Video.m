@@ -90,19 +90,16 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"Trying to return a cell...");
     static NSString *VideoTableViewCellIdentifier = @"VideoTableViewCellIdentifier";
     UITableViewCell *cell = [tableView 
                              dequeueReusableCellWithIdentifier:VideoTableViewCellIdentifier];
     if(cell == nil)
     {
-        NSLog(@"cell = nil");
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"VideoTableViewCell" 
                                                      owner:self 
                                                    options:nil];
         if([nib count] > 0)
         {
-            NSLog(@"Setting cell to something");
             cell = self.videoTableViewCell;
         } 
         else
@@ -118,36 +115,39 @@
     
     // Title
     UILabel *videoTitleLabel = (UILabel *)[cell viewWithTag:kTitleValueTag];
-    videoTitleLabel.text = [NSString stringWithFormat:@"%@", video.title];
+    videoTitleLabel.text = [NSString stringWithFormat:@"%@", video.video_title];
+    
+    // Description
+    UILabel *videoDescriptionTextView = (UILabel *)[cell viewWithTag:kDescriptionValueTag];
+    videoDescriptionTextView.text = [NSString stringWithFormat:@"%@", video.video_caption];
     
     // Image
     UIImageView *videoImageView = (UIImageView *)[cell viewWithTag:kImageValueTag];
     videoImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL: 
-                                                 [NSURL URLWithString:video.image_url]]];
+                                                 [NSURL URLWithString:video.video_image_url]]];
     
     // Calculate time
     UILabel *videoDurationLabel = (UILabel *)[cell viewWithTag:kDurationValueTag];
-    videoDurationLabel.text = [Video getDurationStringFromSeconds:video.duration];
+    videoDurationLabel.text = [NSString stringWithFormat:@"Duration: %@ min", 
+                               [Video getDurationStringFromSeconds:[video.video_duration doubleValue]]];
     
-    NSLog(@"returning");
     return cell;
 }
 
-+(NSString *)getDurationStringFromSeconds:(NSNumber *)seconds
++(NSString *)getDurationStringFromSeconds:(double)seconds
 {
     if(seconds)
     {
-        double delta = [seconds doubleValue];
-        int minutes = floor(delta/60);
-        int seconds = trunc(delta - (minutes*60));
-        return [NSString stringWithFormat:@"Duration %i:%i", minutes, seconds];
+        int tmpMinutes = floor(seconds/60);
+        int tmpSeconds = trunc(seconds - (tmpMinutes*60));
+        return [NSString stringWithFormat:@"%i:%.2d", tmpMinutes, tmpSeconds];
     }
     return nil;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 60;
+    return 136; // Change this when the cell size changes
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -156,14 +156,14 @@
     HubPieceVideo *video = [self.videoListData objectAtIndex:row];
     
     // Open video
-    NSString *url = [NSString stringWithFormat:@"http://www.youtube.com/watch?v=%@", video.external_id];
+    NSString *url = [NSString stringWithFormat:@"http://www.youtube.com/watch?v=%@", video.video_external_id];
     [self embedYouTube:url withFrame:CGRectMake(0, 0, 280, 176)];
     
     // Show video information
-    self.selected_videoTitle.text = video.title;
-    self.selected_videoDescription.text = video.caption;
+    self.selected_videoTitle.text = video.video_title;
+    self.selected_videoDescription.text = video.video_caption;
     // Calculate time
-    double delta = [video.duration doubleValue];
+    double delta = [video.video_duration doubleValue];
     int minutes = floor(delta/60);
     int seconds = trunc(delta - (minutes*60));
     self.selected_videoDuration.text = [NSString 

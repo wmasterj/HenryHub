@@ -79,6 +79,8 @@
 
 - (void)dealloc
 {
+    NSLog(@">>> Releasing context & more... <<<");
+    
     // Henry Hub releasing
     [_startView release];
     
@@ -136,6 +138,8 @@
         __managedObjectContext = [[NSManagedObjectContext alloc] init];
         [__managedObjectContext setPersistentStoreCoordinator:coordinator];
     }
+    [__managedObjectContext setRetainsRegisteredObjects:YES]; 
+    
     return __managedObjectContext;
 }
 
@@ -167,10 +171,15 @@
     
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"HenryHub.sqlite"];
     
+    NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
+                             [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
+                             [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
+    
     NSError *error = nil;
     __persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    if (![__persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error])
+    if (![__persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:options error:&error])
     {
+        [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil]; // For development
         /*
          Replace this implementation with code to handle the error appropriately.
          

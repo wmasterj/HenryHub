@@ -33,6 +33,7 @@
 @property (nonatomic, retain) HubXMLConnection *pieceConnection;
 @property (nonatomic, retain) HubPiece *currentPiece;
 @property (nonatomic, retain) Facebook *facebook;
+@property (nonatomic, assign) BOOL pieceLoaded;
 
 // Hub Piece elements
 //
@@ -64,8 +65,9 @@
 - (IBAction) hideAllViews: (id) sender;
 - (IBAction) hideMenu: (id) sender;
 - (IBAction) showMenu: (id) sender;
-- (void) hideHeader: (BOOL) hide;
 - (IBAction) showBackground: (id) sender;
+- (void) hideHeader: (BOOL) hide;
 - (void) hideBackButton: (BOOL) doHide;
+- (void) displayInformation;
 
 @end

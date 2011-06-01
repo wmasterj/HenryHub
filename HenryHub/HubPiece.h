@@ -7,31 +7,38 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 #import "TBXML.h"
 
 
-@interface HubPiece : NSObject {
+@interface HubPiece : NSManagedObject {
     
 }
 
 @property (nonatomic, retain) NSString *piece_id;
-@property (nonatomic, retain) NSString *name;
-@property (nonatomic, retain) NSString *description;
-@property (nonatomic, retain) NSDate   *creation_date;
-@property (nonatomic, retain) NSString *artist;
+@property (nonatomic, retain) NSString *piece_name;
+@property (nonatomic, retain) NSString *piece_description;
+@property (nonatomic, retain) NSString *piece_creation_date;
+@property (nonatomic, retain) NSString *piece_artist;
 
 // Lists of content
-@property (nonatomic, retain) NSMutableArray  *related;
-@property (nonatomic, retain) NSMutableArray  *images;
-@property (nonatomic, retain) NSMutableArray  *videos;
-@property (nonatomic, retain) NSMutableArray  *audio;
+@property (nonatomic, retain) NSSet *related;
+@property (nonatomic, retain) NSSet *images;
+@property (nonatomic, retain) NSSet *videos;
+@property (nonatomic, retain) NSSet *audio;
 
 // Social
-@property (nonatomic, retain) NSString *facebookid;
-@property (nonatomic, retain) NSString *share_copy;
-@property (nonatomic, retain) NSString *likes;
-@property (nonatomic, retain) NSString *views;
+@property (nonatomic, retain) NSString *piece_facebookid;
+@property (nonatomic, retain) NSString *piece_share_copy;
+@property (nonatomic, retain) NSString *piece_likes;
+@property (nonatomic, retain) NSString *piece_views;
+
+// User metadata
+@property (nonatomic, retain) NSNumber *piece_last_viewed;
 
 -(id)initWithXML:(TBXMLElement *)pieceXML;
+- (void)addVideosObject:(NSManagedObject *)value;
+- (void)addImagesObject:(NSManagedObject *)value;
+- (void)addRelatedObject:(NSManagedObject *)value;
 
 @end

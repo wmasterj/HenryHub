@@ -16,7 +16,7 @@
 #import "Related.h"
 #import "FBConnect.h"
 
-
+// Facebook Connect variables
 NSString *const kAppId = @"154049007996025";
 NSString *const kAppKey = @"f5c29dab6560b715d6864cd4fd3eb6d1";
 NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
@@ -31,6 +31,7 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
 @synthesize video_view = _video_view, related_view = _related_view;
 @synthesize contentViewFrame = _contentViewFrame, spinner = _spinner;
 @synthesize facebook = _facebook, showingBackground = _showingBackground;
+@synthesize pieceLoaded = _pieceLoaded;
 
 #pragma mark -
 
@@ -42,6 +43,8 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     }
     return self;
 }
+
+#pragma mark - Data event callbacks
 
 -(void)dataDidDownload:(BOOL)success // delegate set to this object from InSide.m
 {
@@ -59,43 +62,13 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     if(self.currentPiece != nil){
         [self.currentPiece release];
     }
-    self.currentPiece = [[HubPiece alloc] initWithXML:pieceXML]; // LEAKING!
+    
+    self.currentPiece = [[HubPiece alloc] initWithXML:pieceXML]; // LEAKING a little
     
     // If it returns something with an ID, then go ahead and show the rest of the stuff
     if(self.currentPiece.piece_id) 
     {
-        // Add title to UI
-        self.hub_title.text = self.currentPiece.name;
-        
-        // Add artist name
-        self.hub_artist.text = self.currentPiece.artist;
-        
-        // Main image
-        if([self.currentPiece.images count] > 0)
-        {
-            HubPieceImage *tmpImage = [self.currentPiece.images objectAtIndex:0];
-            if(tmpImage.asset_url)
-            {
-                self.backgroundImage.image = [UIImage imageWithData:
-                                              [NSData dataWithContentsOfURL: 
-                                               [NSURL URLWithString:tmpImage.asset_url]]];
-            } else {
-                NSLog(@"No image URL! No first image?? Error.");
-            }
-        }
-        
-        // Add description to UI
-        self.hub_description.text = self.currentPiece.description;
-        
-        // Show the UI controls that are hiding before everything has loaded
-        // TODO: Animate these into the view
-        self.sub_menu.hidden = NO;
-        self.backButton.hidden = NO;
-        self.hub_artist.hidden = NO;
-        self.hub_title.hidden = NO;
-        [self.spinner stopAnimating];
-        
-        NSLog(@"All things are showing");
+        [self displayInformation];
     }
     else
     {
@@ -110,6 +83,45 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     }
     
     [tbxml release];
+}
+
+/*!
+ * @abstract: Display the data when self.currentPiece has been loaded
+ */
+-(void)displayInformation
+{
+    // Add title to UI
+    self.hub_title.text = self.currentPiece.piece_name;
+    
+    // Add artist name
+    self.hub_artist.text = self.currentPiece.piece_artist;
+    
+    // Main image 
+    HubPieceImage *tmpImage;
+    if((tmpImage = [self.currentPiece.images anyObject]))
+    {
+        if(tmpImage.image_asset_url)
+        {
+            self.backgroundImage.image = [UIImage imageWithData:
+                                          [NSData dataWithContentsOfURL: 
+                                           [NSURL URLWithString:tmpImage.image_asset_url]]];
+        } else {
+            NSLog(@"ERROR: No image URL!");
+        }
+    }
+    
+    // Add description to UI
+    self.hub_description.text = self.currentPiece.piece_description;
+    
+    // Show the UI controls that are hiding before everything has loaded
+    // TODO: Animate these into the view
+    self.sub_menu.hidden = NO;
+    [self hideBackButton:NO];
+    self.hub_artist.hidden = NO;
+    self.hub_title.hidden = NO;
+    [self.spinner stopAnimating];
+    
+    NSLog(@"All things are showing");
 }
 
 -(void)dataDidNotDownload:(BOOL)success // delegate set to this object from InSide.m
@@ -151,6 +163,7 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
         [self backToScan:nil];
 }
 
+#pragma mark - Showing And Hiding methods
 
 - (IBAction)hideAllViews:(id)sender
 {
@@ -175,7 +188,7 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     
     [UIView commitAnimations];
     
-    self.backButton.hidden = YES; // TODO: Animate in own method
+    [self hideBackButton:YES];
     [self hideHeader:YES];
     self.menu_layer.hidden = NO;
 }
@@ -197,25 +210,11 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     
     [self.video_view closeYoutubeVideo:nil];
     [self hideHeader:NO];
-    self.backButton.hidden = NO; // TODO: Animate in own method
+    [self hideBackButton:NO];
     self.menu_layer.hidden = YES;
     
     
     [self hideAllViews:sender];
-}
-
--(void) hideHeader: (BOOL) hide
-{
-    if(hide) 
-    {
-        self.hub_title.hidden = YES;
-        self.hub_artist.hidden = YES;
-    }
-    else 
-    {
-        self.hub_title.hidden = NO;
-        self.hub_artist.hidden = NO;
-    }
 }
 
 -(IBAction)showBackground:(id)sender
@@ -251,7 +250,7 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     
     if(self.video_view == nil)
         self.video_view = [[Video alloc] initWithNibName:@"Video" bundle:nil];
-    self.video_view.videoListData = self.currentPiece.videos;
+    self.video_view.videoListData = [self.currentPiece.videos allObjects];
     self.video_view.view.frame = self.contentViewFrame;
     self.video_view.view.hidden = NO;
     
@@ -281,14 +280,14 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     [self hideAllViews:sender];
     
     // Open up a Facebook dialog here, will prompt for login
-    HubPieceImage *fbImage = [self.currentPiece.images objectAtIndex:0];
-    NSString *fbTitle = [NSString stringWithFormat:@"Henry Art Gallery: %@", self.currentPiece.name];
+    //<CHANGE>HubPieceImage *fbImage = [self.currentPiece.images objectAtIndex:0];
+    NSString *fbTitle = [NSString stringWithFormat:@"Henry Art Gallery: %@", self.currentPiece.piece_name];
     NSMutableDictionary* params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                    kAppId, @"app_id",
                                    @"http://www.facebook.com/henryartgallery", @"link",
-                                   fbImage.asset_url, @"picture",
+                                   @"", @"picture", //<CHANGE>
                                    fbTitle, @"name",
-                                   self.currentPiece.share_copy, @"description",
+                                   self.currentPiece.piece_share_copy, @"description",
                                    @"I'm at the Henry...",  @"message",
                                    nil];
     
@@ -301,11 +300,37 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     CGRect viewFrame = self.backButton.frame;
     if(!doHide)
     {
-        viewFrame.origin.x = -10; 
+        viewFrame.origin.x = -22; 
     }
     else
     {
-        viewFrame.origin.x = -73;
+        viewFrame.origin.x = -98;
+    }
+    
+    // Start animation
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];  
+    [UIView setAnimationDuration:0.2];
+    
+    [self.backButton setFrame:viewFrame];
+    
+    [UIView commitAnimations];
+}
+
+-(void)hideHeader:(BOOL)doHide
+{
+    // Tell the title where to animate
+    CGRect viewFrame = self.hub_title.frame;
+    if(!doHide)
+    {
+        viewFrame.origin.y = 11; 
+        self.hub_artist.hidden = NO;
+    }
+    else
+    {
+        viewFrame.origin.y = -89;
+        self.hub_artist.hidden = YES;
     }
     
     // Start animation
@@ -314,7 +339,7 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];  
     [UIView setAnimationDuration:0.25];
     
-    [self.backButton setFrame:viewFrame];
+    [self.hub_title setFrame:viewFrame];
     
     [UIView commitAnimations];
 }
@@ -354,7 +379,7 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];  
     [UIView setAnimationTransition:UIViewAnimationTransitionCurlDown 
                            forView:self.view cache:YES];
-    [self.view removeFromSuperview];
+    [self.view removeFromSuperview]; 
     [UIView commitAnimations];
 }
 
@@ -362,16 +387,15 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
 
 - (void)dealloc
 {
-    NSLog(@"Deallocking the stuff out of the self.currentPiece and more!");
-    [self.menu_layer dealloc];
-    [self.sub_menu dealloc];
-    [self.pieceConnection dealloc];
-    [self.hub_title dealloc];
-    [self.hub_info dealloc];
-    [self.hub_description dealloc];
-    [self.currentPiece dealloc];
-    [self.video_view dealloc];
-    [self.facebook dealloc];
+    [self.menu_layer release];
+    [self.sub_menu release];
+    [self.pieceConnection release];
+    [self.hub_title release];
+    [self.hub_info release];
+    [self.hub_description release];
+    [self.currentPiece release];
+    [self.video_view release];
+    [self.facebook release];
     
     [super dealloc];
 }
@@ -389,9 +413,9 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
 
 - (void)viewDidLoad
 {    
+    NSLog(@"viewDidLoad: HubPieceView");
     // Do some initial UI setup
     self.menu_layer.hidden = YES;
-    self.backButton.hidden = YES;
     self.contentViewFrame = CGRectMake(20,84,280,334);
 
     // Add a spinner for loading
@@ -402,6 +426,11 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     
     // Setup facebook object
     self.facebook = [[Facebook alloc] initWithAppId:kAppId];
+    
+    if(self.pieceLoaded) {
+        // Doesn't have to load
+        [self displayInformation];
+    }
     
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.

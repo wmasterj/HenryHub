@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-#define kTitleValueTag      1
-#define kDurationValueTag   2
-#define kImageValueTag      3
+#define kTitleValueTag          1
+#define kDescriptionValueTag    2
+#define kDurationValueTag       3
+#define kImageValueTag          4  
 
 @interface Video : UIViewController <UITableViewDelegate, UITableViewDataSource> {
     
@@ -30,6 +31,6 @@
 
 - (void) embedYouTube: (NSString *) videoId withFrame: (CGRect) frame;
 - (IBAction) closeYoutubeVideo: (id) sender;
-+ (NSString *) getDurationStringFromSeconds: (NSNumber *) seconds;
++ (NSString *) getDurationStringFromSeconds: (double) seconds;
 
 @end

@@ -90,7 +90,7 @@
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MC41AA</bytes>
 						</object>
-						<object class="NSCustomResource" key="IBUIHighlightedImage" id="1015852524">
+						<object class="NSCustomResource" key="IBUIHighlightedImage">
 							<string key="NSClassName">NSImage</string>
 							<string key="NSResourceName">big-button-bg-pressed.png</string>
 						</object>
@@ -197,7 +197,6 @@
 							<bytes key="NSRGB">MC4xOTYwNzg0MzE0IDAuMzA5ODAzOTIxNiAwLjUyMTU2ODYyNzUAA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="565623774"/>
-						<reference key="IBUIHighlightedImage" ref="1015852524"/>
 						<reference key="IBUINormalImage" ref="282801612"/>
 					</object>
 					<object class="IBUILabel" id="207137196">
@@ -267,11 +266,14 @@ IGludGVyYWN0IGFuZCBlbmdhbmdlIHdpdGggdGhlIGFydCBvbiBkaXNwbGF5LiAKRW5qb3khA</strin
 							<double key="NSSize">19</double>
 							<int key="NSfFlags">16</int>
 						</object>
-						<reference key="IBUITextColor" ref="766001443"/>
-						<nil key="IBUIHighlightedColor"/>
+						<reference key="IBUITextColor" ref="913922107"/>
+						<object class="NSColor" key="IBUIHighlightedColor">
+							<int key="NSColorSpace">3</int>
+							<bytes key="NSWhite">MC40NjM1MDM2NDk2AA</bytes>
+						</object>
 						<object class="NSColor" key="IBUIShadowColor">
 							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4wNDk3NzM3NTI2OSAwLjA0MjAwMTUyNjggMC4wMzIwNDkxMjY5MgA</bytes>
+							<bytes key="NSRGB">MCAwIDAAA</bytes>
 						</object>
 						<string key="IBUIShadowOffset">{1, 1}</string>
 						<int key="IBUIBaselineAdjustment">1</int>
@@ -461,10 +463,10 @@ IGludGVyYWN0IGFuZCBlbmdhbmdlIHdpdGggdGhlIGFydCBvbiBkaXNwbGF5LiAKRW5qb3khA</strin
 					<string>{{239, 654}, {320, 480}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<real value="1"/>
+					<real value="0.0"/>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<real value="2"/>
-					<real value="0.0"/>
+					<real value="1"/>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="unlocalizedProperties">

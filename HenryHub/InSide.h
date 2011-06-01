@@ -9,6 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "ZBarSDK.h"
 
+#define kTitleValueTag      1
+#define kArtistValueTag     2
+#define kLastViewedValueTag 3
+#define kImageValueTag      4
+
 @interface InSide : UIViewController <ZBarReaderDelegate, UITableViewDelegate, UITableViewDataSource> {
     
 }
@@ -20,10 +25,15 @@
 @property (nonatomic, retain) IBOutlet UIImageView *historyModalArrow;
 @property (nonatomic, retain) IBOutlet UIButton *historyDismissLayer;
 @property (nonatomic, retain) IBOutlet UITableView *historyTableView;
+@property (nonatomic, retain) IBOutlet UITableViewCell *historyCell;
+// History objects
+@property (nonatomic, retain) NSArray *historyObjects;
 
-- (IBAction)backToStart;
-- (IBAction)openScanner:(id)sender;
-- (IBAction)textEditingDone:(id)sender;
-- (IBAction)toggleHistory:(id)sender;
+- (IBAction) backToStart;
+- (IBAction) openScanner: (id)sender;
+- (IBAction) textEditingDone: (id)sender;
+- (IBAction) toggleHistory: (id)sender;
+- (void) loadObjectsToTableView;
+
 
 @end

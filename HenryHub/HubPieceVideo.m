@@ -7,38 +7,51 @@
 //
 
 #import "HubPieceVideo.h"
+#import "HenryHubAppDelegate.h"
 #import "TBXML.h"
 
 
 @implementation HubPieceVideo
 
-@synthesize image_url=_image_url, external_id=_object_id, duration=_duration, views=_views;
+@dynamic video_title;
+@dynamic video_asset_url;
+@dynamic video_page_url;
+@dynamic video_caption;
+@dynamic video_duration;
+@dynamic video_external_id;
+@dynamic video_image_url;
+@dynamic video_views;
+@dynamic piece;
 
 -(id)initWithXML:(TBXMLElement *)videoXML
 {
-    self = [super init];
+    // Setup the environment for dealing with Core Data and managed objects
+    HenryHubAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [appDelegate managedObjectContext];
+    NSEntityDescription *entityHubPieceVideo = [NSEntityDescription entityForName:@"HubPieceVideo" 
+                                                           inManagedObjectContext:context];
+    
+    self = [[HubPieceVideo alloc] initWithEntity:entityHubPieceVideo insertIntoManagedObjectContext:context];
     
     if(videoXML) 
     {
-        self.title = [TBXML textForElement: [TBXML childElementNamed:@"title" parentElement:videoXML]];
-        self.external_id = [TBXML textForElement: [TBXML childElementNamed:@"serviceid" parentElement:videoXML]];
-        self.asset_url = [TBXML textForElement: [TBXML childElementNamed:@"url" parentElement:videoXML]];
-        self.image_url = [TBXML textForElement: [TBXML childElementNamed:@"thumbnail" parentElement:videoXML]];
-        self.page_url = [TBXML textForElement: [TBXML childElementNamed:@"url" parentElement:videoXML]];
-        self.caption = [TBXML textForElement: [TBXML childElementNamed:@"description" parentElement:videoXML]];;
-        self.duration = [NSNumber numberWithInt: [[TBXML textForElement: [TBXML childElementNamed:@"duration" parentElement:videoXML]] integerValue]];
-        self.views = [TBXML textForElement: [TBXML childElementNamed:@"views" parentElement:videoXML]];
+        [self setVideo_title:[TBXML textForElement: [TBXML childElementNamed:@"title" parentElement:videoXML]] ];
+        [self setVideo_external_id:[TBXML textForElement: [TBXML childElementNamed:@"serviceid" parentElement:videoXML]] ];
+        [self setVideo_asset_url:[TBXML textForElement: [TBXML childElementNamed:@"url" parentElement:videoXML]] ];
+        [self setVideo_image_url:[TBXML textForElement: [TBXML childElementNamed:@"thumbnail" parentElement:videoXML]] ];
+        [self setVideo_page_url:[TBXML textForElement: [TBXML childElementNamed:@"url" parentElement:videoXML]] ];
+        [self setVideo_caption:[TBXML textForElement: [TBXML childElementNamed:@"description" parentElement:videoXML]] ];
+        [self setVideo_duration:[TBXML textForElement: [TBXML childElementNamed:@"duration" parentElement:videoXML]] ];
+        [self setVideo_views:[TBXML textForElement: [TBXML childElementNamed:@"views" parentElement:videoXML]] ];
     }
-    return self;
-}
-
-- (void)dealloc
-{
-    [self.image_url release];
-    [self.external_id release];
-    [self.duration release];
     
-    [super dealloc];
+    NSError *error;
+    if(![context save:&error]) 
+    {
+        NSLog(@"HubPieceVideo save context error: %@ %@", error, [error userInfo]); 
+    }
+    
+    return self;
 }
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "HubPieceMedia.h"
+#import "HubPiece.h"
 #import "TBXML.h"
 
 /*!
@@ -16,14 +16,19 @@
  @abstract A model class that contains information about a video attached 
  to a hub piece.
  */
-@interface HubPieceVideo : HubPieceMedia {
+@interface HubPieceVideo : NSManagedObject {
     
 }
 
-@property (nonatomic, retain) NSString    *external_id;
-@property (nonatomic, retain) NSString    *image_url; 
-@property (nonatomic, retain) NSNumber    *duration;
-@property (nonatomic, retain) NSString    *views;
+@property (nonatomic, retain) NSString * video_title;
+@property (nonatomic, retain) NSString * video_asset_url;
+@property (nonatomic, retain) NSString * video_page_url;
+@property (nonatomic, retain) NSString * video_duration;
+@property (nonatomic, retain) NSString * video_caption;
+@property (nonatomic, retain) NSString * video_external_id;
+@property (nonatomic, retain) NSString * video_image_url;
+@property (nonatomic, retain) NSString * video_views;
+@property (nonatomic, retain) HubPiece * piece;
 
 -(id)initWithXML:(TBXMLElement *)videoXML;
 

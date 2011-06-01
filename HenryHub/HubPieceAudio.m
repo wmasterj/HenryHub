@@ -11,7 +11,12 @@
 
 @implementation HubPieceAudio
 
-@synthesize duration=_duration;
+@dynamic audio_title;
+@dynamic audio_page_url;
+@dynamic audio_asset_url;
+@dynamic audio_duration;
+@dynamic audio_caption;
+@dynamic piece;
 
 -(id)initWithXML:(TBXMLElement *)audioXML
 {
@@ -20,27 +25,17 @@
     if(audioXML) 
     {
         
-        self.title       = [TBXML textForElement: 
-                            [TBXML childElementNamed:@"title" parentElement:audioXML] ];
-        self.asset_url   = [TBXML textForElement: 
-                            [TBXML childElementNamed:@"url" parentElement:audioXML]];
-        self.page_url    = [TBXML textForElement: 
-                            [TBXML childElementNamed:@"url" parentElement:audioXML] ];
-        self.caption     = [TBXML textForElement: 
-                            [TBXML childElementNamed:@"description" parentElement:audioXML] ];
-        self.duration    = [NSNumber numberWithInt:
-                            [[TBXML textForElement: 
-                              [TBXML childElementNamed:@"duration" parentElement:audioXML]] integerValue]];
+        [self setAudio_title:[TBXML textForElement: [TBXML childElementNamed:@"title" parentElement:audioXML]] ];
+        [self setAudio_asset_url:[TBXML textForElement: [TBXML childElementNamed:@"url" parentElement:audioXML]] ];
+        [self setAudio_page_url:[TBXML textForElement: [TBXML childElementNamed:@"url" parentElement:audioXML]] ];
+        [self setAudio_caption:[TBXML textForElement: [TBXML childElementNamed:@"description" parentElement:audioXML]] ];
+        [self setAudio_duration:[NSNumber numberWithInt:
+                                 [[TBXML textForElement: [TBXML childElementNamed:@"duration" 
+                                                                                           parentElement:audioXML]] integerValue]] ];
         return self;
     }
     return self;
 }
 
-- (void)dealloc
-{
-    [self.duration release];
-    
-    [super dealloc];
-}
 
 @end
