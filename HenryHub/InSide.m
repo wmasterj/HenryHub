@@ -13,12 +13,15 @@
 #import "HubPieceImage.h"
 #import "HubPiece.h"
 #import "Video.h"
+#import "HenryHubAppDelegate.h"
+
 #import "ZBarSDK.h"
 #import "Finch.h"
 #import "Sound.h"
-#import "HenryHubAppDelegate.h"
+#import "UIImageView+WebCache.h"
 #import <AVFoundation/AVFoundation.h>
 #import <AudioToolbox/AudioToolbox.h>
+
 
 
 @implementation InSide
@@ -165,12 +168,31 @@
         viewFrame.origin.y = 98; 
         self.historyDismissLayer.hidden = NO;
         self.historyModalArrow.highlighted = YES; // down arrow
+        NSUInteger *historyCount = (NSUInteger *)[self.historyObjects count];
+        if(historyCount == 1)
+        {
+            self.historyLabel.text = [NSString stringWithFormat:@"%i art object", historyCount];
+        } 
+        else
+        {
+            self.historyLabel.text = [NSString stringWithFormat:@"%i art objects", historyCount];
+        }
     }
     else
     {
-        viewFrame.origin.y = 444;
+        viewFrame.origin.y = 439;
         self.historyDismissLayer.hidden = YES;
         self.historyModalArrow.highlighted = NO; // up arrow
+        if([self.historyObjects count] > 0)
+        {
+            HubPiece *lastPiece = [self.historyObjects objectAtIndex:0];
+            self.historyLabel.text = [NSString stringWithFormat:@"%@", lastPiece.piece_name];
+        }
+        else
+        {
+            self.historyLabel.text = [NSString stringWithFormat:@"no history"];
+        }
+        
     }
     
     // Start animation
@@ -203,7 +225,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 96; // Need to change this if historyCell changes it's size
+    return 91; // Need to change this if historyCell changes it's size
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -211,16 +233,13 @@
     NSUInteger row = [indexPath row];
     NSLog(@"Selected row at index: %i", row);
     
-//    // Check if the piece exists in the database
-//    // Setup the environment for dealing with Core Data and HubPiece entities
-//    HenryHubAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-//    NSManagedObjectContext *context = [appDelegate managedObjectContext];
-//    NSError *error;
-//    
+    // Check if the piece exists in the database
+    // Setup the environment for dealing with Core Data and HubPiece entities    
+    [self toggleHistory:nil];
+    
     HubPieceView *pieceView = [[HubPieceView alloc] init];
     pieceView.currentPiece = [self.historyObjects objectAtIndex:row];
-//    pieceView.currentPiece.piece_last_viewed = [[NSNumber alloc] initWithDouble:[[NSDate date] timeIntervalSince1970]];
-//    [context save:&error]; // Save to avoid errors
+    
     pieceView.pieceLoaded = YES;
     [self.view addSubview:pieceView.view];
 }
@@ -263,14 +282,13 @@
     NSNumber *timeElapsed = [NSNumber numberWithInt:
                              floor(((double)[[NSDate date] timeIntervalSince1970]) - [piece.piece_last_viewed doubleValue])];
     
-    historyItemLastViewedLabel.text = [NSString stringWithFormat:@"Last viewed %@ minutes ago", 
-                                       [Video getDurationStringFromSeconds:[timeElapsed doubleValue]] ];
+    historyItemLastViewedLabel.text = [NSString stringWithFormat:@"%@", 
+                                       [InSide getDurationStringFromSeconds:[timeElapsed doubleValue]] ];
 
     // Image
     UIImageView *historyItemImageView = (UIImageView *)[cell viewWithTag:kImageValueTag];
     HubPieceImage *tmpImage = [piece.images anyObject];
-    historyItemImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL: 
-                                                         [NSURL URLWithString:tmpImage.image_asset_url]]];
+    [historyItemImageView setImageWithURL:[NSURL URLWithString:tmpImage.image_asset_url] ];
     historyItemImageView.contentMode = UIViewContentModeScaleAspectFill;
     
     return cell;
@@ -300,15 +318,55 @@
     {   
         NSLog(@"No items in history");
         self.historyLabel.text = @"no history";
+        [self.historyModal setBackgroundColor:[UIColor colorWithRed:0.3 green:0.3 blue:0.3 alpha:1.0] ];
+        self.historyLabel.textColor = [UIColor colorWithRed:0.7 green:0.7 blue:0.7 alpha:1.0];
+        self.historyLabel.shadowColor = [UIColor clearColor];
     }
     else
     {
-        HubPiece *lastPiece = [self.historyObjects lastObject];
-        self.historyLabel.text = [NSString stringWithFormat:@"Latest: \"%@\"", lastPiece.piece_name];
+        NSLog(@"%i items in history", count);
+        HubPiece *lastPiece = [self.historyObjects objectAtIndex:0];
+        self.historyLabel.text = [NSString stringWithFormat:@"%@", lastPiece.piece_name];
+        [self.historyModal setBackgroundColor:[UIColor colorWithRed:0.917 green:0.909 blue:0.902 alpha:1.0] ];
+        self.historyLabel.textColor = [UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:1.0];
+        self.historyLabel.shadowColor = [UIColor whiteColor];
     }
     
     [fetchRequest release];
     [self.historyTableView reloadData];
+}
+
+#pragma mark - Misch
+
++ (NSString *) getDurationStringFromSeconds: (double)seconds;
+{
+    if(seconds)
+    {
+        int tmpMinutes = floor(seconds/60);
+        int tmpHours = floor(tmpMinutes/60);
+        int tmpDays = floor(tmpHours/24);
+        if(tmpMinutes <= 1) 
+        {
+            return [NSString stringWithFormat:@"1 minute ago"];
+        } 
+        else if(tmpMinutes >= 2 && tmpMinutes < 59) 
+        {
+            return [NSString stringWithFormat:@"%i minutes ago", tmpMinutes];
+        } 
+        else if(tmpHours <= 1)
+        {
+            return [NSString stringWithFormat:@"1 hour ago"];
+        } 
+        else if(tmpHours > 1 && tmpHours <24)
+        {
+            return [NSString stringWithFormat:@"%i hours ago", tmpHours];
+        } 
+        else if(tmpDays <= 1)
+        {
+            return [NSString stringWithFormat:@"1 day ago"];
+        }
+    }
+    return nil;
 }
 
 #pragma mark - UIView methods
@@ -326,6 +384,11 @@
 
 #pragma mark - View lifecycle
 
+- (void) viewWillAppear:(BOOL)animated
+{
+    [self loadObjectsToTableView];
+}
+
 - (void)viewDidLoad
 {
     NSLog(@"InSide view did load");
@@ -337,7 +400,7 @@
     self.historyTableView.separatorColor = [UIColor clearColor];
     
     // Not sure who to deal with this warning, but it works, darn...
-    InSideView *thisView = self.view; 
+    InSideView *thisView = (InSideView *)self.view; 
     thisView.parentController = self;
     
     [super viewDidLoad];

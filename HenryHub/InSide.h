@@ -35,5 +35,7 @@
 - (IBAction) toggleHistory: (id)sender;
 - (void) loadObjectsToTableView;
 
++ (NSString *) getDurationStringFromSeconds: (double)seconds;
+
 
 @end

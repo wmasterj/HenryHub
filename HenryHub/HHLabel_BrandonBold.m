@@ -7,6 +7,7 @@
 //
 
 #import "HHLabel_BrandonBold.h"
+#import "UILabel+VerticalAlign.h"
 
 
 @implementation HHLabel_BrandonBold

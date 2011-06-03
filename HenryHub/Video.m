@@ -8,6 +8,7 @@
 
 #import "Video.h"
 #import "HubPieceVideo.h"
+#import "UIImageView+WebCache.h"
 
 @implementation Video
 
@@ -20,6 +21,7 @@
 @synthesize selected_videoClose = _selected_videoClose;
 @synthesize videoTableView = _videoTableView;
 @synthesize videoTableViewCell = _videoTableViewCell;
+@synthesize parentView = _parentView;
 
 #pragma mark - Instance methods
 
@@ -80,6 +82,12 @@
     self.selected_video.hidden = YES;
 }
 
+-(IBAction)closeVideoView:(id)sender
+{
+    NSLog(@"Close video table");
+    [self.parentView showMenu:nil];
+}
+
 #pragma mark - Table view delegate methods
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -123,8 +131,7 @@
     
     // Image
     UIImageView *videoImageView = (UIImageView *)[cell viewWithTag:kImageValueTag];
-    videoImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL: 
-                                                 [NSURL URLWithString:video.video_image_url]]];
+    [videoImageView setImageWithURL:[NSURL URLWithString:video.video_image_url] ];
     
     // Calculate time
     UILabel *videoDurationLabel = (UILabel *)[cell viewWithTag:kDurationValueTag];

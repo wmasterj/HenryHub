@@ -7,10 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TBXML.h"
 
 @class HubPiece;
-@class TBXML;
-@class TBXMLElement;
 
 @protocol HttpDataDelegate <NSObject>
 

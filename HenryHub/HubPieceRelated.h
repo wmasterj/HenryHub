@@ -8,14 +8,16 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-
-@class TBXMLElement;
-@class HubPiece;
+#import "HubPiece.h"
+#import "TBXML.h"
 
 @interface HubPieceRelated : NSManagedObject {
 @private
 }
-@property (nonatomic, retain) NSNumber * piece_id;
+@property (nonatomic, retain) NSString * piece_id;
+@property (nonatomic, retain) NSString * piece_name;
+@property (nonatomic, retain) NSString * piece_likes;
+@property (nonatomic, retain) NSString * piece_artist;
 @property (nonatomic, retain) HubPiece * piece;
 
 -(id)initWithXML:(TBXMLElement *)relatedXML;

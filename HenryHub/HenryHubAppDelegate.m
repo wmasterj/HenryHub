@@ -75,6 +75,9 @@
 {
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
+    
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"HenryHub.sqlite"];
+    [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil]; // For development
 }
 
 - (void)dealloc
@@ -170,6 +173,7 @@
     }
     
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"HenryHub.sqlite"];
+    [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil]; // For development
     
     NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
                              [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,

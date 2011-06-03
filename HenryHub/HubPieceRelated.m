@@ -13,7 +13,11 @@
 
 
 @implementation HubPieceRelated
+
 @dynamic piece_id;
+@dynamic piece_name;
+@dynamic piece_likes;
+@dynamic piece_artist;
 @dynamic piece;
 
 -(id)initWithXML:(TBXMLElement *)relatedXML
@@ -28,8 +32,12 @@
     
     if(relatedXML) 
     {
-        NSString *tmpStr = [TBXML textForElement: [TBXML childElementNamed:@"title" parentElement:relatedXML]];
-        [self setPiece_id: [NSNumber numberWithInt:[tmpStr integerValue]]];
+        NSLog(@"NAME: %@", [TBXML textForElement: [TBXML childElementNamed:@"name" parentElement:relatedXML]]);
+        
+        [self setPiece_id:[TBXML textForElement: [TBXML childElementNamed:@"id" parentElement:relatedXML]] ];
+        [self setPiece_name:[TBXML textForElement: [TBXML childElementNamed:@"name" parentElement:relatedXML]] ];
+        [self setPiece_artist:[TBXML textForElement: [TBXML childElementNamed:@"artist" parentElement:relatedXML]] ];
+        [self setPiece_likes:[TBXML textForElement: [TBXML childElementNamed:@"likes" parentElement:relatedXML]] ];
     }
     
     NSError *error;

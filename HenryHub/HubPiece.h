@@ -36,9 +36,9 @@
 // User metadata
 @property (nonatomic, retain) NSNumber *piece_last_viewed;
 
--(id)initWithXML:(TBXMLElement *)pieceXML;
-- (void)addVideosObject:(NSManagedObject *)value;
-- (void)addImagesObject:(NSManagedObject *)value;
-- (void)addRelatedObject:(NSManagedObject *)value;
+- (id) initWithXML:(TBXMLElement *)pieceXML;
+- (void) addVideosObject:(NSManagedObject *)value;
+- (void) addImagesObject:(NSManagedObject *)value;
+- (void) addRelatedObject:(NSManagedObject *)value;
 
 @end

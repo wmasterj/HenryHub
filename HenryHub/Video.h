@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HubPieceView.h"
 
 #define kTitleValueTag          1
 #define kDescriptionValueTag    2
@@ -26,11 +27,13 @@
 @property (nonatomic, retain) IBOutlet UIButton *selected_videoClose;
 @property (nonatomic, retain) IBOutlet UITableView *videoTableView;
 @property (nonatomic, retain) IBOutlet UITableViewCell *videoTableViewCell;
+@property (nonatomic, retain) HubPieceView *parentView;
 
 @property (nonatomic, retain) NSArray *videoListData; // Will hold HubPieceVideo objects
 
 - (void) embedYouTube: (NSString *) videoId withFrame: (CGRect) frame;
 - (IBAction) closeYoutubeVideo: (id) sender;
+- (IBAction) closeVideoView: (id) sender;
 + (NSString *) getDurationStringFromSeconds: (double) seconds;
 
 @end

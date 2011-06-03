@@ -12,6 +12,7 @@
 #import "HubPieceAudio.h"
 #import "HubPieceVideo.h"
 #import "HubPieceImage.h"
+#import "HubPieceRelated.h"
 
 @implementation HubPiece
 
@@ -109,11 +110,11 @@
         //       Related pieces          //
         // ----------------------------- // 
         TBXMLElement *relatedPiece = [TBXML childElementNamed:@"hubpiece" parentElement:[TBXML childElementNamed:@"related_hubpieces" parentElement:pieceXML]];
-//        if(relatedPiece) {
-//            do {
-//                [self.related addObject:[TBXML textForElement:relatedPiece]];
-//            } while ((relatedPiece = relatedPiece->nextSibling));
-//        }
+        if(relatedPiece) {
+            do {
+                [self addRelatedObject:[[HubPieceRelated alloc] initWithXML:relatedPiece] ];
+            } while ((relatedPiece = relatedPiece->nextSibling));
+        }
         
         // ----------------------------- //
         //       Video clips             //

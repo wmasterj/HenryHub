@@ -9,11 +9,13 @@
 #import "HubPieceView.h"
 #import "HubXMLConnection.h"
 #import "HubPieceImage.h"
-#import "TBXML.h"
 #import "HubPiece.h"
 #import "InSide.h"
 #import "Video.h"
 #import "Related.h"
+
+#import "UIImageView+WebCache.h"
+#import "TBXML.h"
 #import "FBConnect.h"
 
 // Facebook Connect variables
@@ -27,11 +29,19 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
 @synthesize hub_title = _hub_title, hub_artist = _hub_artist;
 @synthesize backgroundImage = _backgroundImage, menu_layer = _menu_layer;
 @synthesize hub_description = _hub_description, hub_info = _hub_info;
-@synthesize backButton = _backButton, movingMenu = _movingMenu,sub_menu = _sub_menu;
+@synthesize backButton = _backButton, backButtonView = _backButtonView;
+@synthesize movingMenu = _movingMenu,sub_menu = _sub_menu;
 @synthesize video_view = _video_view, related_view = _related_view;
 @synthesize contentViewFrame = _contentViewFrame, spinner = _spinner;
 @synthesize facebook = _facebook, showingBackground = _showingBackground;
 @synthesize pieceLoaded = _pieceLoaded;
+@synthesize relatedButton = _relatedButton;
+@synthesize videoButton = _videoButton;
+@synthesize infoButton = _infoButton;
+@synthesize shareButton = _shareButton;
+@synthesize hub_likes = _hub_likes;
+@synthesize fb_icon = _fb_icon;
+
 
 #pragma mark -
 
@@ -96,15 +106,17 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     // Add artist name
     self.hub_artist.text = self.currentPiece.piece_artist;
     
+    // Add likes
+    NSLog(@"Likes: %@", self.currentPiece.piece_likes);
+    self.hub_likes.text = self.currentPiece.piece_likes;
+    
     // Main image 
     HubPieceImage *tmpImage;
     if((tmpImage = [self.currentPiece.images anyObject]))
     {
         if(tmpImage.image_asset_url)
         {
-            self.backgroundImage.image = [UIImage imageWithData:
-                                          [NSData dataWithContentsOfURL: 
-                                           [NSURL URLWithString:tmpImage.image_asset_url]]];
+            [self.backgroundImage setImageWithURL:[NSURL URLWithString:tmpImage.image_asset_url] ];
         } else {
             NSLog(@"ERROR: No image URL!");
         }
@@ -117,22 +129,25 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     // TODO: Animate these into the view
     self.sub_menu.hidden = NO;
     
-//    NSInvocation *invoc = [NSInvocation invocationWithMethodSignature:[HubPieceView instanceMethodSignatureForSelector:@selector(hideBackButton:)] ];                   
-//    [invoc setTarget:self];
-//    [invoc setSelector:@selector(hideBackButton:)];
-//    [invoc setArgument:NO atIndex:2];
-//    [NSTimer scheduledTimerWithTimeInterval:1 invocation:invoc repeats:NO];
-
-//    
-//    [NSTimer scheduledTimerWithTimeInterval:1 
-//                                     target:self 
-//                                   selector:@selector(hideHeader:NO) 
-//                                   userInfo:nil 
-//                                    repeats:NO];
+    self.backButtonView.hidden = NO;
     [self hideBackButton:NO];
     [self hideHeader:NO];
     
     [self.spinner stopAnimating];
+    
+    NSNumber *videoCount = [NSNumber numberWithUnsignedInteger:[self.currentPiece.videos count]];
+    if([videoCount intValue] < 1) 
+    {
+        // NSLog(@"NO VIDEOS");
+        self.videoButton.hidden = YES;
+    }
+    
+    NSNumber *relatedCount = [NSNumber numberWithUnsignedInteger:[self.currentPiece.related count]];
+    if([relatedCount intValue] < 1) 
+    {
+        // NSLog(@"NO RELATED CONTENT");
+        self.relatedButton.hidden = YES;
+    }
     
     NSLog(@"All things are showing");
 }
@@ -264,6 +279,7 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     if(self.video_view == nil)
         self.video_view = [[Video alloc] initWithNibName:@"Video" bundle:nil];
     self.video_view.videoListData = [self.currentPiece.videos allObjects];
+    self.video_view.parentView = self;
     self.video_view.view.frame = self.contentViewFrame;
     self.video_view.view.hidden = NO;
     
@@ -279,6 +295,8 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     
     if(self.related_view == nil)
         self.related_view = [[Related alloc] initWithNibName:@"Related" bundle:nil];
+    self.related_view.relatedListData = [self.currentPiece.related allObjects];
+    self.related_view.parentPiece = self;
     self.related_view.view.frame = self.contentViewFrame;
     self.related_view.view.hidden = NO;
     
@@ -286,38 +304,22 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     
 }
 
-- (IBAction)flipSharing:(id)sender
+-(IBAction) backTouched:(id)sender
 {
-    // Hide menu
-    [self hideMenu:sender];
-    [self hideAllViews:sender];
-    
-    // Open up a Facebook dialog here, will prompt for login
-    //<CHANGE>HubPieceImage *fbImage = [self.currentPiece.images objectAtIndex:0];
-    NSString *fbTitle = [NSString stringWithFormat:@"Henry Art Gallery: %@", self.currentPiece.piece_name];
-    NSMutableDictionary* params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                   kAppId, @"app_id",
-                                   @"http://www.facebook.com/henryartgallery", @"link",
-                                   @"", @"picture", //<CHANGE>
-                                   fbTitle, @"name",
-                                   self.currentPiece.piece_share_copy, @"description",
-                                   @"I'm at the Henry...",  @"message",
-                                   nil];
-    
-    [self.facebook dialog:@"feed" andParams:params andDelegate:self];
+    self.backButton.highlighted = !self.backButton.highlighted;
 }
 
 -(void)hideBackButton:(BOOL)doHide
 {
     // Tell the history modal where to animate to
-    CGRect viewFrame = self.backButton.frame;
+    CGRect viewFrame = self.backButtonView.frame;
     if(!doHide)
     {
-        viewFrame.origin.x = -22; 
+        viewFrame.origin.x = -27; 
     }
     else
     {
-        viewFrame.origin.x = -98;
+        viewFrame.origin.x = -95;
     }
     
     // Start animation
@@ -326,7 +328,7 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];  
     [UIView setAnimationDuration:0.2];
     
-    [self.backButton setFrame:viewFrame];
+    [self.backButtonView setFrame:viewFrame];
     
     [UIView commitAnimations];
 }
@@ -339,11 +341,15 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     {
         viewFrame.origin.y = 11; 
         self.hub_artist.hidden = NO;
+        self.hub_likes.hidden = NO;
+        self.fb_icon.hidden = NO;
     }
     else
     {
         viewFrame.origin.y = -89;
         self.hub_artist.hidden = YES;
+        self.hub_likes.hidden = YES;
+        self.fb_icon.hidden = YES;
     }
     
     // Start animation
@@ -372,14 +378,92 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
 }
 
 -(void)dialogDidComplete:(FBDialog *)dialog
-{
+{   
     [self showMenu:nil];
-    NSLog(@"SHARED?!?! If so then give that feedback is possible.");
+    NSLog(@"FB: Shared? If so then give that feedback is possible.");
 }
 
 -(void)dialogDidNotComplete:(FBDialog *)dialog
 {
     [self showMenu:nil];
+    NSLog(@"FB: dialogDidNotComplete");
+}
+
+-(void)refreshFacebookStatus
+{
+    // Set values according to what is stored in NSUserDefaults
+    
+//    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+//    self.facebook.accessToken = [prefs objectForKey:@"facebook-accessToken"];;
+//    self.facebook.expirationDate = [prefs objectForKey:@"facebook-expirationDate"];
+//    
+//    if([self.facebook isSessionValid])
+//    {
+//        NSLog(@"Logged in");
+//        // Show logout button
+//    }
+//    else
+//    {
+//        NSLog(@"Not logged in");
+//        // Show login button
+//    }
+}
+
+- (IBAction) doShare:(id)sender
+{
+    // open a dialog to give the user a choice of social network to share on
+	UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Share your experience:"
+                                                             delegate:self 
+                                                    cancelButtonTitle:@"Cancel" 
+                                               destructiveButtonTitle:nil 
+                                                    otherButtonTitles:@"Facebook", nil];
+    
+	actionSheet.actionSheetStyle = UIActionSheetStyleDefault;
+	[actionSheet showInView:self.view];	// show from our table view (pops up in the middle of the table)
+	[actionSheet release];
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) // Facebook
+    { 
+        [self shareOnFacebook:nil];
+    } 
+    else if (buttonIndex == 1) // Cancel
+    { 
+        //NSLog(@"Sharing canceled"); 
+    }
+}
+
+- (IBAction)shareOnFacebook:(id)sender
+{
+    // Hide menu
+    [self hideMenu:sender];
+    [self hideAllViews:sender];
+    
+    // Open up a Facebook dialog here, will prompt for login
+    HubPieceImage *fbImage = [self.currentPiece.images anyObject];
+    NSString *fbTitle = [NSString stringWithFormat:@"Henry Art Gallery: %@", self.currentPiece.piece_name];
+    NSMutableDictionary* params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                   kAppId, @"app_id",
+                                   @"http://www.facebook.com/henryartgallery", @"link",
+                                   fbImage.image_asset_url, @"picture",
+                                   fbTitle, @"name",
+                                   self.currentPiece.piece_share_copy, @"description",
+                                   @"I'm at the Henry...",  @"message",
+                                   nil];
+    
+    [self.facebook dialog:@"feed" andParams:params andDelegate:self];
+}
+
+- (void)fbDidLogin {
+    //self.logoutButton.hidden = NO;
+    NSLog(@"Logged in");
+    
+    // store the access token and expiration date to the user defaults
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    [defaults setObject:self.facebook.accessToken forKey:@"access_token"];
+//    [defaults setObject:self.facebook.expirationDate forKey:@"expiration_date"];
+//    [defaults synchronize];
 }
 
 #pragma mark - Navigation
@@ -430,7 +514,8 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     NSLog(@"viewDidLoad: HubPieceView");
     // Do some initial UI setup
     self.menu_layer.hidden = YES;
-    self.contentViewFrame = CGRectMake(20,84,280,334);
+    self.backButtonView.hidden = YES;
+    self.contentViewFrame = CGRectMake(15,84,290,356);
 
     // Add a spinner for loading
     self.spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
@@ -438,11 +523,13 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     [self.spinner setCenter:CGPointMake((320/2)-5, (480/2)+30)];
     [self.spinner startAnimating];
     
+    
     // Setup facebook object
     self.facebook = [[Facebook alloc] initWithAppId:kAppId];
+    // Update the visual feedback if the user is logged in or not
+    [self refreshFacebookStatus];
     
     if(self.pieceLoaded) {
-        // Doesn't have to load
         [self displayInformation];
     }
     
