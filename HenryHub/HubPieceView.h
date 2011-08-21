@@ -52,7 +52,7 @@
 @property (nonatomic, retain) UIActivityIndicatorView *spinner;
 // Moving UIView
 @property (nonatomic, retain) IBOutlet UIView *sub_menu; // 6 button menu
-@property (nonatomic, retain) IBOutlet UIButton *menu_layer; // menu bottom tap overlay
+@property (nonatomic, retain) IBOutlet UIButton *menu_overlay; // menu bottom tap overlay
 @property (nonatomic, retain) IBOutlet UIButton *videoButton;
 @property (nonatomic, retain) IBOutlet UIButton *relatedButton;
 @property (nonatomic, retain) IBOutlet UIButton *infoButton;
@@ -64,18 +64,20 @@
 
 // Methods
 //
-- (IBAction) toggleInformation: (id) sender;
 - (IBAction) backToScan: (id) sender;
 - (IBAction) backTouched: (id) sender;
 - (IBAction) flipVideo: (id) sender;
 - (IBAction) flipRelated: (id) sender;
 - (IBAction) hideAllViews: (id) sender;
-- (IBAction) hideMenu: (id) sender;
-- (IBAction) showMenu: (id) sender;
-- (IBAction) showBackground: (id) sender;
-- (void) hideHeader: (BOOL) hide;
-- (void) hideBackButton: (BOOL) doHide;
+- (IBAction) toggleInformation: (id) sender;
+- (IBAction) toggleBackground:(id)sender;
+    
+- (void) hideBackground: (BOOL) doHide;
+- (void) hideHeader:       (BOOL) dohide;
+- (void) hideBackButton:   (BOOL) doHide;
+- (void) hideMenu:         (BOOL) doHide;
 - (void) displayInformation;
+
 // Social
 - (IBAction) doShare: (id)sender;
 - (IBAction) shareOnFacebook: (id)sender;

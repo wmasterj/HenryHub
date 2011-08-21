@@ -38,6 +38,14 @@
         [self setPiece_name:[TBXML textForElement: [TBXML childElementNamed:@"name" parentElement:relatedXML]] ];
         [self setPiece_artist:[TBXML textForElement: [TBXML childElementNamed:@"artist" parentElement:relatedXML]] ];
         [self setPiece_likes:[TBXML textForElement: [TBXML childElementNamed:@"likes" parentElement:relatedXML]] ];
+        
+        // Store first image for display in table cell
+//        TBXMLElement *relatedPiece = [TBXML childElementNamed:@"hubpiece" parentElement:[TBXML childElementNamed:@"related_hubpieces" parentElement:pieceXML]];
+//        if(relatedPiece) {
+//            do {
+//                [self addRelatedObject:[[HubPieceRelated alloc] initWithXML:relatedPiece] ];
+//            } while ((relatedPiece = relatedPiece->nextSibling));
+//        }
     }
     
     NSError *error;

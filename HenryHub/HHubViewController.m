@@ -25,6 +25,8 @@
     [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.view cache:YES];
     [self.view addSubview:inView.view];
     [UIView commitAnimations];
+    
+    //[inView release];
 }   
 
 -(IBAction)OutSideView
@@ -37,6 +39,8 @@
     [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.view cache:YES];
     [self.view addSubview:outView.view];
     [UIView commitAnimations];
+    
+    //[outView release];
 }
 
 - (void)dealloc

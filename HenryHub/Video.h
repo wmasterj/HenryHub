@@ -2,7 +2,7 @@
 //  Video.h
 //  HenryHub
 //
-//  Created by Ohyoon Kwon on 11. 5. 17..
+//  Created by Jeroen van den Eijkhof, jeroen@uw.edu on 11. 5. 17..
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 

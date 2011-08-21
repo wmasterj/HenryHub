@@ -2,7 +2,7 @@
 //  Video.m
 //  HenryHub
 //
-//  Created by Ohyoon Kwon on 11. 5. 17..
+//  Created by Jeroen van den Eijkhof, jeroen@uw.edu on 11. 5. 17..
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
@@ -85,7 +85,7 @@
 -(IBAction)closeVideoView:(id)sender
 {
     NSLog(@"Close video table");
-    [self.parentView showMenu:nil];
+    [self.parentView hideMenu:NO];
 }
 
 #pragma mark - Table view delegate methods

@@ -2,11 +2,12 @@
 //  Related.m
 //  HenryHub
 //
-//  Created by jeroen on 5/20/11.
+//  Created by Jeroen van den Eijkhof, jeroen@uw.edu on 5/20/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
 #import "Related.h"
+#import "RelatedView.h"
 #import "HubPieceRelated.h"
 #import "HenryHubAppDelegate.h"
 #import "HubPieceView.h"
@@ -20,8 +21,8 @@
 
 -(IBAction)closeRelatedView:(id)sender
 {
-    NSLog(@"Close video table");
-    [self.parentPiece showMenu:nil];
+    NSLog(@"Close related view");
+    [self.parentPiece hideBackground:YES];
 }
 
 #pragma mark - Table view delegate methods
@@ -71,10 +72,9 @@
     relatedDurationLabel.text = [NSString stringWithFormat:@"%@", related.piece_likes];
     
     // Image
-    UIImageView *relatedImageView = (UIImageView *)[cell viewWithTag:kImageValueTag];
+    //UIImageView *relatedImageView = (UIImageView *)[cell viewWithTag:kImageValueTag];
     //[relatedImageView setImageWithURL:[NSURL URLWithString:related.piece] ];
 
-    
     return cell;
 }
 
@@ -83,6 +83,9 @@
     return 91; // Change this when the cell size changes
 }
 
+/**
+ * A related piece has been tapped, open it up overlaying the entire screen.
+ */
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSUInteger row = [indexPath row];
@@ -108,15 +111,15 @@
     // Create the view to be displayed if everything turns out right
     HubPieceView *pieceView = [[HubPieceView alloc] 
                                initWithNibName:@"HubPieceView" bundle:nil];
-    pieceView.view.frame = CGRectMake(-15, -84, 320, 420); // parent orientation: CGRectMake(20,84,280,334);
+    //pieceView.view.frame = CGRectMake(-15, -84, 320, 420); // parent orientation: CGRectMake(20,84,280,334);
     
     if([requestResult count] > 0) 
     {
         NSLog(@"Found %i match(s)", [requestResult count]);
-        HubPiece *tmpPIece = (HubPiece *)[requestResult lastObject];
+        //HubPiece *tmpPIece = (HubPiece *)[requestResult lastObject];
         pieceView.currentPiece = (HubPiece *)[requestResult lastObject];
         pieceView.pieceLoaded = YES;
-        //[self.parentPiece showMenu:nil];
+        //[self.parentPiece hideMenu:NO];
         
         //pieceView.currentPiece.piece_last_viewed = [[NSNumber alloc] initWithDouble:[[NSDate date] timeIntervalSince1970]];
         //[context save:&error];
@@ -140,7 +143,7 @@
             NSLog(@"Connected, getting the stuff...");
             pieceView.pieceConnection = aConnection;
             
-            //[self.parentPiece showMenu:nil];
+            //[self.parentPiece hideMenu:NO];
             
             //pieceView.currentPiece.piece_last_viewed = [[NSNumber alloc] initWithDouble:[[NSDate date] timeIntervalSince1970]];
             //[context save:&error];
@@ -159,6 +162,8 @@
     [fetchRequest release];
     
     [self.view addSubview:pieceView.view];
+    
+    //[pieceView release];
 }
 
 
@@ -190,6 +195,8 @@
 {
     self.relatedTableView.separatorColor = [UIColor clearColor];
     
+    RelatedView *thisView = (RelatedView *)self.view;
+    thisView.parentController = self;
     
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.

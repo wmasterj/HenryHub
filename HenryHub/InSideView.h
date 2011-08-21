@@ -2,7 +2,7 @@
 //  InSideView.h
 //  HenryHub
 //
-//  Created by jeroen on 5/30/11.
+//  Created by Jeroen van den Eijkhof, jeroen@uw.edu on 5/30/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 

@@ -27,7 +27,7 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
 
 @synthesize pieceConnection = _pieceConnection, currentPiece = _currentPiece;
 @synthesize hub_title = _hub_title, hub_artist = _hub_artist;
-@synthesize backgroundImage = _backgroundImage, menu_layer = _menu_layer;
+@synthesize backgroundImage = _backgroundImage, menu_overlay = _menu_overlay;
 @synthesize hub_description = _hub_description, hub_info = _hub_info;
 @synthesize backButton = _backButton, backButtonView = _backButtonView;
 @synthesize movingMenu = _movingMenu,sub_menu = _sub_menu;
@@ -54,8 +54,11 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     return self;
 }
 
-#pragma mark - Data event callbacks
+#pragma mark - HttpDataDelegate callbacks
 
+/**
+ * Called from HubXMLConnection.m when it has received all data
+ */
 -(void)dataDidDownload:(BOOL)success // delegate set to this object from InSide.m
 {
     NSLog(@"Data downloaded YEAY!");
@@ -95,8 +98,8 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     [tbxml release];
 }
 
-/*!
- * @abstract: Display the data when self.currentPiece has been loaded
+/**
+ * Display the data when self.currentPiece has been loaded correctly
  */
 -(void)displayInformation
 {
@@ -139,17 +142,15 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     if([videoCount intValue] < 1) 
     {
         // NSLog(@"NO VIDEOS");
-        self.videoButton.hidden = YES;
+        [self.videoButton setEnabled:NO];
     }
     
     NSNumber *relatedCount = [NSNumber numberWithUnsignedInteger:[self.currentPiece.related count]];
     if([relatedCount intValue] < 1) 
     {
         // NSLog(@"NO RELATED CONTENT");
-        self.relatedButton.hidden = YES;
+        [self.relatedButton setEnabled:NO];
     }
-    
-    NSLog(@"All things are showing");
 }
 
 -(void)dataDidNotDownload:(BOOL)success // delegate set to this object from InSide.m
@@ -201,56 +202,68 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     self.hub_info.hidden = YES;
 }
 
-- (IBAction)hideMenu:(id)sender
+/**
+ * This animates the menu buttons wrapper view up and down
+ */
+- (void)hideMenu: (BOOL)doHide
 {
     // Tell the menu where to animate to
     CGRect viewFrame = self.sub_menu.frame;
-    viewFrame.origin.y = 430;
-    
-    // Start animation
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationBeginsFromCurrentState:YES];
-    [UIView setAnimationDuration:MENU_ANIMITATION_DURATION];
-    
-    [self.sub_menu setFrame:viewFrame];
-    
-    [UIView commitAnimations];
-    
-    [self hideBackButton:YES];
-    [self hideHeader:YES];
-    self.menu_layer.hidden = NO;
-}
-
-- (IBAction)showMenu:(id)sender
-{
-    // Tell the menu where to animate to
-    CGRect viewFrame = self.sub_menu.frame;
-    viewFrame.origin.y = 384;
-    
-    // Start animation
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationBeginsFromCurrentState:YES];
-    [UIView setAnimationDuration:MENU_ANIMITATION_DURATION];
-    
-    [self.sub_menu setFrame:viewFrame];
-    
-    [UIView commitAnimations];
-    
-    [self.video_view closeYoutubeVideo:nil];
-    [self hideHeader:NO];
-    [self hideBackButton:NO];
-    self.menu_layer.hidden = YES;
-    
-    
-    [self hideAllViews:sender];
-}
-
--(IBAction)showBackground:(id)sender
-{
-    [self hideMenu:sender];
-    if([self showingBackground])
+    if(doHide)
     {
-        /// do something 
+        viewFrame.origin.y = 435;
+    }
+    else
+    {
+        viewFrame.origin.y = 384;
+    }
+    
+    // Start animation
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationDuration:MENU_ANIMITATION_DURATION];
+    
+    [self.sub_menu setFrame:viewFrame];
+    
+    [UIView commitAnimations];
+    
+    [self hideAllViews:nil];
+}
+
+-(IBAction)toggleBackground:(id)sender {
+    if(!self.menu_overlay.hidden) {
+        [self hideBackground:YES];
+    }
+    else
+    {
+        [self hideBackground:NO];
+    }
+}
+
+/**
+ * This gets called when the background image is tapped or any of the 
+ * bottom menu items is pressed. It reveals the background image by 
+ * hiding the views that overlay it.
+ */
+-(void)hideBackground:(BOOL) doHide
+{
+    if(doHide)
+    {
+        [self hideMenu:NO];
+        [self.video_view closeYoutubeVideo:nil];
+        [self hideHeader:NO];
+        [self hideBackButton:NO];
+        self.menu_overlay.hidden = YES;
+        self.showingBackground = !self.showingBackground;
+    } 
+    else 
+    {
+        [self hideMenu:YES];
+        [self hideBackButton:YES];
+        [self hideHeader:YES];
+        self.menu_overlay.hidden = NO;
+        self.showingBackground = !self.showingBackground;
+        [self hideAllViews:nil];
     }
 }
 
@@ -260,21 +273,21 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     if(self.hub_info.hidden == NO)
     {
         // Hide menu, this also hides all content views
-        [self showMenu:sender];
+        [self hideBackground:YES];
+        self.hub_info.hidden = YES;
     }        
     else   
     {
         // Show info content view
+        [self hideBackground:NO];
         self.hub_info.hidden = NO;
-        [self hideMenu:sender];
     }
 }
 
 - (IBAction)flipVideo:(id)sender
 {
-    // Hide menu
-    [self hideMenu:sender];
-    [self hideAllViews:sender];
+    // Hide stuff
+    [self hideBackground:NO];
     
     if(self.video_view == nil)
         self.video_view = [[Video alloc] initWithNibName:@"Video" bundle:nil];
@@ -289,15 +302,14 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
 
 - (IBAction)flipRelated:(id)sender
 {
-    // Hide menu
-    [self hideMenu:sender];
-    [self hideAllViews:sender];
+    // Hide stuff
+    [self hideBackground:NO];
     
     if(self.related_view == nil)
         self.related_view = [[Related alloc] initWithNibName:@"Related" bundle:nil];
     self.related_view.relatedListData = [self.currentPiece.related allObjects];
     self.related_view.parentPiece = self;
-    self.related_view.view.frame = self.contentViewFrame;
+    self.related_view.view.frame = CGRectMake(0,0,320,480);
     self.related_view.view.hidden = NO;
     
     [self.view addSubview:self.related_view.view];
@@ -363,6 +375,7 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     [UIView commitAnimations];
 }
 
+
 #pragma mark - Facebook
 
 -(void)dialog:(FBDialog *)dialog didFailWithError:(NSError *)error
@@ -379,13 +392,13 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
 
 -(void)dialogDidComplete:(FBDialog *)dialog
 {   
-    [self showMenu:nil];
+    [self hideBackground:YES];
     NSLog(@"FB: Shared? If so then give that feedback is possible.");
 }
 
 -(void)dialogDidNotComplete:(FBDialog *)dialog
 {
-    [self showMenu:nil];
+    [self hideBackground:YES];
     NSLog(@"FB: dialogDidNotComplete");
 }
 
@@ -437,8 +450,7 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
 - (IBAction)shareOnFacebook:(id)sender
 {
     // Hide menu
-    [self hideMenu:sender];
-    [self hideAllViews:sender];
+    [self hideBackground:NO];
     
     // Open up a Facebook dialog here, will prompt for login
     HubPieceImage *fbImage = [self.currentPiece.images anyObject];
@@ -485,7 +497,7 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
 
 - (void)dealloc
 {
-    [self.menu_layer release];
+    [self.menu_overlay release];
     [self.sub_menu release];
     [self.pieceConnection release];
     [self.hub_title release];
@@ -509,18 +521,22 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
 
 #pragma mark - View lifecycle
 
+- (void)willRemoveSubView:(UIView *) subview {
+    NSLog(@"willRemoveSubView: back to this view");
+}
+
 - (void)viewDidLoad
 {    
     NSLog(@"viewDidLoad: HubPieceView");
     // Do some initial UI setup
-    self.menu_layer.hidden = YES;
+    self.menu_overlay.hidden = YES;
     self.backButtonView.hidden = YES;
     self.contentViewFrame = CGRectMake(15,84,290,356);
 
     // Add a spinner for loading
-    self.spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    self.spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle: UIActivityIndicatorViewStyleWhite];
     [self.view addSubview:self.spinner];
-    [self.spinner setCenter:CGPointMake((320/2)-5, (480/2)+30)];
+    [self.spinner setCenter:CGPointMake((320/2)-3, (480/2)+15)];
     [self.spinner startAnimating];
     
     
@@ -542,7 +558,7 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     NSLog(@"HubPiece view did UN-load");
     [super viewDidUnload];
     // Release any retained subviews of the main view.
-    self.menu_layer      = nil;
+    self.menu_overlay    = nil;
     self.sub_menu        = nil;
     self.pieceConnection = nil;
     self.hub_title       = nil;

@@ -1,15 +1,15 @@
 //
-//  InSideView.m
+//  RelatedView.m
 //  HenryHub
 //
-//  Created by Jeroen van den Eijkhof, jeroen@uw.edu on 5/30/11.
+//  Created by jeroen on 8/5/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "InSideView.h"
-#import "InSide.h"
+#import "RelatedView.h"
+#import "Related.h"
 
-@implementation InSideView
+@implementation RelatedView
 
 @synthesize parentController = _parentController;
 
@@ -36,10 +36,12 @@
     [super dealloc];
 }
 
--(void)willRemoveSubview:(UIView *)subview
-{
-    NSLog(@"Subview will be removed");
-    [self.parentController loadObjectsToTableView];
+/**
+ * This is called when a subview is going to be removed and hides the 
+ * related window in order to make navigation flow better.
+ */
+- (void)willRemoveSubview:(UIView *)subview {
+    [self.parentController closeRelatedView:nil];
 }
 
 @end

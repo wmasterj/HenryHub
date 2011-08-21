@@ -2,7 +2,7 @@
 //  Related.h
 //  HenryHub
 //
-//  Created by jeroen on 5/20/11.
+//  Created by Jeroen van den Eijkhof, jeroen@uw.edu on 5/20/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
@@ -22,7 +22,9 @@
 @property (nonatomic, retain) IBOutlet UITableView *relatedTableView;
 @property (nonatomic, retain) IBOutlet UITableViewCell *relatedTableViewCell;
 @property (nonatomic, retain) HubPieceView *parentPiece;
+@property (nonatomic, retain) HubPieceView *subPieceView;
 
 -(IBAction)closeRelatedView:(id)sender;
+-(void) closeRelatedViewPlease;
 
 @end

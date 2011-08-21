@@ -2,7 +2,7 @@
 //  InSide.m
 //  HHub
 //
-//  Created by Ohyoon Kwon on 11. 5. 9..
+//  Created by Jeroen van den Eijkhof, jeroen@uw.edu on 11. 5. 9..
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
@@ -242,6 +242,7 @@
     
     pieceView.pieceLoaded = YES;
     [self.view addSubview:pieceView.view];
+    //[pieceView release];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -324,7 +325,7 @@
     }
     else
     {
-        NSLog(@"%i items in history", count);
+        NSLog(@"%i iitems in history", count);
         HubPiece *lastPiece = [self.historyObjects objectAtIndex:0];
         self.historyLabel.text = [NSString stringWithFormat:@"%@", lastPiece.piece_name];
         [self.historyModal setBackgroundColor:[UIColor colorWithRed:0.917 green:0.909 blue:0.902 alpha:1.0] ];

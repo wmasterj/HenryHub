@@ -76,14 +76,12 @@
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
     
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"HenryHub.sqlite"];
-    [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil]; // For development
+//    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"HenryHub.sqlite"];
+//    [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil]; // For development
 }
 
 - (void)dealloc
 {
-    NSLog(@">>> Releasing context & more... <<<");
-    
     // Henry Hub releasing
     [_startView release];
     
@@ -173,7 +171,6 @@
     }
     
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"HenryHub.sqlite"];
-    [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil]; // For development
     
     NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
                              [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
