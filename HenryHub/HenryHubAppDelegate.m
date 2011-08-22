@@ -73,11 +73,8 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    // Saves changes in the application's managed object context before the application terminates.
+    // Save changes in the app's managed object context before the app terminates
     [self saveContext];
-    
-//    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"HenryHub.sqlite"];
-//    [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil]; // For development
 }
 
 - (void)dealloc

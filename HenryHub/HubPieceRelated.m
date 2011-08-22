@@ -39,8 +39,15 @@
         [self setPiece_artist:[TBXML textForElement: [TBXML childElementNamed:@"artist" parentElement:relatedXML]] ];
         [self setPiece_likes:[TBXML textForElement: [TBXML childElementNamed:@"likes" parentElement:relatedXML]] ];
         
-        // Load image here by adding it to the core data model and then using setImage or something
-        
+        // ----------------------------- //
+        //       Images                  //
+        // ----------------------------- //
+        TBXMLElement *hubImage = [TBXML childElementNamed:@"image" parentElement:[TBXML childElementNamed:@"images" parentElement:relatedXML]];
+        if(hubImage) {
+            do {
+                [self addImagesObject: [[HubPieceImage alloc] initWithXML:hubImage]];
+            } while ((hubImage = hubImage->nextSibling));
+        }
         
     }
     

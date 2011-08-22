@@ -11,6 +11,7 @@
 #import "HubPieceRelated.h"
 #import "HenryHubAppDelegate.h"
 #import "HubPieceView.h"
+#import "UIImageView+WebCache.h"
 
 @implementation Related
 
@@ -72,9 +73,18 @@
     UILabel *relatedDurationLabel = (UILabel *)[cell viewWithTag:kLikeValueTag];
     relatedDurationLabel.text = [NSString stringWithFormat:@"%@", related.piece_likes];
     
-    // Image
-    //UIImageView *relatedImageView = (UIImageView *)[cell viewWithTag:kImageValueTag];
-    //[relatedImageView setImageWithURL:[NSURL URLWithString:related.piece] ];
+    // Thumbnail image 
+    HubPieceImage *tmpImage;
+    if((tmpImage = [related.images anyObject]))
+    {
+        if(tmpImage.image_asset_thumb_url)
+        {
+            UIImageView *relatedImageView = (UIImageView *)[cell viewWithTag:kImageValueTag];
+            [relatedImageView setImageWithURL:[NSURL URLWithString:tmpImage.image_asset_thumb_url] ];
+        } else {
+            NSLog(@"ERROR: No related image URL!");
+        }
+    }
 
     return cell;
 }

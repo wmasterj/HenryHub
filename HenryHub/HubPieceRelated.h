@@ -23,6 +23,7 @@
 // sets
 @property (nonatomic, retain) NSSet* images;
 
--(id)initWithXML:(TBXMLElement *)relatedXML;
+- (id)initWithXML:(TBXMLElement *)relatedXML;
+- (void) addImagesObject:(NSManagedObject *)value;
 
 @end

@@ -37,6 +37,7 @@
     {
         [self setImage_title: [TBXML textForElement: [TBXML childElementNamed:@"title" parentElement:imageXML]] ];
         [self setImage_asset_url: [TBXML textForElement: [TBXML childElementNamed:@"url" parentElement:imageXML]] ];
+        [self setImage_asset_thumb_url: [TBXML textForElement: [TBXML childElementNamed:@"thumb_url" parentElement:imageXML]] ];
         [self setImage_page_url: [TBXML textForElement: [TBXML childElementNamed:@"page_link" parentElement:imageXML]] ];
         [self setImage_caption: [TBXML textForElement: [TBXML childElementNamed:@"description" parentElement:imageXML]] ];
     }
