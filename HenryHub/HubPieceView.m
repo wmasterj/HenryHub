@@ -57,7 +57,8 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
 #pragma mark - HttpDataDelegate callbacks
 
 /**
- * Called from HubXMLConnection.m when it has received all data
+ * Called from HubXMLConnection.m when it has received all data. This can be done 
+ * because this class implements the HttpDataDelegate protocol.
  */
 -(void)dataDidDownload:(BOOL)success // delegate set to this object from InSide.m
 {
@@ -99,7 +100,10 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
 }
 
 /**
- * Display the data when self.currentPiece has been loaded correctly
+ * After dataDidDownload has been called it will evaluate the data to
+ * see if it loads an actual HubPiece. If a HubPiece object is correctly 
+ * created this method gets called. It populates UI elements from the 
+ * loaded HubPiece (self.currentPiece) and then displas the UI elements.
  */
 -(void)displayInformation
 {
@@ -153,7 +157,10 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     }
 }
 
--(void)dataDidNotDownload:(BOOL)success // delegate set to this object from InSide.m
+/**
+ * Called if no internet connection is available to download data. 
+ */
+-(void)dataDidNotDownload:(BOOL)success
 {
     NSLog(@"INTERNET: No connection!");
     UIAlertView *alert = [[UIAlertView alloc] 
@@ -529,14 +536,16 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
 {    
     NSLog(@"viewDidLoad: HubPieceView");
     // Do some initial UI setup
-    self.menu_overlay.hidden = YES;
+    self.menu_overlay.hidden   = YES;
+    self.hub_info.hidden       = YES;
     self.backButtonView.hidden = YES;
+    
     self.contentViewFrame = CGRectMake(15,84,290,356);
 
     // Add a spinner for loading
     self.spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle: UIActivityIndicatorViewStyleWhite];
     [self.view addSubview:self.spinner];
-    [self.spinner setCenter:CGPointMake((320/2)-3, (480/2)+15)];
+    [self.spinner setCenter:CGPointMake((320/2)-3, (480/2)+25)];
     [self.spinner startAnimating];
     
     
