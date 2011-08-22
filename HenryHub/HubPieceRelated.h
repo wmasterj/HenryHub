@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "HubPiece.h"
+#import "HubPieceImage.h"
 #import "TBXML.h"
 
 @interface HubPieceRelated : NSManagedObject {
@@ -19,6 +19,9 @@
 @property (nonatomic, retain) NSString * piece_likes;
 @property (nonatomic, retain) NSString * piece_artist;
 @property (nonatomic, retain) HubPiece * piece;
+
+// sets
+@property (nonatomic, retain) NSSet* images;
 
 -(id)initWithXML:(TBXMLElement *)relatedXML;
 

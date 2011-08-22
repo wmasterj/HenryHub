@@ -19,14 +19,14 @@
 @dynamic piece_likes;
 @dynamic piece_artist;
 @dynamic piece;
+@dynamic images;
 
 -(id)initWithXML:(TBXMLElement *)relatedXML
 {
     // Setup the environment for dealing with Core Data and managed objects
     HenryHubAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = [appDelegate managedObjectContext];
-    NSEntityDescription *entityHubPieceRelate = [NSEntityDescription entityForName:@"HubPieceRelated" 
-                                                           inManagedObjectContext:context];
+    NSEntityDescription *entityHubPieceRelate = [NSEntityDescription entityForName:@"HubPieceRelated" inManagedObjectContext:context];
     
     self = [[HubPieceRelated alloc] initWithEntity:entityHubPieceRelate insertIntoManagedObjectContext:context];
     
@@ -39,13 +39,9 @@
         [self setPiece_artist:[TBXML textForElement: [TBXML childElementNamed:@"artist" parentElement:relatedXML]] ];
         [self setPiece_likes:[TBXML textForElement: [TBXML childElementNamed:@"likes" parentElement:relatedXML]] ];
         
-        // Store first image for display in table cell
-//        TBXMLElement *relatedPiece = [TBXML childElementNamed:@"hubpiece" parentElement:[TBXML childElementNamed:@"related_hubpieces" parentElement:pieceXML]];
-//        if(relatedPiece) {
-//            do {
-//                [self addRelatedObject:[[HubPieceRelated alloc] initWithXML:relatedPiece] ];
-//            } while ((relatedPiece = relatedPiece->nextSibling));
-//        }
+        // Load image here by adding it to the core data model and then using setImage or something
+        
+        
     }
     
     NSError *error;
@@ -57,5 +53,32 @@
     return self;
 }
 
+- (void)addImagesObject:(HubPieceImage *)value {    
+    NSSet *changedObjects = [[NSSet alloc] initWithObjects:&value count:1];
+    [self willChangeValueForKey:@"images" withSetMutation:NSKeyValueUnionSetMutation usingObjects:changedObjects];
+    [[self primitiveValueForKey:@"images"] addObject:value];
+    [self didChangeValueForKey:@"images" withSetMutation:NSKeyValueUnionSetMutation usingObjects:changedObjects];
+    [changedObjects release];
+}
+
+- (void)removeImagesObject:(HubPieceImage *)value {
+    NSSet *changedObjects = [[NSSet alloc] initWithObjects:&value count:1];
+    [self willChangeValueForKey:@"images" withSetMutation:NSKeyValueMinusSetMutation usingObjects:changedObjects];
+    [[self primitiveValueForKey:@"images"] removeObject:value];
+    [self didChangeValueForKey:@"images" withSetMutation:NSKeyValueMinusSetMutation usingObjects:changedObjects];
+    [changedObjects release];
+}
+
+- (void)addImages:(NSSet *)value {    
+    [self willChangeValueForKey:@"images" withSetMutation:NSKeyValueUnionSetMutation usingObjects:value];
+    [[self primitiveValueForKey:@"images"] unionSet:value];
+    [self didChangeValueForKey:@"images" withSetMutation:NSKeyValueUnionSetMutation usingObjects:value];
+}
+
+- (void)removeImages:(NSSet *)value {
+    [self willChangeValueForKey:@"images" withSetMutation:NSKeyValueMinusSetMutation usingObjects:value];
+    [[self primitiveValueForKey:@"images"] minusSet:value];
+    [self didChangeValueForKey:@"images" withSetMutation:NSKeyValueMinusSetMutation usingObjects:value];
+}
 
 @end
