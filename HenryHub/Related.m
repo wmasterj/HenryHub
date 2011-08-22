@@ -18,11 +18,12 @@
 @synthesize relatedTableView = _relatedTableView;
 @synthesize relatedListData = _relatedListData;
 @synthesize parentPiece = _parentPiece;
+@synthesize subPieceView = _subPieceView;
 
 -(IBAction)closeRelatedView:(id)sender
 {
     NSLog(@"Close related view");
-    [self.parentPiece hideBackground:YES];
+    [self.parentPiece showPieceControls:YES];
 }
 
 #pragma mark - Table view delegate methods
@@ -216,3 +217,9 @@
 }
 
 @end
+
+
+
+
+
+

@@ -85,7 +85,7 @@
 -(IBAction)closeVideoView:(id)sender
 {
     NSLog(@"Close video table");
-    [self.parentView hideMenu:NO];
+    [self.parentView showPieceControls: YES];
 }
 
 #pragma mark - Table view delegate methods

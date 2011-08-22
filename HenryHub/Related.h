@@ -25,6 +25,5 @@
 @property (nonatomic, retain) HubPieceView *subPieceView;
 
 -(IBAction)closeRelatedView:(id)sender;
--(void) closeRelatedViewPlease;
 
 @end

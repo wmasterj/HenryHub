@@ -239,11 +239,11 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
 
 -(IBAction)toggleBackground:(id)sender {
     if(!self.menu_overlay.hidden) {
-        [self hideBackground:YES];
+        [self showPieceControls:YES];
     }
     else
     {
-        [self hideBackground:NO];
+        [self showPieceControls:NO];
     }
 }
 
@@ -252,7 +252,7 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
  * bottom menu items is pressed. It reveals the background image by 
  * hiding the views that overlay it.
  */
--(void)hideBackground:(BOOL) doHide
+-(void)showPieceControls:(BOOL) doHide
 {
     if(doHide)
     {
@@ -280,13 +280,13 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     if(self.hub_info.hidden == NO)
     {
         // Hide menu, this also hides all content views
-        [self hideBackground:YES];
+        [self showPieceControls:YES];
         self.hub_info.hidden = YES;
     }        
     else   
     {
         // Show info content view
-        [self hideBackground:NO];
+        [self showPieceControls:NO];
         self.hub_info.hidden = NO;
     }
 }
@@ -294,7 +294,7 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
 - (IBAction)flipVideo:(id)sender
 {
     // Hide stuff
-    [self hideBackground:NO];
+    [self showPieceControls:NO];
     
     if(self.video_view == nil)
         self.video_view = [[Video alloc] initWithNibName:@"Video" bundle:nil];
@@ -310,7 +310,7 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
 - (IBAction)flipRelated:(id)sender
 {
     // Hide stuff
-    [self hideBackground:NO];
+    [self showPieceControls:NO];
     
     if(self.related_view == nil)
         self.related_view = [[Related alloc] initWithNibName:@"Related" bundle:nil];
@@ -399,13 +399,13 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
 
 -(void)dialogDidComplete:(FBDialog *)dialog
 {   
-    [self hideBackground:YES];
+    [self showPieceControls:YES];
     NSLog(@"FB: Shared? If so then give that feedback is possible.");
 }
 
 -(void)dialogDidNotComplete:(FBDialog *)dialog
 {
-    [self hideBackground:YES];
+    [self showPieceControls:YES];
     NSLog(@"FB: dialogDidNotComplete");
 }
 
@@ -457,7 +457,7 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
 - (IBAction)shareOnFacebook:(id)sender
 {
     // Hide menu
-    [self hideBackground:NO];
+    [self showPieceControls:NO];
     
     // Open up a Facebook dialog here, will prompt for login
     HubPieceImage *fbImage = [self.currentPiece.images anyObject];

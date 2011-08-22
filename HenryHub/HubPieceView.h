@@ -72,7 +72,7 @@
 - (IBAction) toggleInformation: (id) sender;
 - (IBAction) toggleBackground:(id)sender;
     
-- (void) hideBackground: (BOOL) doHide;
+- (void) showPieceControls: (BOOL) doHide;
 - (void) hideHeader:       (BOOL) dohide;
 - (void) hideBackButton:   (BOOL) doHide;
 - (void) hideMenu:         (BOOL) doHide;
