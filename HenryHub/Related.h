@@ -23,6 +23,7 @@
 @property (nonatomic, retain) IBOutlet UITableViewCell *relatedTableViewCell;
 @property (nonatomic, retain) HubPieceView *parentPiece;
 @property (nonatomic, retain) HubPieceView *subPieceView;
+@property (nonatomic, retain) IBOutlet UIView *relatedTableViewContainer;
 
 -(IBAction)closeRelatedView:(id)sender;
 

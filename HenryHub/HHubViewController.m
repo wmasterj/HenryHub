@@ -6,6 +6,8 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
+
 #import "HHubViewController.h"
 #import "OutSide.h"
 #import "InSide.h"
@@ -14,6 +16,8 @@
 
 @synthesize labelExplore = _labelExplore;
 @synthesize welcomeText = _welcomeText;
+@synthesize exploreButton = _exploreButton;
+@synthesize visitButton = _visitButton;
 
 -(IBAction)InSideView
 {
@@ -61,6 +65,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [[self.exploreButton layer] setCornerRadius:3];
+    [self.exploreButton setClipsToBounds:YES];
+    [[self.visitButton layer] setCornerRadius:3];
+    [self.visitButton setClipsToBounds:YES];
 }
 
 - (void)viewDidUnload

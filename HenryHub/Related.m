@@ -11,6 +11,8 @@
 #import "HubPieceRelated.h"
 #import "HenryHubAppDelegate.h"
 #import "HubPieceView.h"
+
+#import <QuartzCore/QuartzCore.h>
 #import "UIImageView+WebCache.h"
 
 @implementation Related
@@ -20,6 +22,7 @@
 @synthesize relatedListData = _relatedListData;
 @synthesize parentPiece = _parentPiece;
 @synthesize subPieceView = _subPieceView;
+@synthesize relatedTableViewContainer = _relatedTableViewContainer;
 
 -(IBAction)closeRelatedView:(id)sender
 {
@@ -208,6 +211,9 @@
     
     RelatedView *thisView = (RelatedView *)self.view;
     thisView.parentController = self;
+    
+    [[self.relatedTableViewContainer layer] setCornerRadius:3];
+    [self.relatedTableViewContainer setClipsToBounds:YES];
     
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.

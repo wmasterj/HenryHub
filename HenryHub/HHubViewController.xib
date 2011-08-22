@@ -132,7 +132,7 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<string key="IBUIText">Your Visit</string>
 						<object class="NSFont" key="IBUIFont">
-							<string key="NSName">Helvetica</string>
+							<string key="NSName">BrandonGrotesque-Regular</string>
 							<double key="NSSize">22</double>
 							<int key="NSfFlags">16</int>
 						</object>
@@ -152,18 +152,17 @@
 					<object class="IBUILabel" id="512095444">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{42, 424}, {181, 17}}</string>
+						<string key="NSFrame">{{42, 424}, {183, 17}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<string key="IBUIText">Eg. Hours, Direction and About</string>
-						<object class="NSFont" key="IBUIFont" id="907595290">
-							<string key="NSName">Helvetica</string>
+						<object class="NSFont" key="IBUIFont" id="555841348">
+							<string key="NSName">BrandonGrotesque-Regular</string>
 							<double key="NSSize">13</double>
 							<int key="NSfFlags">16</int>
 						</object>
@@ -199,7 +198,7 @@
 					<object class="IBUILabel" id="207137196">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{41, 257}, {238, 26}}</string>
+						<string key="NSFrame">{{41, 257}, {238, 32}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="370405666"/>
@@ -214,7 +213,7 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<string key="IBUIText">Explore &amp; Interact</string>
 						<object class="NSFont" key="IBUIFont">
-							<string key="NSName">Helvetica</string>
+							<string key="NSName">BrandonGrotesque-Regular</string>
 							<double key="NSSize">26</double>
 							<int key="NSfFlags">16</int>
 						</object>
@@ -227,7 +226,7 @@
 					<object class="IBUILabel" id="370405666">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{42, 290}, {227, 15}}</string>
+						<string key="NSFrame">{{42, 291}, {249, 16}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="978547720"/>
@@ -237,7 +236,7 @@
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<string key="IBUIText">Scan a QR code in the Henry and interact</string>
-						<reference key="IBUIFont" ref="907595290"/>
+						<reference key="IBUIFont" ref="555841348"/>
 						<reference key="IBUITextColor" ref="766001443"/>
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">1</int>
@@ -327,6 +326,22 @@ IGludGVyYWN0IGFuZCBlbmdhZ2Ugd2l0aCB0aGUgYXJ0IG9uIGRpc3BsYXkuIApFbmpveSE</string>
 						<reference key="destination" ref="207137196"/>
 					</object>
 					<int key="connectionID">32</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">exploreButton</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="114489832"/>
+					</object>
+					<int key="connectionID">34</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">visitButton</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="978547720"/>
+					</object>
+					<int key="connectionID">35</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -478,7 +493,7 @@ IGludGVyYWN0IGFuZCBlbmdhZ2Ugd2l0aCB0aGUgYXJ0IG9uIGRpc3BsYXkuIApFbmpveSE</string>
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">33</int>
+			<int key="maxID">35</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -538,12 +553,16 @@ IGludGVyYWN0IGFuZCBlbmdhZ2Ugd2l0aCB0aGUgYXJ0IG9uIGRpc3BsYXkuIApFbmpveSE</string>
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>exploreButton</string>
 							<string>labelExplore</string>
+							<string>visitButton</string>
 							<string>welcomeText</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>UIButton</string>
 							<string>UILabel</string>
+							<string>UIButton</string>
 							<string>UILabel</string>
 						</object>
 					</object>
@@ -551,14 +570,24 @@ IGludGVyYWN0IGFuZCBlbmdhZ2Ugd2l0aCB0aGUgYXJ0IG9uIGRpc3BsYXkuIApFbmpveSE</string>
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>exploreButton</string>
 							<string>labelExplore</string>
+							<string>visitButton</string>
 							<string>welcomeText</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBToOneOutletInfo">
+								<string key="name">exploreButton</string>
+								<string key="candidateClassName">UIButton</string>
+							</object>
+							<object class="IBToOneOutletInfo">
 								<string key="name">labelExplore</string>
 								<string key="candidateClassName">UILabel</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">visitButton</string>
+								<string key="candidateClassName">UIButton</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">welcomeText</string>

@@ -14,6 +14,8 @@
 
 @property (nonatomic, retain) IBOutlet UILabel *labelExplore;
 @property (nonatomic, retain) IBOutlet UILabel *welcomeText;
+@property (nonatomic, retain) IBOutlet UIButton *exploreButton;
+@property (nonatomic, retain) IBOutlet UIButton *visitButton;
 
 -(IBAction)InSideView;
 -(IBAction)OutSideView;

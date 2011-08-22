@@ -17,16 +17,18 @@
 @interface InSide : UIViewController <ZBarReaderDelegate, UITableViewDelegate, UITableViewDataSource> {
     
 }
-
+@property (nonatomic, retain) IBOutlet UIButton *scanButton;
 @property (nonatomic, retain) IBOutlet UITextField *idString;
 @property (nonatomic, retain) ZBarReaderViewController *reader;
+
+// History elements
 @property (nonatomic, retain) IBOutlet UILabel *historyLabel;
 @property (nonatomic, retain) IBOutlet UIView *historyModal;
 @property (nonatomic, retain) IBOutlet UIImageView *historyModalArrow;
 @property (nonatomic, retain) IBOutlet UIButton *historyDismissLayer;
 @property (nonatomic, retain) IBOutlet UITableView *historyTableView;
 @property (nonatomic, retain) IBOutlet UITableViewCell *historyCell;
-// History objects
+// list
 @property (nonatomic, retain) NSArray *historyObjects;
 
 - (IBAction) backToStart;

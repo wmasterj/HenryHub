@@ -21,13 +21,14 @@
 #import "UIImageView+WebCache.h"
 #import <AVFoundation/AVFoundation.h>
 #import <AudioToolbox/AudioToolbox.h>
-
-
+#import <QuartzCore/QuartzCore.h>
 
 @implementation InSide
 
 @synthesize idString=_idString;
 @synthesize reader=_reader;
+@synthesize scanButton = _scanButton;
+
 // History controls
 @synthesize historyLabel = _historyLabel;
 @synthesize historyModal = _historyModal;
@@ -399,6 +400,10 @@
     self.historyDismissLayer.hidden = YES;
     
     self.historyTableView.separatorColor = [UIColor clearColor];
+    
+    // Rounded corners
+    [[self.scanButton layer] setCornerRadius:3];
+    [self.scanButton setClipsToBounds:YES];
     
     // Not sure who to deal with this warning, but it works, darn...
     InSideView *thisView = (InSideView *)self.view; 

@@ -152,7 +152,7 @@
 								<int key="IBUITextAlignment">1</int>
 							</object>
 						</object>
-						<string key="NSFrame">{{15, 84}, {290, 356}}</string>
+						<string key="NSFrame">{{15, 80}, {290, 356}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="79041595"/>
@@ -220,6 +220,14 @@
 						<int key="IBEventType">7</int>
 					</object>
 					<int key="connectionID">28</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">relatedTableViewContainer</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="275357991"/>
+					</object>
+					<int key="connectionID">29</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -333,7 +341,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">28</int>
+			<int key="maxID">29</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -374,11 +382,13 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>relatedTableView</string>
 							<string>relatedTableViewCell</string>
+							<string>relatedTableViewContainer</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>UITableView</string>
 							<string>UITableViewCell</string>
+							<string>UIView</string>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
@@ -387,6 +397,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>relatedTableView</string>
 							<string>relatedTableViewCell</string>
+							<string>relatedTableViewContainer</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -397,6 +408,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">relatedTableViewCell</string>
 								<string key="candidateClassName">UITableViewCell</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">relatedTableViewContainer</string>
+								<string key="candidateClassName">UIView</string>
 							</object>
 						</object>
 					</object>

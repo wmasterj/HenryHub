@@ -14,6 +14,7 @@
 #import "Video.h"
 #import "Related.h"
 
+#import <QuartzCore/QuartzCore.h>
 #import "UIImageView+WebCache.h"
 #import "TBXML.h"
 #import "FBConnect.h"
@@ -222,7 +223,7 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     }
     else
     {
-        viewFrame.origin.y = 384;
+        viewFrame.origin.y = 391;
     }
     
     // Start animation
@@ -301,6 +302,9 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     self.video_view.videoListData = [self.currentPiece.videos allObjects];
     self.video_view.parentView = self;
     self.video_view.view.frame = self.contentViewFrame;
+    //Rounded corners
+    [[self.video_view.view layer] setCornerRadius:3];
+    [self.video_view.view setClipsToBounds:YES];
     self.video_view.view.hidden = NO;
     
     [self.view addSubview:self.video_view.view];
@@ -540,7 +544,19 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     self.hub_info.hidden       = YES;
     self.backButtonView.hidden = YES;
     
-    self.contentViewFrame = CGRectMake(15,84,290,356);
+    // Add rounded corners
+    [[self.videoButton layer] setCornerRadius:3];
+    [self.videoButton setClipsToBounds:YES];
+    [[self.relatedButton layer] setCornerRadius:3];
+    [self.relatedButton setClipsToBounds:YES];
+    [[self.infoButton layer] setCornerRadius:3];
+    [self.infoButton setClipsToBounds:YES];
+    [[self.shareButton layer] setCornerRadius:3];
+    [self.shareButton setClipsToBounds:YES];
+    [[self.hub_info layer] setCornerRadius:3];
+    [self.hub_info setClipsToBounds:YES];
+    
+    self.contentViewFrame = CGRectMake(15,80,290,356);
 
     // Add a spinner for loading
     self.spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle: UIActivityIndicatorViewStyleWhite];

@@ -10,6 +10,8 @@
 #import "HubPieceVideo.h"
 #import "UIImageView+WebCache.h"
 
+#import <QuartzCore/QuartzCore.h>
+
 @implementation Video
 
 @synthesize videoListData = _videoListData;
@@ -72,6 +74,7 @@
     NSString *html = [NSString stringWithFormat:embedHTML, videoId, frame.size.width, frame.size.height];
     UIWebView *videoView = [[UIWebView alloc] initWithFrame:frame];
     [videoView loadHTMLString:html baseURL:nil];
+    [[videoView layer] setBorderWidth:0.0];
     [self.selected_video addSubview:videoView];
     [videoView release];
     NSLog(@"Add url: %@, width: %0.0f, height: %0.0f", videoId, frame.size.width, frame.size.width);
@@ -164,7 +167,7 @@
     
     // Open video
     NSString *url = [NSString stringWithFormat:@"http://www.youtube.com/watch?v=%@", video.video_external_id];
-    [self embedYouTube:url withFrame:CGRectMake(0, 0, 280, 176)];
+    [self embedYouTube:url withFrame:CGRectMake(0, 0, 290, 182)];
     
     // Show video information
     self.selected_videoTitle.text = video.video_title;
@@ -174,7 +177,7 @@
     int minutes = floor(delta/60);
     int seconds = trunc(delta - (minutes*60));
     self.selected_videoDuration.text = [NSString 
-                                        stringWithFormat:@"Duration %i:%i", minutes, seconds];
+                                        stringWithFormat:@"%i:%i min", minutes, seconds];
     self.selected_video.hidden = NO;
 }
 
@@ -183,7 +186,7 @@
 - (void)viewDidLoad
 {
     // Change cell seperator color for table
-    self.videoTableView.separatorColor = [UIColor clearColor];
+    self.videoTableView.separatorColor = [UIColor clearColor];    
     
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
