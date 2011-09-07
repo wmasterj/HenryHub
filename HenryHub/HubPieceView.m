@@ -177,6 +177,10 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
 	[alert release];
 }
 
+/**
+ * This gets called if the result returned is less than it can possibly be. It could indicate
+ * that a syntax error occured and that the EE template needs to be looked over.
+ */
 -(void)dataResultInvalid:(BOOL)success
 {
     NSLog(@"Returned data was to small of an amount to be valid");

@@ -63,7 +63,7 @@
     self.reader.readerDelegate = self;
     
     // Create image for adding a logo :)
-    UIImage *image = [UIImage imageNamed:@"scan_logo.png"];
+    UIImage *image = [UIImage imageNamed:@"scan_bg.png"];
     UIImageView *henryLogo = [[UIImageView alloc] initWithImage:image];
     henryLogo.frame = CGRectMake(0, 0, image.size.width, image.size.height);
     
