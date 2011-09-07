@@ -252,7 +252,7 @@
 										<int key="NSvFlags">292</int>
 										<string key="NSFrame">{{245, 15}, {60, 60}}</string>
 										<reference key="NSSuperview" ref="253233241"/>
-										<reference key="NSNextKeyView" ref="860951310"/>
+										<reference key="NSNextKeyView" ref="654910189"/>
 										<object class="NSColor" key="IBUIBackgroundColor">
 											<int key="NSColorSpace">3</int>
 											<bytes key="NSWhite">MSAwAA</bytes>
@@ -333,7 +333,7 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrameSize">{320, 480}</string>
 								<reference key="NSSuperview" ref="356561681"/>
-								<reference key="NSNextKeyView" ref="654910189"/>
+								<reference key="NSNextKeyView" ref="253233241"/>
 								<object class="NSColor" key="IBUIBackgroundColor">
 									<int key="NSColorSpace">3</int>
 									<bytes key="NSWhite">MSAwAA</bytes>
@@ -363,6 +363,7 @@
 										<int key="NSvFlags">292</int>
 										<string key="NSFrame">{{9, 10}, {272, 336}}</string>
 										<reference key="NSSuperview" ref="654910189"/>
+										<reference key="NSNextKeyView"/>
 										<object class="NSColor" key="IBUIBackgroundColor">
 											<int key="NSColorSpace">1</int>
 											<bytes key="NSRGB">MSAxIDEgMAA</bytes>
@@ -389,7 +390,7 @@
 								</object>
 								<string key="NSFrame">{{15, 80}, {290, 356}}</string>
 								<reference key="NSSuperview" ref="356561681"/>
-								<reference key="NSNextKeyView" ref="253233241"/>
+								<reference key="NSNextKeyView" ref="860951310"/>
 								<object class="NSColor" key="IBUIBackgroundColor">
 									<int key="NSColorSpace">1</int>
 									<bytes key="NSRGB">MC45MTc2NDcwNjM3IDAuOTA5ODAzOTI2OSAwLjkwMTk2MDc5MDIAA</bytes>
@@ -670,7 +671,7 @@
 							<reference ref="964303980"/>
 						</object>
 						<reference key="parent" ref="0"/>
-						<string key="objectName">View</string>
+						<string key="objectName">Wrapper view</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">10</int>
@@ -692,7 +693,7 @@
 							<reference ref="654910189"/>
 						</object>
 						<reference key="parent" ref="191373211"/>
-						<string key="objectName">View</string>
+						<string key="objectName">Darkening view</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">136</int>

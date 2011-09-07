@@ -107,7 +107,7 @@
     
     NSLog(@"Open related piece on row %i", row);
     
-    // Check if the piece exists in the database
+    // ## Check if the piece exists in the database
     // Setup the environment for dealing with Core Data and HubPiece entities
     HenryHubAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = [appDelegate managedObjectContext];
@@ -125,7 +125,6 @@
     // Create the view to be displayed if everything turns out right
     HubPieceView *pieceView = [[HubPieceView alloc] 
                                initWithNibName:@"HubPieceView" bundle:nil];
-    //pieceView.view.frame = CGRectMake(-15, -84, 320, 420); // parent orientation: CGRectMake(20,84,280,334);
     
     if([requestResult count] > 0) 
     {
@@ -133,7 +132,6 @@
         //HubPiece *tmpPIece = (HubPiece *)[requestResult lastObject];
         pieceView.currentPiece = (HubPiece *)[requestResult lastObject];
         pieceView.pieceLoaded = YES;
-        //[self.parentPiece hideMenu:NO];
         
         //pieceView.currentPiece.piece_last_viewed = [[NSNumber alloc] initWithDouble:[[NSDate date] timeIntervalSince1970]];
         //[context save:&error];
@@ -175,9 +173,12 @@
     
     [fetchRequest release];
     
-    [self.view addSubview:pieceView.view];
+    // Deselect the row
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    //[pieceView release];
+    // Overlay and show the related hubpiece
+    [self.view addSubview:pieceView.view];
+
 }
 
 

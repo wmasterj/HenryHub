@@ -61,6 +61,7 @@
 // Toggles
 @property (nonatomic, assign) BOOL showingBackground;
 @property (nonatomic, assign) BOOL movingMenu; 
+@property (nonatomic, assign) BOOL pieceDisplaying;
 
 // Methods
 //

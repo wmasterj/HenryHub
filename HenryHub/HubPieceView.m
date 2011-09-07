@@ -42,6 +42,7 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
 @synthesize shareButton = _shareButton;
 @synthesize hub_likes = _hub_likes;
 @synthesize fb_icon = _fb_icon;
+@synthesize pieceDisplaying = _pieceDisplaying;
 
 
 #pragma mark -
@@ -156,6 +157,9 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
         // NSLog(@"NO RELATED CONTENT");
         [self.relatedButton setEnabled:NO];
     }
+    
+    // Enables taps by settings this to "YES"
+    self.pieceDisplaying = YES;
 }
 
 /**
@@ -202,6 +206,9 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
 
 #pragma mark - Showing And Hiding methods
 
+/**
+ * This hides all the open views in order to make room for controls
+ */
 - (IBAction)hideAllViews:(id)sender
 {
     // Hide ALL content views
@@ -238,6 +245,9 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     [self hideAllViews:nil];
 }
 
+/**
+ * Triggered by the "Darkening view" and "Menu overlay" 
+ */
 -(IBAction)toggleBackground:(id)sender {
     if(!self.menu_overlay.hidden) {
         [self showPieceControls:YES];
@@ -253,9 +263,12 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
  * bottom menu items is pressed. It reveals the background image by 
  * hiding the views that overlay it.
  */
--(void)showPieceControls:(BOOL) doHide
+-(void)showPieceControls:(BOOL) showControls
 {
-    if(doHide)
+    // Only show controls if displaying content
+    if(!self.pieceDisplaying) return;
+    
+    if(showControls)
     {
         [self hideMenu:NO];
         [self.video_view closeYoutubeVideo:nil];
@@ -275,6 +288,9 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     }
 }
 
+/**
+ * Show/Hide method for the label description
+ */ 
 - (IBAction)toggleInformation:(id)sender
 {
     // Show/hide information
@@ -292,6 +308,9 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     }
 }
 
+/**
+ * Show/Hide for the "Video" table
+ */
 - (IBAction)flipVideo:(id)sender
 {
     // Hide stuff
@@ -311,6 +330,9 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     
 }
 
+/**
+ * Show/Hide for the "Related" table
+ */
 - (IBAction)flipRelated:(id)sender
 {
     // Hide stuff
@@ -327,6 +349,9 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     
 }
 
+/**
+ * Not sure why this was created but it sets the buttons 'highlighted' BOOL value
+ */
 -(IBAction) backTouched:(id)sender
 {
     self.backButton.highlighted = !self.backButton.highlighted;
@@ -356,6 +381,9 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     [UIView commitAnimations];
 }
 
+/**
+ * Show/Hide for the hubpiece header
+ */
 -(void)hideHeader:(BOOL)doHide
 {
     // Tell the title where to animate
@@ -543,6 +571,9 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     self.menu_overlay.hidden   = YES;
     self.hub_info.hidden       = YES;
     self.backButtonView.hidden = YES;
+    
+    // Set display BOOL in order to prevent unwanted taps to trigger stuff
+    self.pieceDisplaying = NO;
     
     // Add rounded corners
     [[self.videoButton layer] setCornerRadius:3];
