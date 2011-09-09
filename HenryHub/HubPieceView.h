@@ -42,6 +42,7 @@
 @property (nonatomic, retain) IBOutlet UILabel *hub_likes;
 @property (nonatomic, retain) IBOutlet UIImageView *fb_icon;
 @property (nonatomic, retain) IBOutlet UIImageView *backgroundImage;
+@property (nonatomic, retain) IBOutlet UIView *hub_subtitles;
 // Information
 @property (nonatomic, retain) IBOutlet UIView *hub_info;
 @property (nonatomic, retain) IBOutlet UITextView *hub_description;

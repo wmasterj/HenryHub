@@ -28,6 +28,7 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
 
 @synthesize pieceConnection = _pieceConnection, currentPiece = _currentPiece;
 @synthesize hub_title = _hub_title, hub_artist = _hub_artist;
+@synthesize hub_subtitles = _hub_subtitles;
 @synthesize backgroundImage = _backgroundImage, menu_overlay = _menu_overlay;
 @synthesize hub_description = _hub_description, hub_info = _hub_info;
 @synthesize backButton = _backButton, newBackButton = _newBackButton;
@@ -111,7 +112,16 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
 -(void)displayInformation
 {
     // Add title to UI
-    self.hub_title.text = self.currentPiece.piece_name;
+    self.hub_title.text = [NSString stringWithFormat:@"%@", self.currentPiece.piece_name];
+    // Align text to top
+    self.hub_title.numberOfLines = 0;
+    self.hub_title.frame = CGRectMake(self.hub_title.frame.origin.x, self.hub_title.frame.origin.y, self.hub_title.frame.size.width, self.hub_title.frame.size.height);
+    [self.hub_title sizeToFit];
+    
+    // Move subtitle view (artist name + likes) along with title text frame height
+    CGFloat titleYDiff = self.hub_title.frame.size.height - 76; 
+    self.hub_subtitles.frame = CGRectMake(self.hub_subtitles.frame.origin.x, self.hub_subtitles.frame.origin.y + titleYDiff, self.hub_subtitles.frame.size.width, self.hub_subtitles.frame.size.height);
+    
     
     // Add artist name
     self.hub_artist.text = self.currentPiece.piece_artist;
@@ -368,7 +378,7 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     CGRect viewFrame = self.backButtonView.frame;
     if(!doHide)
     {
-        viewFrame.origin.x = -20; 
+        viewFrame.origin.x = -19; 
     }
     else
     {
@@ -396,16 +406,12 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     if(!doHide)
     {
         viewFrame.origin.y = 11; 
-        self.hub_artist.hidden = NO;
-        self.hub_likes.hidden = NO;
-        self.fb_icon.hidden = NO;
+        self.hub_subtitles.hidden = NO;
     }
     else
     {
-        viewFrame.origin.y = -89;
-        self.hub_artist.hidden = YES;
-        self.hub_likes.hidden = YES;
-        self.fb_icon.hidden = YES;
+        viewFrame.origin.y = -(self.hub_title.frame.size.height+2);
+        self.hub_subtitles.hidden = YES;
     }
     
     // Start animation
@@ -577,6 +583,8 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     self.pieceDisplaying = NO;
     
     // Add rounded corners
+    [[self.backButton layer] setCornerRadius:3];
+    [self.backButton setClipsToBounds:YES];
     [[self.videoButton layer] setCornerRadius:3];
     [self.videoButton setClipsToBounds:YES];
     [[self.relatedButton layer] setCornerRadius:3];

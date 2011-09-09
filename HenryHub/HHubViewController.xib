@@ -157,7 +157,6 @@
 						<string key="NSFrame">{{32, 433}, {260, 17}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -249,7 +248,7 @@
 					<object class="IBUILabel" id="591605063">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{16, 88}, {288, 142}}</string>
+						<string key="NSFrame">{{16, 88}, {288, 104}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="114489832"/>
@@ -278,7 +277,7 @@ IGludGVyYWN0IGFuZCDigKhlbmdhZ2Ugd2l0aCB0aGUgYXJ0IG9uIGRpc3BsYXkuCkVuam95IQ</stri
 						<int key="IBUIBaselineAdjustment">1</int>
 						<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 						<float key="IBUIMinimumFontSize">19</float>
-						<int key="IBUINumberOfLines">5</int>
+						<int key="IBUINumberOfLines">4</int>
 						<int key="IBUILineBreakMode">0</int>
 					</object>
 				</object>
