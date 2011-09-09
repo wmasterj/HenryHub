@@ -49,6 +49,7 @@
 @property (nonatomic, assign) CGRect contentViewFrame;
 @property (nonatomic, retain) IBOutlet UIControl *backButtonView;
 @property (nonatomic, retain) IBOutlet UIButton *backButton;
+@property (nonatomic, retain) IBOutlet UIButton *newBackButton;
 @property (nonatomic, retain) UIActivityIndicatorView *spinner;
 // Moving UIView
 @property (nonatomic, retain) IBOutlet UIView *sub_menu; // 6 button menu

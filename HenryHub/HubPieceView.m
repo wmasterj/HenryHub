@@ -30,7 +30,8 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
 @synthesize hub_title = _hub_title, hub_artist = _hub_artist;
 @synthesize backgroundImage = _backgroundImage, menu_overlay = _menu_overlay;
 @synthesize hub_description = _hub_description, hub_info = _hub_info;
-@synthesize backButton = _backButton, backButtonView = _backButtonView;
+@synthesize backButton = _backButton, newBackButton = _newBackButton;
+@synthesize backButtonView = _backButtonView;
 @synthesize movingMenu = _movingMenu,sub_menu = _sub_menu;
 @synthesize video_view = _video_view, related_view = _related_view;
 @synthesize contentViewFrame = _contentViewFrame, spinner = _spinner;
@@ -367,7 +368,7 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     CGRect viewFrame = self.backButtonView.frame;
     if(!doHide)
     {
-        viewFrame.origin.x = -27; 
+        viewFrame.origin.x = -20; 
     }
     else
     {
@@ -564,10 +565,6 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
 
 #pragma mark - View lifecycle
 
-- (void)willRemoveSubView:(UIView *) subview {
-    NSLog(@"willRemoveSubView: back to this view");
-}
-
 - (void)viewDidLoad
 {    
     NSLog(@"viewDidLoad: HubPieceView");
@@ -596,7 +593,7 @@ NSString *const kAppSecret = @"8f3c6c6457d882065a253e036ce0e66a";
     // Add a spinner for loading
     self.spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle: UIActivityIndicatorViewStyleWhite];
     [self.view addSubview:self.spinner];
-    [self.spinner setCenter:CGPointMake((320/2)-3, (480/2)+25)];
+    [self.spinner setCenter:CGPointMake((320/2), (480/2)+65)];
     [self.spinner startAnimating];
     
     
