@@ -18,6 +18,8 @@
     
 }
 @property (nonatomic, retain) IBOutlet UIButton *scanButton;
+@property (nonatomic, retain) IBOutlet UIButton *topScanButton;
+@property (nonatomic, retain) IBOutlet UIButton *backButton;
 @property (nonatomic, retain) IBOutlet UITextField *idString;
 @property (nonatomic, retain) ZBarReaderViewController *reader;
 

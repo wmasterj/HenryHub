@@ -37,6 +37,8 @@
 @synthesize historyTableView = _historyTableView;
 @synthesize historyObjects = _historyObjects;
 @synthesize historyCell = _historyCell;
+@synthesize backButton = _backButton;
+@synthesize topScanButton = _topScanButton;
 
 -(IBAction)backToStart
 {
@@ -166,7 +168,7 @@
     CGRect viewFrame = self.historyModal.frame;
     if(self.historyModal.frame.origin.y > 200)
     {
-        viewFrame.origin.y = 98; 
+        viewFrame.origin.y = 70; 
         self.historyDismissLayer.hidden = NO;
         self.historyModalArrow.highlighted = YES; // down arrow
         NSUInteger *historyCount = (NSUInteger *)[self.historyObjects count];
@@ -402,8 +404,14 @@
     self.historyTableView.separatorColor = [UIColor clearColor];
     
     // Rounded corners
+    [[self.backButton layer] setCornerRadius:3];
+    [self.backButton setClipsToBounds:YES];
     [[self.scanButton layer] setCornerRadius:3];
     [self.scanButton setClipsToBounds:YES];
+    [[self.topScanButton layer] setCornerRadius:3];
+    [self.topScanButton setClipsToBounds:YES];
+    [[self.historyModal layer] setCornerRadius:3];
+    [self.historyModal setClipsToBounds:YES];
     
     // Not sure who to deal with this warning, but it works, darn...
     InSideView *thisView = (InSideView *)self.view; 
@@ -420,6 +428,8 @@
     self.historyObjects = nil;
     self.idString = nil;
     self.reader = nil;
+    
+    [self toggleHistory: nil];
     
     [super viewDidUnload];
 }

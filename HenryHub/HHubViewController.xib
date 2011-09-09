@@ -47,10 +47,10 @@
 					<object class="IBUIImageView" id="343533271">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{25, 24}, {62, 50}}</string>
+						<string key="NSFrame">{{15, 15}, {62, 50}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="591605063"/>
+						<reference key="NSNextKeyView" ref="930179990"/>
 						<int key="IBUIContentMode">2</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -62,7 +62,7 @@
 					<object class="IBUIButton" id="978547720">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{25, 380}, {205, 72}}</string>
+						<string key="NSFrame">{{15, 393}, {290, 72}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="710416439"/>
@@ -70,6 +70,7 @@
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MSAwAA</bytes>
 						</object>
+						<float key="IBUIAlpha">0.69999998807907104</float>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
@@ -99,11 +100,12 @@
 					<object class="IBUIButton" id="930179990">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{255, 404}, {18, 19}}</string>
+						<string key="NSFrame">{{272, 29}, {18, 19}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="512095444"/>
+						<reference key="NSNextKeyView" ref="591605063"/>
 						<bool key="IBUIOpaque">NO</bool>
+						<float key="IBUIAlpha">0.5</float>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
@@ -121,16 +123,16 @@
 					<object class="IBUILabel" id="710416439">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{41, 395}, {156, 23}}</string>
+						<string key="NSFrame">{{31, 407}, {202, 28}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="930179990"/>
+						<reference key="NSNextKeyView" ref="512095444"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<string key="IBUIText">Your Visit</string>
+						<string key="IBUIText">Visitor Information</string>
 						<object class="NSFont" key="IBUIFont">
 							<string key="NSName">BrandonGrotesque-Regular</string>
 							<double key="NSSize">22</double>
@@ -152,30 +154,31 @@
 					<object class="IBUILabel" id="512095444">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{42, 424}, {183, 17}}</string>
+						<string key="NSFrame">{{32, 433}, {260, 17}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<string key="IBUIText">Eg. Hours, Direction and About</string>
-						<object class="NSFont" key="IBUIFont" id="555841348">
+						<object class="NSFont" key="IBUIFont" id="612058328">
 							<string key="NSName">BrandonGrotesque-Regular</string>
-							<double key="NSSize">13</double>
+							<double key="NSSize">14</double>
 							<int key="NSfFlags">16</int>
 						</object>
 						<reference key="IBUITextColor" ref="766001443"/>
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">1</int>
 						<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
-						<float key="IBUIMinimumFontSize">12</float>
+						<float key="IBUIMinimumFontSize">14</float>
 					</object>
 					<object class="IBUIButton" id="114489832">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{25, 238}, {268, 117}}</string>
+						<string key="NSFrame">{{15, 261}, {290, 117}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="207137196"/>
@@ -198,7 +201,7 @@
 					<object class="IBUILabel" id="207137196">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{41, 257}, {238, 32}}</string>
+						<string key="NSFrame">{{31, 275}, {238, 32}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="370405666"/>
@@ -226,7 +229,7 @@
 					<object class="IBUILabel" id="370405666">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{42, 291}, {249, 16}}</string>
+						<string key="NSFrame">{{32, 308}, {255, 16}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="978547720"/>
@@ -236,17 +239,17 @@
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<string key="IBUIText">Scan a QR code in the Henry and interact</string>
-						<reference key="IBUIFont" ref="555841348"/>
+						<reference key="IBUIFont" ref="612058328"/>
 						<reference key="IBUITextColor" ref="766001443"/>
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">1</int>
 						<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
-						<float key="IBUIMinimumFontSize">12</float>
+						<float key="IBUIMinimumFontSize">14</float>
 					</object>
 					<object class="IBUILabel" id="591605063">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{25, 88}, {268, 142}}</string>
+						<string key="NSFrame">{{16, 88}, {288, 142}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="114489832"/>
@@ -256,9 +259,9 @@
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<string type="base64-UTF8" key="IBUIText">V2VsY29tZSB0byB0aGUgSGVucnkgQXJ0IEdhbGxlcnkhIApUaGlzIGFwcCB3aWxsIGhlbHAgeW91IHRv
-IGludGVyYWN0IGFuZCBlbmdhZ2Ugd2l0aCB0aGUgYXJ0IG9uIGRpc3BsYXkuIApFbmpveSE</string>
+IGludGVyYWN0IGFuZCDigKhlbmdhZ2Ugd2l0aCB0aGUgYXJ0IG9uIGRpc3BsYXkuCkVuam95IQ</string>
 						<object class="NSFont" key="IBUIFont">
-							<string key="NSName">Helvetica</string>
+							<string key="NSName">BrandonGrotesque-Regular</string>
 							<double key="NSSize">19</double>
 							<int key="NSfFlags">16</int>
 						</object>
@@ -276,6 +279,7 @@ IGludGVyYWN0IGFuZCBlbmdhZ2Ugd2l0aCB0aGUgYXJ0IG9uIGRpc3BsYXkuIApFbmpveSE</string>
 						<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 						<float key="IBUIMinimumFontSize">19</float>
 						<int key="IBUINumberOfLines">5</int>
+						<int key="IBUILineBreakMode">0</int>
 					</object>
 				</object>
 				<string key="NSFrameSize">{320, 480}</string>
@@ -371,13 +375,13 @@ IGludGVyYWN0IGFuZCBlbmdhZ2Ugd2l0aCB0aGUgYXJ0IG9uIGRpc3BsYXkuIApFbmpveSE</string>
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="343533271"/>
 							<reference ref="978547720"/>
-							<reference ref="930179990"/>
-							<reference ref="710416439"/>
 							<reference ref="512095444"/>
-							<reference ref="114489832"/>
-							<reference ref="370405666"/>
-							<reference ref="207137196"/>
 							<reference ref="591605063"/>
+							<reference ref="930179990"/>
+							<reference ref="114489832"/>
+							<reference ref="207137196"/>
+							<reference ref="370405666"/>
+							<reference ref="710416439"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
