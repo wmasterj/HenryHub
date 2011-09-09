@@ -23,6 +23,7 @@
 @synthesize parentPiece = _parentPiece;
 @synthesize subPieceView = _subPieceView;
 @synthesize relatedTableViewContainer = _relatedTableViewContainer;
+@synthesize closeButton = _closeButton;
 
 -(IBAction)closeRelatedView:(id)sender
 {
@@ -215,6 +216,8 @@
     
     [[self.relatedTableViewContainer layer] setCornerRadius:3];
     [self.relatedTableViewContainer setClipsToBounds:YES];
+    [[self.closeButton layer] setCornerRadius:3];
+    [self.closeButton setClipsToBounds:YES];
     
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.

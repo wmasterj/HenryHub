@@ -48,7 +48,7 @@
 					<object class="IBUILabel" id="556462898">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{9, -2}, {247, 42}}</string>
+						<string key="NSFrame">{{11, -1}, {247, 42}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<bool key="IBUIOpaque">NO</bool>
@@ -90,7 +90,7 @@
 					<object class="IBUIButton" id="576946549">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{254, 4}, {32, 29}}</string>
+						<string key="NSFrame">{{252, 6}, {32, 29}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="972499498"/>
@@ -124,7 +124,7 @@
 					<object class="IBUILabel" id="646803922">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{249, 5}, {42, 27}}</string>
+						<string key="NSFrame">{{247, 6}, {42, 27}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="576946549"/>
@@ -240,7 +240,7 @@
 							<object class="IBUIButton" id="976542549">
 								<reference key="NSNextResponder" ref="1017601149"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{254, 323}, {32, 29}}</string>
+								<string key="NSFrame">{{252, 321}, {32, 29}}</string>
 								<reference key="NSSuperview" ref="1017601149"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="646803922"/>
@@ -258,7 +258,7 @@
 							<object class="IBUILabel" id="155089827">
 								<reference key="NSNextResponder" ref="1017601149"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{249, 323}, {42, 27}}</string>
+								<string key="NSFrame">{{247, 320}, {42, 27}}</string>
 								<reference key="NSSuperview" ref="1017601149"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="976542549"/>
@@ -395,6 +395,22 @@
 					</object>
 					<int key="connectionID">42</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">closeButton</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="576946549"/>
+					</object>
+					<int key="connectionID">43</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">closeVideoButton</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="976542549"/>
+					</object>
+					<int key="connectionID">44</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -442,6 +458,7 @@
 						<int key="objectID">34</int>
 						<reference key="object" ref="556462898"/>
 						<reference key="parent" ref="191373211"/>
+						<string key="objectName">Label Brandon Regular - VIDEO CLIPS</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">38</int>
@@ -558,7 +575,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">42</int>
+			<int key="maxID">44</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -626,6 +643,8 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>closeButton</string>
+							<string>closeVideoButton</string>
 							<string>selected_video</string>
 							<string>selected_videoClose</string>
 							<string>selected_videoDescription</string>
@@ -637,6 +656,8 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>UIButton</string>
+							<string>UIButton</string>
 							<string>UIView</string>
 							<string>UIButton</string>
 							<string>UITextView</string>
@@ -651,6 +672,8 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>closeButton</string>
+							<string>closeVideoButton</string>
 							<string>selected_video</string>
 							<string>selected_videoClose</string>
 							<string>selected_videoDescription</string>
@@ -662,6 +685,14 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBToOneOutletInfo">
+								<string key="name">closeButton</string>
+								<string key="candidateClassName">UIButton</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">closeVideoButton</string>
+								<string key="candidateClassName">UIButton</string>
+							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">selected_video</string>
 								<string key="candidateClassName">UIView</string>

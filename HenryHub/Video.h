@@ -28,6 +28,8 @@
 @property (nonatomic, retain) IBOutlet UITableView *videoTableView;
 @property (nonatomic, retain) IBOutlet UITableViewCell *videoTableViewCell;
 @property (nonatomic, retain) HubPieceView *parentView;
+@property (nonatomic, retain) IBOutlet UIButton *closeButton;
+@property (nonatomic, retain) IBOutlet UIButton *closeVideoButton;
 
 @property (nonatomic, retain) NSArray *videoListData; // Will hold HubPieceVideo objects
 

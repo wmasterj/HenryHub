@@ -24,6 +24,8 @@
 @synthesize videoTableView = _videoTableView;
 @synthesize videoTableViewCell = _videoTableViewCell;
 @synthesize parentView = _parentView;
+@synthesize closeButton = _closeButton;
+@synthesize closeVideoButton = _closeVideoButton;
 
 #pragma mark - Instance methods
 
@@ -187,6 +189,11 @@
 {
     // Change cell seperator color for table
     self.videoTableView.separatorColor = [UIColor clearColor];    
+    
+    [[self.closeButton layer] setCornerRadius:3];
+    [self.closeButton setClipsToBounds:YES];
+    [[self.closeVideoButton layer] setCornerRadius:3];
+    [self.closeVideoButton setClipsToBounds:YES];
     
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
