@@ -7,7 +7,7 @@
 //
 
 #import "InSideView.h"
-#import "InSide.h"
+#import "AppInfo.h"
 
 @implementation InSideView
 

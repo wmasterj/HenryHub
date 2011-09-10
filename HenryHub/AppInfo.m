@@ -6,7 +6,7 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "InSide.h"
+#import "AppInfo.h"
 #import "InSideView.h"
 #import "HubXMLConnection.h"
 #import "HubPieceView.h"
@@ -23,11 +23,9 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import <QuartzCore/QuartzCore.h>
 
-@implementation InSide
+@implementation AppInfo
 
 @synthesize idString=_idString;
-@synthesize reader=_reader;
-@synthesize scanButton = _scanButton;
 
 // History controls
 @synthesize historyLabel = _historyLabel;
@@ -38,7 +36,6 @@
 @synthesize historyObjects = _historyObjects;
 @synthesize historyCell = _historyCell;
 @synthesize backButton = _backButton;
-@synthesize topScanButton = _topScanButton;
 
 -(IBAction)backToStart
 {
@@ -49,117 +46,6 @@
     if(self.view == nil) NSLog(@"self.view not there");
     [self.view removeFromSuperview];
     [UIView commitAnimations];
-}
-
-- (IBAction)textEditingDone:(id)sender
-{
-    
-}
-
-- (IBAction)openScanner:(id)sender
-{
-    NSLog(@"Open scanner");
-
-    // Create the reader
-    self.reader = [ZBarReaderViewController new];
-    self.reader.readerDelegate = self;
-    
-    // Create image for adding a logo :)
-    UIImage *image = [UIImage imageNamed:@"scan_bg.png"];
-    UIImageView *henryLogo = [[UIImageView alloc] initWithImage:image];
-    henryLogo.frame = CGRectMake(0, 0, image.size.width, image.size.height);
-    
-    // Configure reader
-    self.reader.cameraOverlayView = henryLogo;
-    [self.reader.scanner setSymbology:0 config:ZBAR_CFG_ENABLE to:0];
-    [self.reader.scanner setSymbology:ZBAR_QRCODE config:ZBAR_CFG_ENABLE to:1];
-    self.reader.readerView.zoom = 1.0;
-    
-    [self presentModalViewController:self.reader animated:YES];
-    
-}
-
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
-    // ADD sound here
-    
-    // Hide the scanner
-    [self.reader dismissModalViewControllerAnimated:YES];
-    
-    NSLog(@"Scanned :)");
-    
-    // Store result in a variable
-    id<NSFastEnumeration> results = [info objectForKey: ZBarReaderControllerResults];
-    ZBarSymbol *symbol = nil;
-    for(symbol in results)
-        break;
-    
-    NSLog(@"Data scanned: %@", symbol.data);
-    
-    // Check if the piece exists in the database
-    // Setup the environment for dealing with Core Data and HubPiece entities
-    HenryHubAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    NSManagedObjectContext *context = [appDelegate managedObjectContext];
-    NSEntityDescription *entityHubPiece = [NSEntityDescription entityForName:@"HubPiece" 
-                                                      inManagedObjectContext:context];
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    [fetchRequest setEntity:entityHubPiece];
-    
-    NSPredicate *findMatchPredicate = [NSPredicate predicateWithFormat:@"(piece_id == %@)", symbol.data];
-    [fetchRequest setPredicate:findMatchPredicate];
-    
-    NSError *error;
-    NSArray *requestResult = [context executeFetchRequest:fetchRequest error:&error];
-    
-    // Create the view to be displayed if everything turns out right
-    HubPieceView *pieceView = [[HubPieceView alloc] 
-                               initWithNibName:@"HubPieceView" bundle:nil];
-    
-    if([requestResult count] > 0) 
-    {
-        NSLog(@"Found %i match(s)", [requestResult count]);
-        pieceView.currentPiece = (HubPiece *)[requestResult lastObject];
-        pieceView.pieceLoaded = YES;
-        //pieceView.currentPiece.piece_last_viewed = [[NSNumber alloc] initWithDouble:[[NSDate date] timeIntervalSince1970]];
-        //[context save:&error];
-        // Show the actual hub piece
-        [self.view addSubview:pieceView.view];
-    }
-    else
-    {
-        NSLog(@"No match found, let's fetch it from the big internet");
-        
-        // Instatiate connection class
-        HubXMLConnection *aConnection = [[HubXMLConnection alloc] init];    
-        aConnection.delegate = pieceView;
-        
-        // Connect
-        BOOL success = [aConnection connect:symbol.data];
-        
-        // If the connection was successful then load the actual HubPieceView
-        if(success) {
-            NSLog(@"Connected, getting the stuff...");
-            pieceView.pieceConnection = aConnection;
-            //pieceView.currentPiece.piece_last_viewed = [[NSNumber alloc] initWithDouble:[[NSDate date] timeIntervalSince1970]];
-            //[context save:&error];
-            // Show the actual hub piece
-            [self.view addSubview:pieceView.view];
-        }
-        else
-        {
-            NSLog(@"WARNING! Something wrong with the connection.");
-        }
-        
-        [aConnection release];
-    }
-    
-    [fetchRequest release];
-    //[pieceView release];
-}
-
-- (void)readerControllerDidFailToRead:(ZBarReaderController *)reader withRetry:(BOOL)retry
-{
-    NSLog(@"SCANNING: Something went wrong!");
 }
 
 -(IBAction)toggleHistory:(id)sender
@@ -287,7 +173,7 @@
                              floor(((double)[[NSDate date] timeIntervalSince1970]) - [piece.piece_last_viewed doubleValue])];
     
     historyItemLastViewedLabel.text = [NSString stringWithFormat:@"%@", 
-                                       [InSide getDurationStringFromSeconds:[timeElapsed doubleValue]] ];
+                                       [AppInfo getDurationStringFromSeconds:[timeElapsed doubleValue]] ];
 
     // Image
     UIImageView *historyItemImageView = (UIImageView *)[cell viewWithTag:kImageValueTag];
@@ -406,16 +292,9 @@
     // Rounded corners
     [[self.backButton layer] setCornerRadius:3];
     [self.backButton setClipsToBounds:YES];
-    [[self.scanButton layer] setCornerRadius:3];
-    [self.scanButton setClipsToBounds:YES];
-    [[self.topScanButton layer] setCornerRadius:3];
-    [self.topScanButton setClipsToBounds:YES];
     [[self.historyModal layer] setCornerRadius:3];
     [self.historyModal setClipsToBounds:YES];
     
-    // Not sure who to deal with this warning, but it works, darn...
-    InSideView *thisView = (InSideView *)self.view; 
-    thisView.parentController = self;
     
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -427,7 +306,6 @@
     
     self.historyObjects = nil;
     self.idString = nil;
-    self.reader = nil;
     
     [self toggleHistory: nil];
     
@@ -437,7 +315,6 @@
 - (void)dealloc
 {
     [self.idString release];
-    [self.reader release];
     [self.historyObjects release];
     
     [super dealloc];

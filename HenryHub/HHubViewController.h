@@ -7,18 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZBarSDK.h"
 
-@interface HHubViewController : UIViewController {
+@interface HHubViewController : UIViewController <ZBarReaderDelegate> {
 
 }
 
 @property (nonatomic, retain) IBOutlet UILabel *labelExplore;
-@property (nonatomic, retain) IBOutlet UILabel *welcomeText;
-@property (nonatomic, retain) IBOutlet UIButton *exploreButton;
 @property (nonatomic, retain) IBOutlet UIButton *visitButton;
 
--(IBAction)InSideView;
--(IBAction)OutSideView;
+// SCANNING ITEMS
+@property (nonatomic, retain) IBOutlet UIButton *scanButton;
+@property (nonatomic, retain) ZBarReaderViewController *reader;
+
+
+- (IBAction) openScanner: (id)sender;
+
+// Navigate to info and web
+- (IBAction) InSideView;
+- (IBAction) OutSideView;
 
 
 @end

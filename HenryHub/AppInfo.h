@@ -14,14 +14,12 @@
 #define kLastViewedValueTag 3
 #define kImageValueTag      4
 
-@interface InSide : UIViewController <ZBarReaderDelegate, UITableViewDelegate, UITableViewDataSource> {
+@interface AppInfo : UIViewController <UITableViewDelegate, UITableViewDataSource> {
     
 }
-@property (nonatomic, retain) IBOutlet UIButton *scanButton;
-@property (nonatomic, retain) IBOutlet UIButton *topScanButton;
+
 @property (nonatomic, retain) IBOutlet UIButton *backButton;
 @property (nonatomic, retain) IBOutlet UITextField *idString;
-@property (nonatomic, retain) ZBarReaderViewController *reader;
 
 // History elements
 @property (nonatomic, retain) IBOutlet UILabel *historyLabel;
@@ -34,8 +32,7 @@
 @property (nonatomic, retain) NSArray *historyObjects;
 
 - (IBAction) backToStart;
-- (IBAction) openScanner: (id)sender;
-- (IBAction) textEditingDone: (id)sender;
+
 - (IBAction) toggleHistory: (id)sender;
 - (void) loadObjectsToTableView;
 
