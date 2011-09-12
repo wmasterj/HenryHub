@@ -36,6 +36,7 @@
 @synthesize historyObjects = _historyObjects;
 @synthesize historyCell = _historyCell;
 @synthesize backButton = _backButton;
+@synthesize infoScroll = _infoScroll;
 
 -(IBAction)backToStart
 {
@@ -295,6 +296,10 @@
     [[self.historyModal layer] setCornerRadius:3];
     [self.historyModal setClipsToBounds:YES];
     
+    // Setup scroll view
+    self.infoScroll.contentSize = CGSizeMake(319, 154);
+    self.infoScroll.scrollEnabled = YES;
+    self.infoScroll.pagingEnabled = YES; // Snaps it
     
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.

@@ -19,6 +19,7 @@
 }
 
 @property (nonatomic, retain) IBOutlet UIButton *backButton;
+@property (nonatomic, retain) IBOutlet UIScrollView *infoScroll;
 @property (nonatomic, retain) IBOutlet UITextField *idString;
 
 // History elements
