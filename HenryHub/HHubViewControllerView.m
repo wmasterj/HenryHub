@@ -3,13 +3,12 @@
 //  HenryHub
 //
 //  Created by Jeroen van den Eijkhof, jeroen@uw.edu on 5/30/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "InSideView.h"
-#import "AppInfo.h"
+#import "HHubViewControllerView.h"
+#import "HHubViewController.h"
 
-@implementation InSideView
+@implementation HHubViewControllerView
 
 @synthesize parentController = _parentController;
 
@@ -38,7 +37,7 @@
 
 -(void)willRemoveSubview:(UIView *)subview
 {
-    NSLog(@"Subview will be removed");
+    NSLog(@"Subview will be removed next");
     [self.parentController loadObjectsToTableView];
 }
 

@@ -183,7 +183,7 @@
     self.selected_video.hidden = NO;
 }
 
-#pragma mark - View lifecycle
+#pragma mark - View lifecy	cle
 
 - (void)viewDidLoad
 {

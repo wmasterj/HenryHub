@@ -3,15 +3,20 @@
 	<data>
 		<int key="IBDocument.SystemTarget">1056</int>
 		<string key="IBDocument.SystemVersion">10J869</string>
-		<string key="IBDocument.InterfaceBuilderVersion">844</string>
+		<string key="IBDocument.InterfaceBuilderVersion">1306</string>
 		<string key="IBDocument.AppKitVersion">1038.35</string>
 		<string key="IBDocument.HIToolboxVersion">461.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-			<string key="NS.object.0">141</string>
+			<string key="NS.object.0">301</string>
 		</object>
-		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
+		<object class="NSArray" key="IBDocument.IntegratedClassDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
+			<string>IBUITableViewCell</string>
+			<string>IBUIImageView</string>
+			<string>IBUIView</string>
+			<string>IBUILabel</string>
+			<string>IBProxyObject</string>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -22,9 +27,7 @@
 			<object class="NSArray" key="dict.sortedKeys" id="0">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 			</object>
-			<object class="NSMutableArray" key="dict.values">
-				<bool key="EncodedWithXMLCoder">YES</bool>
-			</object>
+			<reference key="dict.values" ref="0"/>
 		</object>
 		<object class="NSMutableArray" key="IBDocument.RootObjects" id="1000">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -37,7 +40,7 @@
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
 			<object class="IBUIView" id="191373211">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">274</int>
 				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -54,8 +57,9 @@
 									<object class="IBUIImageView" id="174756324">
 										<reference key="NSNextResponder" ref="103898079"/>
 										<int key="NSvFlags">292</int>
-										<string key="NSFrame">{{12, 12}, {44, 66}}</string>
+										<string key="NSFrameSize">{61, 91}</string>
 										<reference key="NSSuperview" ref="103898079"/>
+										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="878172853"/>
 										<object class="NSColor" key="IBUIBackgroundColor">
 											<int key="NSColorSpace">1</int>
@@ -74,8 +78,9 @@
 									<object class="IBUILabel" id="878172853">
 										<reference key="NSNextResponder" ref="103898079"/>
 										<int key="NSvFlags">292</int>
-										<string key="NSFrame">{{70, 10}, {239, 21}}</string>
+										<string key="NSFrame">{{70, 10}, {208, 21}}</string>
 										<reference key="NSSuperview" ref="103898079"/>
+										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="558382925"/>
 										<bool key="IBUIOpaque">NO</bool>
 										<bool key="IBUIClipsSubviews">YES</bool>
@@ -101,8 +106,9 @@
 									<object class="IBUILabel" id="558382925">
 										<reference key="NSNextResponder" ref="103898079"/>
 										<int key="NSvFlags">292</int>
-										<string key="NSFrame">{{71, 31}, {238, 21}}</string>
+										<string key="NSFrame">{{71, 31}, {208, 21}}</string>
 										<reference key="NSSuperview" ref="103898079"/>
+										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="197142506"/>
 										<object class="NSColor" key="IBUIBackgroundColor">
 											<int key="NSColorSpace">1</int>
@@ -141,8 +147,9 @@
 									<object class="IBUILabel" id="197142506">
 										<reference key="NSNextResponder" ref="103898079"/>
 										<int key="NSvFlags">292</int>
-										<string key="NSFrame">{{71, 55}, {238, 21}}</string>
+										<string key="NSFrame">{{71, 55}, {208, 21}}</string>
 										<reference key="NSSuperview" ref="103898079"/>
+										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="1009172579"/>
 										<object class="NSColor" key="IBUIBackgroundColor">
 											<int key="NSColorSpace">1</int>
@@ -169,6 +176,8 @@
 										<int key="NSvFlags">292</int>
 										<string key="NSFrame">{{0, 90}, {320, 1}}</string>
 										<reference key="NSSuperview" ref="103898079"/>
+										<reference key="NSWindow"/>
+										<reference key="NSNextKeyView"/>
 										<object class="NSColor" key="IBUIBackgroundColor">
 											<int key="NSColorSpace">3</int>
 											<bytes key="NSWhite">MQA</bytes>
@@ -178,8 +187,9 @@
 										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 									</object>
 								</object>
-								<string key="NSFrameSize">{320, 91}</string>
+								<string key="NSFrameSize">{290, 91}</string>
 								<reference key="NSSuperview" ref="819733905"/>
+								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="174756324"/>
 								<object class="NSColor" key="IBUIBackgroundColor">
 									<int key="NSColorSpace">3</int>
@@ -192,8 +202,9 @@
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							</object>
 						</object>
-						<string key="NSFrameSize">{320, 91}</string>
+						<string key="NSFrameSize">{290, 91}</string>
 						<reference key="NSSuperview" ref="191373211"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="103898079"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
@@ -206,7 +217,9 @@
 						<string key="IBUIReuseIdentifier">HistoryCellIdentifier</string>
 					</object>
 				</object>
-				<string key="NSFrameSize">{320, 91}</string>
+				<string key="NSFrameSize">{290, 91}</string>
+				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="819733905"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
@@ -317,7 +330,7 @@
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<string>AppInfo</string>
+					<string>HHubViewController</string>
 					<string>UIResponder</string>
 					<string>{{354, 412}, {320, 480}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -335,17 +348,13 @@
 			<object class="NSMutableDictionary" key="unlocalizedProperties">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<reference key="dict.sortedKeys" ref="0"/>
-				<object class="NSMutableArray" key="dict.values">
-					<bool key="EncodedWithXMLCoder">YES</bool>
-				</object>
+				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="activeLocalization"/>
 			<object class="NSMutableDictionary" key="localizations">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<reference key="dict.sortedKeys" ref="0"/>
-				<object class="NSMutableArray" key="dict.values">
-					<bool key="EncodedWithXMLCoder">YES</bool>
-				</object>
+				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
 			<int key="maxID">10</int>
@@ -354,15 +363,31 @@
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<object class="IBPartialClassDescription">
-					<string key="className">AppInfo</string>
+					<string key="className">HHLabel_BrandonBold</string>
+					<string key="superclassName">UILabel</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/HHLabel_BrandonBold.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">HHLabel_BrandonRegular</string>
+					<string key="superclassName">UILabel</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/HHLabel_BrandonRegular.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">HHubViewController</string>
 					<string key="superclassName">UIViewController</string>
 					<object class="NSMutableDictionary" key="actions">
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>backToStart</string>
+							<string>AppInfoView</string>
+							<string>OutSideView</string>
 							<string>openScanner:</string>
-							<string>textEditingDone:</string>
 							<string>toggleHistory:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
@@ -377,23 +402,23 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>backToStart</string>
+							<string>AppInfoView</string>
+							<string>OutSideView</string>
 							<string>openScanner:</string>
-							<string>textEditingDone:</string>
 							<string>toggleHistory:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBActionInfo">
-								<string key="name">backToStart</string>
+								<string key="name">AppInfoView</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">OutSideView</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
 								<string key="name">openScanner:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">textEditingDone:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
@@ -406,46 +431,52 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>bottomControls</string>
 							<string>historyCell</string>
-							<string>historyDismissLayer</string>
 							<string>historyLabel</string>
 							<string>historyModal</string>
 							<string>historyModalArrow</string>
 							<string>historyTableView</string>
-							<string>idString</string>
+							<string>labelExplore</string>
+							<string>scanButton</string>
+							<string>visitButton</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>UIView</string>
 							<string>UITableViewCell</string>
-							<string>UIButton</string>
 							<string>UILabel</string>
 							<string>UIView</string>
 							<string>UIImageView</string>
 							<string>UITableView</string>
-							<string>UITextField</string>
+							<string>UILabel</string>
+							<string>UIButton</string>
+							<string>UIButton</string>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>bottomControls</string>
 							<string>historyCell</string>
-							<string>historyDismissLayer</string>
 							<string>historyLabel</string>
 							<string>historyModal</string>
 							<string>historyModalArrow</string>
 							<string>historyTableView</string>
-							<string>idString</string>
+							<string>labelExplore</string>
+							<string>scanButton</string>
+							<string>visitButton</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBToOneOutletInfo">
-								<string key="name">historyCell</string>
-								<string key="candidateClassName">UITableViewCell</string>
+								<string key="name">bottomControls</string>
+								<string key="candidateClassName">UIView</string>
 							</object>
 							<object class="IBToOneOutletInfo">
-								<string key="name">historyDismissLayer</string>
-								<string key="candidateClassName">UIButton</string>
+								<string key="name">historyCell</string>
+								<string key="candidateClassName">UITableViewCell</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">historyLabel</string>
@@ -464,30 +495,22 @@
 								<string key="candidateClassName">UITableView</string>
 							</object>
 							<object class="IBToOneOutletInfo">
-								<string key="name">idString</string>
-								<string key="candidateClassName">UITextField</string>
+								<string key="name">labelExplore</string>
+								<string key="candidateClassName">UILabel</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">scanButton</string>
+								<string key="candidateClassName">UIButton</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">visitButton</string>
+								<string key="candidateClassName">UIButton</string>
 							</object>
 						</object>
 					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBUserSource</string>
-						<string key="minorKey"/>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">HHLabel_BrandonBold</string>
-					<string key="superclassName">UILabel</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/HHLabel_BrandonBold.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">HHLabel_BrandonRegular</string>
-					<string key="superclassName">UILabel</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/HHLabel_BrandonRegular.h</string>
+						<string key="minorKey">./Classes/HHubViewController.h</string>
 					</object>
 				</object>
 			</object>
@@ -499,12 +522,11 @@
 			<integer value="3100" key="NS.object.0"/>
 		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
-		<nil key="IBDocument.LastKnownRelativeProjectPath"/>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
 			<string key="NS.key.0">back-button-pressed.png</string>
 			<string key="NS.object.0">{90, 35}</string>
 		</object>
-		<string key="IBCocoaTouchPluginVersion">141</string>
+		<string key="IBCocoaTouchPluginVersion">301</string>
 	</data>
 </archive>

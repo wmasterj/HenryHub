@@ -10,7 +10,6 @@
 #import "HubXMLConnection.h"
 #import "HubPieceImage.h"
 #import "HubPiece.h"
-#import "InSide.h"
 #import "Video.h"
 #import "Related.h"
 
