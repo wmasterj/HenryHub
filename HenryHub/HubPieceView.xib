@@ -204,7 +204,6 @@
 										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="9192467"/>
 										<bool key="IBUIOpaque">NO</bool>
-										<int key="IBUIContentMode">2</int>
 										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 										<int key="IBUIContentHorizontalAlignment">0</int>
 										<int key="IBUIContentVerticalAlignment">0</int>
@@ -213,7 +212,6 @@
 											<double key="NSSize">15</double>
 											<int key="NSfFlags">16</int>
 										</object>
-										<int key="IBUIButtonType">1</int>
 										<reference key="IBUIHighlightedTitleColor" ref="148619843"/>
 										<object class="NSColor" key="IBUINormalTitleColor">
 											<int key="NSColorSpace">1</int>
@@ -241,10 +239,7 @@
 										<int key="IBUIContentVerticalAlignment">0</int>
 										<reference key="IBUIFont" ref="904050192"/>
 										<reference key="IBUIHighlightedTitleColor" ref="148619843"/>
-										<object class="NSColor" key="IBUINormalTitleColor">
-											<int key="NSColorSpace">1</int>
-											<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
-										</object>
+										<reference key="IBUINormalTitleColor" ref="148619843"/>
 										<reference key="IBUINormalTitleShadowColor" ref="644382102"/>
 										<object class="NSCustomResource" key="IBUINormalImage">
 											<string key="NSClassName">NSImage</string>
@@ -940,6 +935,7 @@
 					<string>64.IBUIButtonInspectorSelectedStateConfigurationMetadataKey</string>
 					<string>65.IBPluginDependency</string>
 					<string>65.IBUIButtonInspectorSelectedEdgeInsetMetadataKey</string>
+					<string>65.IBUIButtonInspectorSelectedStateConfigurationMetadataKey</string>
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -980,6 +976,7 @@
 					<real value="3"/>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<real value="0.0"/>
+					<real value="3"/>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="unlocalizedProperties">
